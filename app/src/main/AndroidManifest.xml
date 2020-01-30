@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_Shop"></activity>
+        <activity android:name=".Activity_Game"></activity>
+        <activity android:name=".Activity_Shop" />
         <activity android:name=".Activity_Menu" />
         <activity android:name=".Activity_Account" />
         <activity android:name=".Activity_Setting" />
         <activity android:name=".Activity_Help" />
-        <activity android:name=".Activity_New_game" />
+        <activity android:name=".Activity_Regime" />
         <activity android:name=".Activity_Registration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
