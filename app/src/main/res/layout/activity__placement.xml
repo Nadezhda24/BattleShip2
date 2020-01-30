@@ -9,7 +9,7 @@
     <FrameLayout
         android:id="@+id/SettingLayout"
         android:layout_width="280dp"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
@@ -207,4 +207,5 @@
         </LinearLayout>
 
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
