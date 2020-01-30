@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity_Game"></activity>
+        <activity android:name=".Activity_Placement" />
         <activity android:name=".Activity_Shop" />
         <activity android:name=".Activity_Menu" />
         <activity android:name=".Activity_Account" />
