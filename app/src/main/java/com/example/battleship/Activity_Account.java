@@ -21,7 +21,7 @@ public class Activity_Account extends AppCompatActivity {
                 startActivity(intent);
             }
             break;
-            case R.id.SettinAccount: {
+            case R.id.Help: {
                 Intent intent = new Intent(Activity_Account.this, Activity_Setting_Account.class);
                 startActivity(intent);
             }

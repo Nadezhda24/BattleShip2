@@ -31,12 +31,9 @@ public class Activity_Game extends AppCompatActivity {
                 startActivity(intent);
             }
             break;
-            case R.id.imageView: {
-                //настройки звука
-            }
-            break;
-            case R.id.Auto: {
-                //Чат
+
+            case R.id.Help: {
+                //помощь
             }
             break;
         }
