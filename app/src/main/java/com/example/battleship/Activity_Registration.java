@@ -20,7 +20,7 @@ public class Activity_Registration extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        setContentView(R.layout.activity_main);
+
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
 
 
