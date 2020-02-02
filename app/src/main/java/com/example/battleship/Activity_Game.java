@@ -2,9 +2,11 @@ package com.example.battleship;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -32,8 +34,21 @@ public class Activity_Game extends AppCompatActivity {
             }
             break;
 
-            case R.id.Help: {
-                //помощь
+            case R.id.Auto: {
+                final Dialog dialog = new Dialog(Activity_Game.this);
+                dialog.setContentView(R.layout.chat);
+                Button button = (Button) dialog.findViewById(R.id.Ok);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+
+                dialog.setCancelable(false);
+                dialog.show();
             }
             break;
         }

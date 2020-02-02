@@ -100,7 +100,8 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="onClick" />
 
             <Space
                 android:layout_width="match_parent"
@@ -112,7 +113,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView14"
+                    android:id="@+id/Bonus1"
                     android:layout_width="79dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -120,14 +121,14 @@
                     app:srcCompat="@drawable/ka" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/Count_bonus1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="624dp"
                     android:layout_weight="1"
                     android:text="Кол_во" />
 
                 <ImageView
-                    android:id="@+id/imageView18"
+                    android:id="@+id/Bonus2"
                     android:layout_width="79dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -135,7 +136,7 @@
                     app:srcCompat="@drawable/ka" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/Count_bonus2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -148,7 +149,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView20"
+                    android:id="@+id/Bonus3"
                     android:layout_width="79dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -156,14 +157,14 @@
                     app:srcCompat="@drawable/ka" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/Count_bonus3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Кол-во" />
 
                 <ImageView
-                    android:id="@+id/imageView21"
+                    android:id="@+id/Bonus4"
                     android:layout_width="79dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -171,7 +172,7 @@
                     app:srcCompat="@drawable/ka" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/Count_bonus4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -184,7 +185,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView22"
+                    android:id="@+id/Money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -192,7 +193,7 @@
                     app:srcCompat="@drawable/ka" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/Count_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
