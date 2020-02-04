@@ -60,12 +60,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="66dp"
-            android:layout_height="47dp"
-            app:srcCompat="@drawable/cruise" />
-
         <LinearLayout
             android:id="@+id/LinerHead"
             android:layout_width="match_parent"
