@@ -41,7 +41,7 @@
                 android:text="Помощь" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/Music"
                 android:layout_width="47dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@android:drawable/ic_lock_silent_mode" />

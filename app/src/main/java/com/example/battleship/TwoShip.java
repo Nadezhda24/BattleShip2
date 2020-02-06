@@ -7,13 +7,10 @@ public class TwoShip extends  Ship {
     private ImageView[] ship = new  ImageView[2];
 
     public TwoShip() {
-        super();
-        ship[1].setImageResource(R.drawable.fouri2);
+        ship[0].setImageResource(R.drawable.two1);
+        ship[1].setImageResource(R.drawable.two2);
     }
 
-    public ImageView GetShip2 (){
-        return  ship[1];
 
-    }
 
 }

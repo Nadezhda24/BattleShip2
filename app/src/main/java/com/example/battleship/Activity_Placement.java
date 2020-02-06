@@ -34,7 +34,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__placement);
 
-      /*  FourShip FourShip= new FourShip();
+        FourShip FourShip= new FourShip();
         ship[1] = new ThreeShip();
         ship[2]= new ThreeShip();
 
@@ -44,7 +44,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
         for (int i=6; i< 11; i++){
             ship[i]= new Ship();
-        }*/
+        }
 
 
 
@@ -81,7 +81,19 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
     }
 
-
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
     public void OnClick(View view) {
 
         switch (view.getId()) {
@@ -90,7 +102,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 startActivity(intent);
             }
             break;
-            case R.id.imageView: {
+            case R.id.Music: {
                 //настройки звука
             }
             break;

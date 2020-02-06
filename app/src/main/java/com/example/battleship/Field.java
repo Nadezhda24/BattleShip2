@@ -23,4 +23,7 @@ public class Field {
     public void SetStatus(status status){ this.st= status; }
     public void SetImageView(ImageView im){this.ImageView = im;}
 
+
+
+
 }

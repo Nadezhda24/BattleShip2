@@ -12,8 +12,8 @@ public class Ship {
 
     }
 
-    public ImageView GetShip1 (){
-        return  ship[0];
+    public ImageView GetShip1 (int i){
+        return  ship[i];
 
     }
 
