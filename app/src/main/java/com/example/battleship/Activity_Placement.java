@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 public class Activity_Placement extends AppCompatActivity implements View.OnTouchListener{
     Field [][] field = new Field[10][10];
+
+    Ship [] ship = new Ship[10];
     Map map ;
 
     @Override
@@ -21,17 +23,48 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity__placement);
 
 
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
+        ImageView ImageView1 = (ImageView) findViewById(R.id.imageView00);
+        ImageView ImageView2 = (ImageView) findViewById(R.id.imageView01);
+        ImageView ImageView3 = (ImageView) findViewById(R.id.imageView02);
+        ImageView ImageView4 = (ImageView) findViewById(R.id.imageView03);
 
-                    int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
-                    field[i][j] = new Field((ImageView) findViewById(res));
-                    field[i][j].GetImageView().setImageResource(R.drawable.fon_18);
 
-                }
+        ship [0]= new FourShip(ImageView1,ImageView2,ImageView3,ImageView4);
+        ship[0].GetShip(0).setImageResource(R.drawable.fouri1);
+        ship[0].GetShip(1).setImageResource(R.drawable.fouri2);
+        ship[0].GetShip(2).setImageResource(R.drawable.fouri3);
+        ship[0].GetShip(3).setImageResource(R.drawable.fouri4);
+
+        for(int i =1 ; i< 3; i++ ) {
+            ship[i] = new ThreeShip(ImageView1, ImageView2, ImageView3);
+            ship[i].GetShip(0).setImageResource(R.drawable.three1);
+            ship[i].GetShip(1).setImageResource(R.drawable.three2);
+            ship[i].GetShip(2).setImageResource(R.drawable.three3);
+
+        }
+        for (int i=3; i< 6; i++){
+            ship[i]= new TwoShip(ImageView1,ImageView2);
+            ship[i].GetShip(0).setImageResource(R.drawable.two1);
+            ship[i].GetShip(1).setImageResource(R.drawable.two2);
+        }
+
+        for (int i=6; i< 10; i++){
+            ship[i]= new Ship(ImageView1);
+            ship[i].GetShip(0).setImageResource(R.drawable.oneship);
+        }
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+
+                int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
+                field[i][j] = new Field((ImageView) findViewById(res),res);
+                field[i][j].GetImageView().setImageResource(R.drawable.fon_18);
+
             }
+        }
 
-       map = new Map(field);
+
+        map = new Map(field, ship);
 
     }
 
@@ -63,13 +96,130 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
             break;
             case R.id.Auto: {
 
-              map.PlacementRand(field);
+
+
+               // map.PlacementRand(field, ship);
+
+                for (int k = 0; k < 10; k++) {
+                    for (int  p = 0; p < 10; p++) {
+
+                        field[k][p].GetImageView().setImageResource(R.drawable.fon_18);
+
+                    }
+                }
+
+
+
+                int i = 0+(int)(Math.random() * 6);
+                int j = 0+(int)(Math.random() * 6);
+                // для выбора смещаения по горизонтали i и вертикали j
+                int ki = 0+(int)(Math.random() * 1);
+                int kj = 0+(int)(Math.random() * 1);
+
+                if (ki == kj && ki == 1) { ki--;}
+                else if (ki== kj && ki == 0) {ki++;}
+
+                // размещение четырехпалубного
+                for (int k =0; k< 4 ; k++) {
+                 //   this.field[i + ki * k][j + kj * k].SetImageView(ship[0].GetShip(k));
+                    this.field[i + ki * k][j + kj * k].SetStatus(status.ship);
+                }
+                /*this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.fouri1);
+                this.field[i + ki * 1][j + kj * 1]. GetImageView().setImageResource(R.drawable.fouri2);
+                this.field[i + ki * 2][j + kj * 2]. GetImageView().setImageResource(R.drawable.fouri3);
+                this.field[i + ki * 3][j + kj * 3]. GetImageView().setImageResource(R.drawable.fouri4);*/
+
+                this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.my_map);
+                this.field[i + ki * 1][j + kj * 1]. GetImageView().setImageResource(R.drawable.my_map);
+                this.field[i + ki * 2][j + kj * 2]. GetImageView().setImageResource(R.drawable.my_map);
+                this.field[i + ki * 3][j + kj * 3]. GetImageView().setImageResource(R.drawable.my_map);
+
+
+
+                // размещение трехпалубного
+                for (int r =1; r<3; r++) {
+                    do {
+                        i = 0 + (int) (Math.random() * 7);
+                        j = 0 + (int) (Math.random() * 7);
+                    }
+                    while ( field[i][j].GetStatus() == status.ship );
+
+                    ki = 0 + (int) (Math.random() * 1);
+                    kj = 0 + (int) (Math.random() * 1);
+                    if (ki == kj && ki == 1) { ki--; }
+                    else if (ki == kj && ki == 0) { ki++; }
+
+                    for (int k =0; k< 3 ; k++) {
+                     //   this.field[i + ki * k][j + kj * k].SetImageView(ship[r].GetShip(k));
+                        this.field[i + ki * k][j + kj * k].SetStatus(status.ship);
+                    }
+
+                    /*this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.three1);
+                    this.field[i + ki * 1][j + kj * 1]. GetImageView().setImageResource(R.drawable.three2);
+                    this.field[i + ki * 2][j + kj * 2]. GetImageView().setImageResource(R.drawable.three3);*/
+
+                    this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.my_map);
+                    this.field[i + ki * 1][j + kj * 1]. GetImageView().setImageResource(R.drawable.my_map);
+                    this.field[i + ki * 2][j + kj * 2]. GetImageView().setImageResource(R.drawable.my_map);
+
+                }
+
+                // размещение двухпалубного
+                for (int r =3; r<6; r++) {
+                    do {
+                        i = 0 + (int) (Math.random() * 8);
+                        j = 0 + (int) (Math.random() * 8);
+                    }
+                    while ( field[i][j].GetStatus() == status.ship);
+
+                    ki = 0 + (int) (Math.random() * 1);
+                    kj = 0 + (int) (Math.random() * 1);
+                    if (ki == kj && ki == 1) {ki--; }
+                    else if (ki == kj && ki == 0) { ki++; }
+
+                    for (int k =0; k< 2 ; k++) {
+                      //  this.field[i + ki * k][j + kj * k].SetImageView(ship[r].GetShip(k));
+                        this.field[i + ki * k][j + kj * k].SetStatus(status.ship);
+                    }
+
+
+                    /*this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.two1);
+                    this.field[i + ki * 1][j + kj * 1]. GetImageView().setImageResource(R.drawable.two2);*/
+
+                    this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.my_map);
+                    this.field[i + ki * 1][j + kj * 1]. GetImageView().setImageResource(R.drawable.my_map);
+
+                }
+
+
+                // размещение однопалубного
+                for (int r =6; r<10; r++) {
+                    do {
+                        i = 0 + (int) (Math.random() * 9);
+                        j = 0 + (int) (Math.random() * 9);
+                    }
+                    while ( field[i][j].GetStatus() == status.ship);
+
+                  //  this.field[i][j].SetImageView(ship[r].GetShip(0));
+                    this.field[i][j].SetStatus(status.ship);
+                   // this.field[i][j]. GetImageView().setImageResource(R.drawable.oneship);
+                    this.field[i][j]. GetImageView().setImageResource(R.drawable.my_map);
+
+
+                }
+
+
+
+
+
 
             }
             break;
             case R.id.Next: {
                 Intent intent = new Intent(Activity_Placement.this, Activity_Game.class);
+               // intent.putExtra("field", field);
                 startActivity(intent);
+
             }
             break;
         }

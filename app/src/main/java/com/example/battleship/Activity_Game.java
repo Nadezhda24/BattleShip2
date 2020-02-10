@@ -14,12 +14,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Activity_Game extends AppCompatActivity {
+  //  Field [][] field = new Field[10][10];
+   // Field [][] new_field = new Field[10][10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__game);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
+      /*  Bundle arguments = getIntent().getExtras();
+        new_field = (Field[][]) arguments.getSerializable("field");
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+
+                int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
+                field[i][j] = new Field((ImageView) findViewById(res),res);
+                field[i][j].SetImageView(new_field[i][j].GetImageView());
+
+            }
+        }*/
+
+
     }
 
     @Override

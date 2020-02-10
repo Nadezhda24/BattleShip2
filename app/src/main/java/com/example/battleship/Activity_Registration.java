@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Activity_Registration extends AppCompatActivity {
 
+    Player[] Player = new Player[2];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,7 @@ public class Activity_Registration extends AppCompatActivity {
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
+        Player[0] = new Player();
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
 
 
@@ -61,7 +64,9 @@ public class Activity_Registration extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
+
     public void OnClickR(View view) {
+
 
         setContentView(R.layout.activity_main);
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
@@ -102,7 +107,13 @@ public class Activity_Registration extends AppCompatActivity {
         Password2_edit.setWidth(200);
         LinerLayout.addView(Password2_edit);
 
-    }
+
+            Player[0] = new Player(1, Name_edit.getText().toString(),
+                    Login_edit.getText().toString(),
+                    Password_edit.getText().toString(),
+                    Password2_edit.getText().toString());
+
+   }
 
     public void OnClickA(View view) {
         setContentView(R.layout.activity_main);
@@ -128,10 +139,23 @@ public class Activity_Registration extends AppCompatActivity {
         LinerLayout.addView(Password_edit);
 
 
+
+
     }
 
     public void OnClickNext(View view) {
+
+
+
         Intent intent = new Intent(Activity_Registration.this, Activity_Menu.class);
+        intent.putExtra("id", Player[0].Getid());
+        intent.putExtra("name", Player[0].Getname());
+        intent.putExtra("login", Player[0].Getlogin());
+        intent.putExtra("password", Player[0].Getpassword());
+        intent.putExtra("money", Player[0].Getmoney());
+        intent.putExtra("experiment", Player[0].Getexperiment());
+        intent.putExtra("count_game", Player[0].Getcount_game());
+        intent.putExtra("zvanie", Player[0].Getzvanie());
         startActivity(intent);
     }
 }

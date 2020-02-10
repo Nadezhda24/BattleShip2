@@ -2,14 +2,27 @@ package com.example.battleship;
 
 import android.widget.ImageView;
 
+/* состояния карабля однопалубный, 1 элемент двухпалубного, 2 элемент двухпалубного,
+по аналогии с трехпалубным и четырехпалубным, убит, ранен*/
+
+
+
 // однопалубный
 public class Ship {
-    ImageView [] ship = new  ImageView[1];
+        ImageView [] ship = new ImageView[1];
 
- public Ship (){
 
-        ship[0].setImageResource(R.drawable.oneship);
+    public Ship (ImageView ImageView){
+        ship[0]= ImageView;
 
+    }
+
+    public Ship() {
+    }
+
+
+    public void SetShip (ImageView ImageView){
+        ship[0] = ImageView;
     }
 
     public ImageView GetShip (int i){
