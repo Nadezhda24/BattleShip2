@@ -10,6 +10,7 @@ public class Player {
     int count_game;
     String zvanie;
     int count_feature;
+    int count_win;
     Feature [] feature = new Feature[count_feature];
 
 
@@ -21,6 +22,7 @@ public class Player {
         this.money =0;
         this.experiment=0;
         this.count_game=0;
+        this.count_win =0;
         this.zvanie="матрос";
         int count_feature=4;
         Feature [] feature = new Feature[count_feature];
@@ -32,12 +34,12 @@ public class Player {
                   String password, String confirm_password){
 
          this();
-        if (password == confirm_password) {
+       // if (password == confirm_password) {
             this.id = id;
             this.name = name;
             this.login = login;
             this.password = password;
-        }
+      //  }
 
     }
 
@@ -48,6 +50,7 @@ public class Player {
     public void Setmoney(int money){this.money= money;}
     public void Setexperiment(int experiment){this.experiment = experiment;}
     public void Setcount_game(int count_game){this.count_game= count_game;}
+    public void Setcount_win(int count_win){this.count_win= count_win;}
     public void Setzvanie(String zvanie){this.zvanie= zvanie;}
 
    public int Getid(){return  id;}
@@ -57,6 +60,7 @@ public class Player {
    public int Getmoney(){return money;}
    public int Getexperiment(){return experiment;}
    public int Getcount_game(){return count_game;}
+    public int Getcount_win(){return count_win;}
    public String Getzvanie(){return zvanie;}
 
 

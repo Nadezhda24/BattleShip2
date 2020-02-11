@@ -16,6 +16,18 @@ import android.widget.Toast;
 public class Activity_Registration extends AppCompatActivity {
 
     Player[] Player = new Player[2];
+
+    EditText  Name_edit ;
+    EditText  Login_edit ;
+    EditText  Password_edit ;
+    EditText  Password2_edit ;
+
+    String SName ;
+    String SLogin ;
+    String SPassword ;
+    String SPassword2 ;
+
+    boolean flag; // true - аунтификация false - регистрация
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +35,7 @@ public class Activity_Registration extends AppCompatActivity {
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
+        flag = true;
         Player[0] = new Player();
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
 
@@ -67,16 +80,22 @@ public class Activity_Registration extends AppCompatActivity {
 
     public void OnClickR(View view) {
 
-
+        flag = false;
         setContentView(R.layout.activity_main);
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
 
         TextView Name = new TextView(this);
+        LinerLayout.addView(Name);
         Name.setWidth(200);
         Name.setText("Имя");
-        LinerLayout.addView(Name);
 
-        EditText  Name_edit = new EditText(this);
+
+        Name_edit = new EditText(this);
+        Login_edit = new EditText(this);
+        Password_edit = new EditText(this);
+        Password2_edit = new EditText(this);
+
+
         Name_edit.setWidth(200);
         LinerLayout.addView(Name_edit);
 
@@ -85,7 +104,7 @@ public class Activity_Registration extends AppCompatActivity {
         Login.setText("Логин");
         LinerLayout.addView(Login);
 
-        EditText  Login_edit = new EditText(this);
+
         Login_edit.setWidth(200);
         LinerLayout.addView(Login_edit);
 
@@ -94,7 +113,7 @@ public class Activity_Registration extends AppCompatActivity {
         Password.setText("Пароль");
         LinerLayout.addView(Password);
 
-        EditText  Password_edit = new EditText(this);
+
         Password_edit.setWidth(200);
         LinerLayout.addView(Password_edit);
 
@@ -103,20 +122,22 @@ public class Activity_Registration extends AppCompatActivity {
         Password2.setText("Подтвердите пароль");
         LinerLayout.addView(Password2);
 
-        EditText  Password2_edit = new EditText(this);
+
         Password2_edit.setWidth(200);
         LinerLayout.addView(Password2_edit);
 
 
-            Player[0] = new Player(1, Name_edit.getText().toString(),
-                    Login_edit.getText().toString(),
-                    Password_edit.getText().toString(),
-                    Password2_edit.getText().toString());
 
-   }
+
+
+
+    }
 
     public void OnClickA(View view) {
         setContentView(R.layout.activity_main);
+
+        flag = true;
+
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
 
 
@@ -139,13 +160,24 @@ public class Activity_Registration extends AppCompatActivity {
         LinerLayout.addView(Password_edit);
 
 
+        Player[0] = new Player();
 
 
     }
 
     public void OnClickNext(View view) {
 
+if(flag){
+    Player[0] = new Player();
+}
+else{
+        SName =  Name_edit.getText().toString() ;
+        SLogin = Login_edit.getText().toString();
+        SPassword = Password_edit.getText().toString();
+        SPassword2 = Password2_edit.getText().toString();
 
+
+        Player[0] = new Player(1,SName,SLogin,SPassword, SPassword2);}
 
         Intent intent = new Intent(Activity_Registration.this, Activity_Menu.class);
         intent.putExtra("id", Player[0].Getid());

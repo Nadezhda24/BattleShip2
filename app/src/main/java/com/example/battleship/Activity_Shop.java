@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Activity_Shop extends AppCompatActivity {
-
+    Player[] Player = new Player[2];
     String title ;
     String description ;
 
@@ -19,6 +19,21 @@ public class Activity_Shop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__shop);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
+        Player[0] = new Player();
+        Bundle arguments = getIntent().getExtras();
+        Player[0].Setid(arguments.getInt("id"));
+        Player[0].Setname(arguments.getString("name"));
+        Player[0].Setlogin(arguments.getString("login"));
+        Player[0].Setpassword(arguments.getString("password"));
+        Player[0].Setzvanie(arguments.getString("zvanie"));
+        Player[0].Setmoney(arguments.getInt("money"));
+        Player[0].Setcount_game(arguments.getInt("count_game"));
+        Player[0].Setexperiment(arguments.getInt("experiment"));
+
+        TextView Count_money = findViewById(R.id.Count_money);
+        Count_money.setText(String.valueOf(Player[0].Getmoney()));
+
     }
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {

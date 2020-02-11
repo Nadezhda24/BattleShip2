@@ -80,13 +80,25 @@ public class Activity_Account extends AppCompatActivity {
             break;
             case R.id.Help: {
                 Intent intent = new Intent(Activity_Account.this, Activity_Setting_Account.class);
+
+                intent.putExtra("id", Player[0].Getid());
+                intent.putExtra("name", Player[0].Getname());
+                intent.putExtra("login", Player[0].Getlogin());
+                intent.putExtra("password", Player[0].Getpassword());
+                intent.putExtra("money", Player[0].Getmoney());
+                intent.putExtra("experiment", Player[0].Getexperiment());
+                intent.putExtra("count_game", Player[0].Getcount_game());
+                intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
+
             }
             break;
             case R.id.Rating: {
 
                 final Dialog dialog = new Dialog(Activity_Account.this);
                 dialog.setContentView(R.layout.rating);
+
+
                 Button button = (Button) dialog.findViewById(R.id.Ok);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -162,14 +174,20 @@ public class Activity_Account extends AppCompatActivity {
                     }
                 });
 
+                TextView NamePlayer = dialog.findViewById(R.id.Name);
+                NamePlayer.setText(Player[0].Getname());
+
+                TextView ZvaniePlayer = dialog.findViewById(R.id.Zvanie);
+                ZvaniePlayer.setText(Player[0].Getzvanie());
+
                 TextView Count = (TextView) dialog.findViewById(R.id.Count);
-                Count.setText("Очки: ");
+                Count.setText("Очки: " + String.valueOf(Player[0].Getexperiment()));
                 TextView Count_game = (TextView) dialog.findViewById(R.id.Count_game);
-                Count_game.setText("Количество игр: ");
+                Count_game.setText("Количество игр: " + String.valueOf(Player[0].Getcount_game()));
                 TextView Count_win = (TextView) dialog.findViewById(R.id.Count_win);
-                Count_win.setText("Количество побед: ");
+                Count_win.setText("Количество побед: " + String.valueOf(Player[0].Getcount_win()) );
                 TextView Count_loss = (TextView) dialog.findViewById(R.id.Count_loss);
-                Count_loss.setText("Количество поражений: ");
+                Count_loss.setText("Количество поражений: " + String.valueOf(Player[0].Getcount_game() - Player[0].Getcount_win()));
 
                 dialog.setCancelable(false);
                 dialog.show();
@@ -177,6 +195,14 @@ public class Activity_Account extends AppCompatActivity {
             break;
             case R.id.Shop: {
                 Intent intent = new Intent(Activity_Account.this, Activity_Shop.class);
+                intent.putExtra("id", Player[0].Getid());
+                intent.putExtra("name", Player[0].Getname());
+                intent.putExtra("login", Player[0].Getlogin());
+                intent.putExtra("password", Player[0].Getpassword());
+                intent.putExtra("money", Player[0].Getmoney());
+                intent.putExtra("experiment", Player[0].Getexperiment());
+                intent.putExtra("count_game", Player[0].Getcount_game());
+                intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
             }
             break;

@@ -16,12 +16,23 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
     Ship [] ship = new Ship[10];
     Map map ;
-
+    Player[] Player = new Player[2];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__placement);
 
+
+        Player[0] = new Player();
+        Bundle arguments = getIntent().getExtras();
+        Player[0].Setid(arguments.getInt("id"));
+        Player[0].Setname(arguments.getString("name"));
+        Player[0].Setlogin(arguments.getString("login"));
+        Player[0].Setpassword(arguments.getString("password"));
+        Player[0].Setzvanie(arguments.getString("zvanie"));
+        Player[0].Setmoney(arguments.getInt("money"));
+        Player[0].Setcount_game(arguments.getInt("count_game"));
+        Player[0].Setexperiment(arguments.getInt("experiment"));
 
         ImageView ImageView1 = (ImageView) findViewById(R.id.imageView00);
         ImageView ImageView2 = (ImageView) findViewById(R.id.imageView01);
@@ -218,6 +229,14 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
             case R.id.Next: {
                 Intent intent = new Intent(Activity_Placement.this, Activity_Game.class);
                // intent.putExtra("field", field);
+                intent.putExtra("id", Player[0].Getid());
+                intent.putExtra("name", Player[0].Getname());
+                intent.putExtra("login", Player[0].Getlogin());
+                intent.putExtra("password", Player[0].Getpassword());
+                intent.putExtra("money", Player[0].Getmoney());
+                intent.putExtra("experiment", Player[0].Getexperiment());
+                intent.putExtra("count_game", Player[0].Getcount_game());
+                intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
 
             }
