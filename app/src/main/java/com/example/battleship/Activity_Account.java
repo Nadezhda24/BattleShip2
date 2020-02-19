@@ -43,8 +43,8 @@ public class Activity_Account extends AppCompatActivity {
         TextView Best_experience = findViewById(R.id.Best_experience);
         Best_experience.setText("500");
 
-        TextView Count_bonus1 = findViewById(R.id.Count_bonus1);
-        Count_bonus1.setText(String.valueOf(Player[0].money));
+       // TextView Count_bonus1 = findViewById(R.id.Count_bonus1);
+       // Count_bonus1.setText(String.valueOf(Player[0].money));
         TextView Count_bonus2 = findViewById(R.id.Count_bonus2);
         Count_bonus2.setText(String.valueOf(Player[0].money));
         TextView Count_bonus3 = findViewById(R.id.Count_bonus3);

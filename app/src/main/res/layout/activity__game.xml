@@ -8,13 +8,52 @@
     tools:context=".Activity_Game">
 
     <FrameLayout
-        android:layout_width="329dp"
-        android:layout_height="41dp"
+        android:layout_width="328dp"
+        android:layout_height="38dp"
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="610dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/Auto"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_menu"
+                android:onClick="OnClick"
+                android:text="Чат" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/SettingLayout"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/LayoutText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,43 +64,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/Auto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="OnClick"
-                android:text="Чат" />
-
-            <Space
-                android:layout_width="160dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/SettingLayout"
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="273dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
                 android:id="@+id/Back"
-                android:layout_width="wrap_content"
+                android:layout_width="91dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="0dp"
+                android:background="@drawable/button_menu"
                 android:onClick="OnClick"
                 android:text="Назад"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +83,7 @@
 
             <ImageView
                 android:id="@+id/Music"
-                android:layout_width="wrap_content"
+                android:layout_width="59dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@android:drawable/ic_lock_silent_mode" />
 
@@ -699,12 +708,14 @@
         android:id="@+id/frameLayout2"
         android:layout_width="349dp"
         android:layout_height="179dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteY="459dp">
 
         <LinearLayout
             android:layout_width="348dp"
@@ -713,41 +724,46 @@
 
             <ImageView
                 android:id="@+id/Bonus1"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ka" />
 
             <ImageView
                 android:id="@+id/Bonus2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ka" />
+                app:srcCompat="@drawable/ninja" />
 
             <ImageView
                 android:id="@+id/Bonus3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ka" />
+                app:srcCompat="@drawable/f" />
 
             <ImageView
                 android:id="@+id/Bonus4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ka" />
+                app:srcCompat="@drawable/medicine1" />
         </LinearLayout>
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/LayoutText"
-        android:layout_width="288dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_width="330dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/Map"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -779,7 +795,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Кол-во очков" />
+                    android:text="Количество кораблей" />
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>
