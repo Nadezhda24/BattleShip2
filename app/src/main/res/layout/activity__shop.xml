@@ -193,7 +193,10 @@
         android:layout_height="30dp"
         android:layout_marginStart="120dp"
         android:layout_marginLeft="120dp"
+<<<<<<< HEAD
         android:layout_marginTop="120dp"
+=======
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
         android:layout_marginEnd="166dp"
         android:layout_marginRight="166dp"
         android:text="Количество монет"
@@ -201,7 +204,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toTopOf="parent" />
+=======
+        tools:layout_editor_absoluteY="149dp" />
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
 
     <TextView
         android:id="@+id/Bonus"
@@ -209,7 +216,11 @@
         android:layout_height="35dp"
         android:layout_marginStart="131dp"
         android:layout_marginLeft="131dp"
+<<<<<<< HEAD
         android:layout_marginTop="70dp"
+=======
+        android:layout_marginTop="20dp"
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
         android:layout_marginEnd="131dp"
         android:layout_marginRight="131dp"
         android:layout_marginBottom="34dp"
@@ -221,5 +232,5 @@
         app:layout_constraintBottom_toTopOf="@+id/Count_money"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/SettingLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

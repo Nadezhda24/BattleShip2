@@ -30,6 +30,7 @@
             <Button
                 android:id="@+id/New_game"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="70dp"
                 android:background="@drawable/button"
                 android:includeFontPadding="false"
@@ -39,10 +40,17 @@
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
+=======
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_menu"
+                android:onClick="onClick"
+                android:text="Новая Игра " />
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
 
             <Button
                 android:id="@+id/Account"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="70dp"
                 android:background="@drawable/button"
                 android:onClick="onClick"
@@ -51,10 +59,17 @@
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="24sp"
                 android:textStyle="bold|italic"/>
+=======
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_menu"
+                android:onClick="onClick"
+                android:text="Аккаунт" />
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
 
             <Button
                 android:id="@+id/Shop"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="70dp"
                 android:background="@drawable/button"
                 android:onClick="onClick"
@@ -64,10 +79,17 @@
                 android:textSize="24sp"
                 android:textStyle="bold|italic"
                 />
+=======
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_menu"
+                android:onClick="onClick"
+                android:text="Магазин" />
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
 
             <Button
                 android:id="@+id/Help"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="70dp"
                 android:background="@drawable/button"
                 android:onClick="onClick"
@@ -76,12 +98,23 @@
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="24sp"
                 android:textStyle="bold|italic"/>
+=======
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_menu"
+                android:onClick="onClick"
+                android:text="Помощь" />
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
 
             <Button
                 android:id="@+id/Exit"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="70dp"
                 android:background="@drawable/button"
+=======
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_menu"
+>>>>>>> 43e75c10be37e8feaece3cdcba57ba72cc4894be
                 android:onClick="onClick"
                 android:text="Выход"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
