@@ -4,47 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fon_game"
     tools:context=".Activity_Placement">
 
     <FrameLayout
         android:id="@+id/SettingLayout"
-        android:layout_width="280dp"
+        android:layout_width="348dp"
         android:layout_height="40dp"
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/TouchLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="273dp"
+        <Button
+            android:id="@+id/Back"
+            android:layout_width="114dp"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/button_menu"
+            android:onClick="OnClick"
+            android:text="Назад"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/Back"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:onClick="OnClick"
-                android:text="Назад"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Space
-                android:id="@+id/space"
-                android:layout_width="155dp"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:id="@+id/Music"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_lock_silent_mode" />
-
-        </LinearLayout>
     </FrameLayout>
 
     <RelativeLayout
@@ -754,28 +744,28 @@
                             android:id="@+id/OneShip1"
                             android:layout_width="85dp"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/oneship" />
+                            app:srcCompat="@drawable/ship1" />
 
                         <ImageView
                             android:id="@+id/OneShip2"
                             android:layout_width="95dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/oneship" />
+                            app:srcCompat="@drawable/ship1" />
 
                         <ImageView
                             android:id="@+id/OneShip3"
                             android:layout_width="95dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/oneship" />
+                            app:srcCompat="@drawable/ship1" />
 
                         <ImageView
                             android:id="@+id/OneShip4"
                             android:layout_width="95dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/oneship" />
+                            app:srcCompat="@drawable/ship1" />
 
                     </LinearLayout>
 
@@ -785,6 +775,7 @@
         </LinearLayout>
 
     </RelativeLayout>
+
     <FrameLayout
         android:layout_width="329dp"
         android:layout_height="41dp"
@@ -804,8 +795,9 @@
 
             <Button
                 android:id="@+id/Auto"
-                android:layout_width="wrap_content"
+                android:layout_width="121dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_menu"
                 android:onClick="OnClick"
                 android:text="Авто" />
 
@@ -819,6 +811,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/button_menu"
                 android:onClick="OnClick"
                 android:text="Далее" />
         </LinearLayout>

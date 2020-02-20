@@ -3,9 +3,11 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class Activity_Menu extends AppCompatActivity {
     Player[] Player = new Player[2];

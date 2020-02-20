@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fon"
     tools:context=".Activity_Menu">
 
     <FrameLayout
-        android:layout_width="308dp"
-        android:layout_height="408dp"
+        android:id="@+id/frameLayout4"
+        android:layout_width="253dp"
+        android:layout_height="364dp"
         android:layout_marginStart="51dp"
         android:layout_marginLeft="51dp"
         android:layout_marginTop="161dp"
@@ -22,72 +24,88 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="418dp"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/New_game"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
+                android:background="@drawable/button"
+                android:includeFontPadding="false"
                 android:onClick="onClick"
-                android:text="Новая Игра " />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp" />
+                android:text="Новая Игра "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:textStyle="bold|italic" />
 
             <Button
                 android:id="@+id/Account"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
+                android:background="@drawable/button"
                 android:onClick="onClick"
-                android:text="Аккаунт" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp" />
+                android:text="Аккаунт"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"/>
 
             <Button
                 android:id="@+id/Shop"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
+                android:background="@drawable/button"
                 android:onClick="onClick"
-                android:text="Магазин" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp" />
+                android:text="Магазин"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
+                />
 
             <Button
                 android:id="@+id/Help"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
+                android:background="@drawable/button"
                 android:onClick="onClick"
-                android:text="Помощь" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp" />
+                android:text="Помощь"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"/>
 
             <Button
                 android:id="@+id/Exit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
+                android:background="@drawable/button"
                 android:onClick="onClick"
-                android:text="Выход" />
+                android:text="Выход"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"/>
         </LinearLayout>
     </FrameLayout>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginLeft="144dp"
-        android:layout_marginTop="96dp"
-        android:text="BattleShip"
+        android:layout_width="292dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/battle"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/SettingLayout" />
 
     <FrameLayout
         android:id="@+id/SettingLayout"
