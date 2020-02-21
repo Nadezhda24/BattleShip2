@@ -4,13 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.sql.SQLClientInfoException;
 
 public class Activity_Account extends AppCompatActivity {
     Player[] Player = new Player[2];
@@ -109,6 +106,8 @@ public class Activity_Account extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+
+
 
                 dialog.setCancelable(false);
                 dialog.show();
