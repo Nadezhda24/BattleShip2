@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon"
+    android:background="@drawable/one_ship"
     tools:context=".Activity_Account">
 
     <FrameLayout
@@ -58,15 +58,14 @@
 
     <FrameLayout
         android:id="@+id/frameLayout3"
-        android:layout_width="378dp"
-        android:layout_height="568dp"
+        android:layout_width="399dp"
+        android:layout_height="477dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="120dp"
-        android:background="@drawable/fon_fon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

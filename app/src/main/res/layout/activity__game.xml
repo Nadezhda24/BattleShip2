@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon_game"
+    android:background="@drawable/sea112"
     tools:context=".Activity_Game">
 
     <FrameLayout
