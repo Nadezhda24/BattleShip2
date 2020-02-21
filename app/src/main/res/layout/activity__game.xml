@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon_game"
+    android:background="@drawable/sea112"
     tools:context=".Activity_Game">
 
     <FrameLayout
@@ -34,7 +34,8 @@
 
             <Button
                 android:id="@+id/Auto"
-                android:layout_width="69dp"
+                style="@style/strings"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_menu"
                 android:onClick="OnClick"
@@ -66,8 +67,9 @@
 
             <Button
                 android:id="@+id/Back"
-                android:layout_width="91dp"
-                android:layout_height="match_parent"
+                style="@style/strings"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="0dp"
@@ -84,9 +86,9 @@
 
             <ImageView
                 android:id="@+id/Music"
-                android:layout_width="59dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_lock_silent_mode" />
+                app:srcCompat="@drawable/button_on_click_music" />
 
         </LinearLayout>
     </FrameLayout>
@@ -759,11 +761,11 @@
         android:id="@+id/LayoutText"
         android:layout_width="330dp"
         android:layout_height="46dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:layout_marginBottom="9dp"
         app:layout_constraintBottom_toTopOf="@+id/Map"
         app:layout_constraintEnd_toEndOf="parent"

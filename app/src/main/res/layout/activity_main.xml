@@ -42,19 +42,30 @@
 
                     <Button
                         android:id="@+id/Authentication"
+                        style="@style/strings"
                         android:layout_width="87dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_menu"
                         android:onClick="OnClickA"
                         android:text="Войти" />
 
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
                     <Button
                         android:id="@+id/Registration"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/strings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@drawable/button_menu"
                         android:onClick="OnClickR"
-                        android:text="Зарегистрироваться" />
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="  Зарегистрироваться  "
+                        android:textSize="14sp" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -80,6 +91,7 @@
 
     <Button
         android:id="@+id/Next"
+        style="@style/strings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"

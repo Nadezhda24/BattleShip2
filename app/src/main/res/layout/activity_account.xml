@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon"
+    android:background="@drawable/acc"
     tools:context=".Activity_Account">
 
     <FrameLayout
         android:id="@+id/SettingLayout"
-        android:layout_width="389dp"
+        android:layout_width="0dp"
         android:layout_height="49dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
@@ -30,43 +30,42 @@
 
             <Button
                 android:id="@+id/Back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                style="@style/strings"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/button_menu"
                 android:onClick="onClick"
                 android:text="Назад" />
 
             <TextView
                 android:id="@+id/Bonus"
-                android:layout_width="238dp"
-                android:layout_height="wrap_content"
+                android:layout_width="152dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Имя игрока" />
 
             <Button
                 android:id="@+id/Help"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/button_menu"
-                android:onClick="onClick"
-                android:text="Настройки" />
+                style="@style/strings"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_acc_edit"
+                android:onClick="onClick" />
 
         </LinearLayout>
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout3"
-        android:layout_width="378dp"
-        android:layout_height="568dp"
+        android:layout_width="399dp"
+        android:layout_height="477dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="120dp"
-        android:background="@drawable/fon_fon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -233,6 +232,7 @@
 
             <Button
                 android:id="@+id/Rating"
+                style="@style/strings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -242,6 +242,7 @@
 
             <Button
                 android:id="@+id/Shop"
+                style="@style/strings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

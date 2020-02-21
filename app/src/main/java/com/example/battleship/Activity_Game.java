@@ -88,7 +88,7 @@ public class Activity_Game extends AppCompatActivity {
             case R.id.Auto: {
                 final Dialog dialog = new Dialog(Activity_Game.this);
                 dialog.setContentView(R.layout.chat);
-                Button button = (Button) dialog.findViewById(R.id.Ok);
+                Button button =  dialog.findViewById(R.id.Ok);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
