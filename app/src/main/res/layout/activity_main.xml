@@ -61,6 +61,8 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/button_menu"
                         android:onClick="OnClickR"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:text="  Зарегистрироваться  "
                         android:textSize="14sp" />
 
