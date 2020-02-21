@@ -39,7 +39,10 @@
 
             <TextView
                 android:id="@+id/Bonus"
-                android:layout_width="152dp"
+
+
+                android:layout_width="wrap_content"
+
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -119,7 +122,8 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="85dp" />
+                android:layout_height="85dp"
+                tools:targetApi="ice_cream_sandwich" />
 
             <LinearLayout
                 android:layout_width="match_parent"

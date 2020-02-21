@@ -40,7 +40,8 @@
             <Space
                 android:id="@+id/space"
                 android:layout_width="155dp"
-                android:layout_height="10dp" />
+                android:layout_height="10dp"
+                tools:targetApi="ice_cream_sandwich" />
 
             <ImageView
                 android:id="@+id/Music"
@@ -93,8 +94,13 @@
 
             <Space
                 android:layout_width="match_parent"
+
                 android:layout_weight="1"
-                android:layout_height="1dp" />
+                android:layout_height="1dp"
+                tools:targetApi="ice_cream_sandwich" />
+
+
+
 
             <Button
                 android:id="@+id/Classic"
