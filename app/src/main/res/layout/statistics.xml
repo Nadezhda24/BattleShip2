@@ -3,12 +3,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
 
-    android:background="@drawable/sea12"
+    android:background="@drawable/block_removebg_preview"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -27,22 +30,30 @@
     <TextView
         android:id="@+id/Count"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:id="@+id/Count_game"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:id="@+id/Count_win"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:id="@+id/Count_loss"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,6 +69,7 @@
             android:id="@+id/ok"
             android:layout_width="106dp"
             android:layout_height="62dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/button"
             android:text="Ok" />
     </LinearLayout>

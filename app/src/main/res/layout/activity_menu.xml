@@ -29,9 +29,9 @@
 
             <Button
                 android:id="@+id/New_game"
+                style="@style/strings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/strings"
                 android:background="@drawable/button_menu"
                 android:onClick="onClick"
                 android:text="Новая Игра " />
@@ -42,12 +42,12 @@
 
             <Button
                 android:id="@+id/Account"
-                style="@style/strings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_menu"
                 android:onClick="onClick"
-                android:text="Аккаунт" />
+                android:text="Аккаунт"
+                style="@style/strings"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -69,12 +69,11 @@
 
             <Button
                 android:id="@+id/Help"
-
+                style="@style/strings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_menu"
                 android:onClick="onClick"
-                style="@style/strings"
                 android:text="Помощь" />
 
             <Space
