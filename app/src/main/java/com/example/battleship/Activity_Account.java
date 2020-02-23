@@ -76,6 +76,7 @@ public class Activity_Account extends AppCompatActivity {
             case R.id.Back: {
                 Intent intent = new Intent(Activity_Account.this, Activity_Menu.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Help: {
@@ -204,6 +205,7 @@ public class Activity_Account extends AppCompatActivity {
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
         }

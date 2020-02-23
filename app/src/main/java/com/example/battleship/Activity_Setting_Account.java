@@ -72,6 +72,7 @@ public class Activity_Setting_Account extends AppCompatActivity {
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Save: {

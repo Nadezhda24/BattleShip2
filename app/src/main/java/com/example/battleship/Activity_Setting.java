@@ -34,6 +34,7 @@ public class Activity_Setting extends AppCompatActivity {
             case R.id.Back: {
                 Intent intent = new Intent(Activity_Setting.this, Activity_Menu.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Save: {

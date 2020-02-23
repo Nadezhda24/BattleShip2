@@ -82,6 +82,7 @@ public class Activity_Game extends AppCompatActivity {
             case R.id.Back: {
                 Intent intent = new Intent(Activity_Game.this, Activity_Menu.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
 

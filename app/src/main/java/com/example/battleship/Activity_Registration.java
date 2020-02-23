@@ -188,6 +188,9 @@ else{
         intent.putExtra("experiment", Player[0].Getexperiment());
         intent.putExtra("count_game", Player[0].Getcount_game());
         intent.putExtra("zvanie", Player[0].Getzvanie());
+
+
         startActivity(intent);
+        overridePendingTransition(R.anim.anim, R.anim.anim1);
     }
 }

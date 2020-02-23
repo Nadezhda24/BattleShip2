@@ -62,6 +62,8 @@ String description ;
             case R.id.Back: {
                 Intent intent = new Intent(Activity_Help.this, Activity_Menu.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
+
             }
             break;
             case R.id.Music: {

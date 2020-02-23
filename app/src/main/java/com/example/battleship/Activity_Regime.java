@@ -45,6 +45,7 @@ public class Activity_Regime extends AppCompatActivity {
             case R.id. Back: {
                 Intent intent = new Intent(Activity_Regime.this, Activity_Menu.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Music: {
@@ -63,6 +64,7 @@ public class Activity_Regime extends AppCompatActivity {
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
         }

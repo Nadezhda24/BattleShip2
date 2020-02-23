@@ -61,6 +61,7 @@ public class Activity_Menu extends AppCompatActivity {
                     intent.putExtra("count_game", Player[0].Getcount_game());
                     intent.putExtra("zvanie", Player[0].Getzvanie());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
                 break;
                 case R.id.Account: {
@@ -74,6 +75,7 @@ public class Activity_Menu extends AppCompatActivity {
                     intent.putExtra("count_game", Player[0].Getcount_game());
                     intent.putExtra("zvanie", Player[0].Getzvanie());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
                 break;
                 case R.id.Shop: {
@@ -87,21 +89,25 @@ public class Activity_Menu extends AppCompatActivity {
                     intent.putExtra("count_game", Player[0].Getcount_game());
                     intent.putExtra("zvanie", Player[0].Getzvanie());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
                 break;
                 case R.id.Help: {
                     Intent intent = new Intent(Activity_Menu.this, Activity_Help.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
             break;
             case R.id.Exit: {
                 Intent intent = new Intent(Activity_Menu.this, Activity_Registration.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Setting: {
                 Intent intent = new Intent(Activity_Menu.this, Activity_Setting.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case  R.id.Music:{

@@ -54,6 +54,7 @@ public class Activity_Shop extends AppCompatActivity {
             case R.id.Back: {
                 Intent intent = new Intent(Activity_Shop.this, Activity_Menu.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Bonus1:
