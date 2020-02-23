@@ -728,32 +728,33 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/Bonus1"
+                android:id="@+id/Bonus4"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ka" />
-
-            <ImageView
-                android:id="@+id/Bonus2"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ninja" />
+                app:srcCompat="@drawable/medicine1" />
 
             <ImageView
                 android:id="@+id/Bonus3"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/f" />
+                app:srcCompat="@drawable/candle" />
 
             <ImageView
-                android:id="@+id/Bonus4"
+                android:id="@+id/Bonus1"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/medicine1" />
+                app:srcCompat="@drawable/bomba" />
+
+            <ImageView
+                android:id="@+id/Bonus2"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/dynamite" />
+
         </LinearLayout>
     </FrameLayout>
 

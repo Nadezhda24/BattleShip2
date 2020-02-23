@@ -2,12 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/sea12"
+    android:background="@drawable/block_removebg_preview"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
@@ -53,8 +56,9 @@
 
         <Button
             android:id="@+id/Ok"
-            android:layout_width="102dp"
+            android:layout_width="157dp"
             android:layout_height="76dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@drawable/b1"
             android:text="Ok" />

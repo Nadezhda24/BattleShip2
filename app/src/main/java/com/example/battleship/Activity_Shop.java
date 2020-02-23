@@ -72,28 +72,28 @@ public class Activity_Shop extends AppCompatActivity {
                 });
 
                 if(view.getId() == R.id.Bonus1) {
-                    title = "Бонус1";
-                    description = "Описание бонуса1";
+                    title = "Ремонт";
+                    description = "Команда судоремонтников восстанавливают разрушенные части твоего корабля и приводят его в боевую готовность для дальнейших сражений.";
                     ;}
                 else if (view.getId() == R.id.Bonus2) {
-                    title = "Бонус2";
-                    description = "Описание бонуса2";
+                    title = "Подзорная труба";
+                    description = "Отправь матроса на наблюдательную башню, выбери поле противника размером 3*3 и тебе сообщат в течение 5 секунд все, что видно на горизонте.";
                     ;}
                 else if(view.getId() == R.id.Bonus3) {
-                    title = "Бонус3";
-                    description = "Описание бонуса3";
+                    title = "Бомба";
+                    description = "Прикажи зарядить баллисту, выстрелив в поле противника бомбой, радиус одного удара 3*3.";
                     ;}
                 else if (view.getId() == R.id.Bonus4) {
-                    title = "Бонус4";
-                    description = "Описание бонуса4";
+                    title = "Динамит";
+                    description = "Комендор предоставляет твоей команде динамит, сокруши весь корабль противника одним ударом!";
                     ;}
                 else   {
                     title = "Магазин";
-                    description = "Описание магазина ";
+                    description = "Ты попал в торговый порт. Торговцы с разных стран прибыли сюда продавать свои товары. Ты можешь купить все необходимое за золотые монеты, что поможет тебе стать лучшим мореплавателем и одерживать больше побед.";
                     ;}
 
 
-                TextView Title = (TextView) dialog.findViewById(R.id.Title);
+                TextView Title = (TextView) dialog.findViewById(R.id.Topic);
                 Title.setText(title);
                 TextView Description = (TextView) dialog.findViewById(R.id.Description);
                 Description.setText(description);

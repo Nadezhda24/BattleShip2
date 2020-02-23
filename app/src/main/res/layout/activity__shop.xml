@@ -116,7 +116,7 @@
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:onClick="onClick"
-                    app:srcCompat="@drawable/f" />
+                    app:srcCompat="@drawable/candle" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -144,10 +144,10 @@
 
                 <ImageView
                     android:id="@+id/Bonus3"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="93dp"
+                    android:layout_height="75dp"
                     android:onClick="onClick"
-                    app:srcCompat="@drawable/ka" />
+                    app:srcCompat="@drawable/bomba" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -176,10 +176,10 @@
 
                 <ImageView
                     android:id="@+id/Bonus4"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
                     android:onClick="onClick"
-                    app:srcCompat="@drawable/ninja" />
+                    app:srcCompat="@drawable/dynamite" />
 
                 <TextView
                     android:id="@+id/textView10"
