@@ -94,18 +94,44 @@ public class Activity_Menu extends AppCompatActivity {
                 break;
                 case R.id.Help: {
                     Intent intent = new Intent(Activity_Menu.this, Activity_Help.class);
+                    intent.putExtra("id", Player[0].Getid());
+                    intent.putExtra("name", Player[0].Getname());
+                    intent.putExtra("login", Player[0].Getlogin());
+                    intent.putExtra("password", Player[0].Getpassword());
+                    intent.putExtra("money", Player[0].Getmoney());
+                    intent.putExtra("experiment", Player[0].Getexperiment());
+                    intent.putExtra("count_game", Player[0].Getcount_game());
+                    intent.putExtra("zvanie", Player[0].Getzvanie());
                     startActivity(intent);
                     overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
             break;
             case R.id.Exit: {
                 Intent intent = new Intent(Activity_Menu.this, Activity_Registration.class);
+
+                intent.putExtra("id", Player[0].Getid());
+                intent.putExtra("name", Player[0].Getname());
+                intent.putExtra("login", Player[0].Getlogin());
+                intent.putExtra("password", Player[0].Getpassword());
+                intent.putExtra("money", Player[0].Getmoney());
+                intent.putExtra("experiment", Player[0].Getexperiment());
+                intent.putExtra("count_game", Player[0].Getcount_game());
+                intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Setting: {
                 Intent intent = new Intent(Activity_Menu.this, Activity_Setting.class);
+
+                intent.putExtra("id", Player[0].Getid());
+                intent.putExtra("name", Player[0].Getname());
+                intent.putExtra("login", Player[0].Getlogin());
+                intent.putExtra("password", Player[0].Getpassword());
+                intent.putExtra("money", Player[0].Getmoney());
+                intent.putExtra("experiment", Player[0].Getexperiment());
+                intent.putExtra("count_game", Player[0].Getcount_game());
+                intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
