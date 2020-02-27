@@ -3,8 +3,11 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -148,7 +151,7 @@ Player[] Player = new Player[2];
                 break;
                 case 2: {
                     titles = "Расстановка кораблей";
-                    description = "";
+                    description = "1)\tСамостоятельная расстановка\n"+"Выбери самостоятельно позиции для своих боевых кораблей.";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -157,12 +160,30 @@ Player[] Player = new Player[2];
                     text.setWidth(200);
                     text.setText(description);
                     LinerLayout.addView(text);
+
+
+                    ImageView ImageView = new ImageView(this);
+                    ImageView.setImageResource(R.drawable.oneship);
+                    LinerLayout.addView(ImageView);
+
+                    TextView text1 = new TextView(this);
+                    text1.setWidth(200);
+                    text1.setText("2)\tРасстановка автоматически\n" +"Кнопка \"авто\" поможет расставить за тебя корабли.");
+                    LinerLayout.addView(text1);
+
+                    ImageView ImageView1 = new ImageView(this);
+                    ImageView1.setImageResource(R.drawable.oneship);
+                    LinerLayout.addView(ImageView1);
+
+
+
+
 
                 }
                 break;
                 case 3: {
-                    titles = "Классический режим игры";
-                    description = "";
+                    titles = "Режимы игры";
+                    description = "1)\tКлассический режим\n" + "Наслаждайся классическими правилами игры в данном режи";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -171,12 +192,26 @@ Player[] Player = new Player[2];
                     text.setWidth(200);
                     text.setText(description);
                     LinerLayout.addView(text);
+
+
+                    ImageView ImageView = new ImageView(this);
+                    ImageView.setImageResource(R.drawable.oneship);
+                    LinerLayout.addView(ImageView);
+
+                    TextView text1 = new TextView(this);
+                    text1.setWidth(200);
+                    text1.setText("2)\tРассширенный режим\n" +"Мы добавили новые возможности для тебя, дорогой друг. Попробуй их все, стань сильнее, побеждай противников и выигрывай быстрее!");
+                    LinerLayout.addView(text1);
+
+                    ImageView ImageView1 = new ImageView(this);
+                    ImageView1.setImageResource(R.drawable.oneship);
+                    LinerLayout.addView(ImageView1);
 
                 }
                 break;
                 case 4: {
-                    titles = "Расширенный режим игры";
-                    description = "";
+                    titles = "Новые возможности";
+                    description = "Для твоих героических сражений мы добавили новые возможности";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -186,11 +221,101 @@ Player[] Player = new Player[2];
                     text.setText(description);
                     LinerLayout.addView(text);
 
+
+                    LinearLayout LL = new LinearLayout(this);
+                    LL.setOrientation(LinearLayout.HORIZONTAL);
+
+                    ImageView ImageView1 = new ImageView(this);
+                    ImageView1.setImageResource(R.drawable.galternatives);
+                    ImageView1.setLayoutParams(new ViewGroup.LayoutParams
+                            (200, 200));
+
+
+                    LL.addView(ImageView1);
+
+                    TextView text1 = new TextView(this);
+                    text1.setWidth(200);
+                    text1.setText("Ремонт\n" +
+                            "Команда судоремонтников восстанавливают " +
+                            "разрушенные части твоего корабля и приводят" +
+                            " его в боевую готовность для дальнейших сражений.");
+                    text1.setLayoutParams(new ViewGroup.LayoutParams
+                            (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    LL.addView(text1);
+
+                    LinerLayout.addView(LL);
+
+
+                    LinearLayout LL2 = new LinearLayout(this);
+                    LL2.setOrientation(LinearLayout.HORIZONTAL);
+
+                    ImageView ImageView2 = new ImageView(this);
+                    ImageView2.setImageResource(R.drawable.trubka);
+                    ImageView2.setLayoutParams(new ViewGroup.LayoutParams
+                            (200, 200));
+
+                    LL2.addView(ImageView2);
+
+                    TextView text2 = new TextView(this);
+                    text2.setWidth(200);
+                    text2.setText("Подзорная труба\n" +
+                            "Отправь матроса на наблюдательную башню," +
+                            " выбери поле противника размером 3*3 и" +
+                            " тебе сообщат в течение 5 секунд все, что видно на горизонте.");
+                    text2.setLayoutParams(new ViewGroup.LayoutParams
+                            (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    LL2.addView(text2);
+
+                    LinerLayout.addView(LL2);
+
+                    LinearLayout LL3 = new LinearLayout(this);
+                    LL3.setOrientation(LinearLayout.HORIZONTAL);
+
+                    ImageView ImageView3 = new ImageView(this);
+                    ImageView3.setImageResource(R.drawable.ka);
+                    ImageView3.setLayoutParams(new ViewGroup.LayoutParams
+                            (200, 200));
+
+                    LL3.addView(ImageView3);
+
+                    TextView text3 = new TextView(this);
+                    text3.setWidth(200);
+                    text3.setText("Бомба \n" +
+                            "Прикажи зарядить баллисту, " +
+                            "выстрелив в поле противника бомбой," +
+                            " радиус одного удара 3*3.");
+                    text3.setLayoutParams(new ViewGroup.LayoutParams
+                            (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    LL3.addView(text3);
+
+                    LinerLayout.addView(LL3);
+
+                    LinearLayout LL4 = new LinearLayout(this);
+                    LL4.setOrientation(LinearLayout.HORIZONTAL);
+
+                    ImageView ImageView4 = new ImageView(this);
+                    ImageView4.setImageResource(R.drawable.dynamite);
+                    ImageView4.setLayoutParams(new ViewGroup.LayoutParams
+                            (200, 200));
+
+                    LL4.addView(ImageView4);
+
+                    TextView text4 = new TextView(this);
+                    text4.setWidth(200);
+                    text4.setText("Динамит\n" +
+                            "Комендор предоставляет твоей команде динамит, сокруши весь корабль противника одним ударом!");
+                    text4.setLayoutParams(new ViewGroup.LayoutParams
+                            (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    LL4.addView(text4);
+
+                    LinerLayout.addView(LL4);
+
+
                 }
                 break;
                 case 5: {
-                    titles = "Новые возможности";
-                    description = "";
+                    titles = "Валюта";
+                    description = "Возможно, ты уже заметил, в игре действует собственная валюта – золотые монеты. Сражайся в битвах, набирай очки, повышай звания  и ты сможешь заработать свое золото. На свои сбережения покупай припасы в магазине.";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -199,6 +324,12 @@ Player[] Player = new Player[2];
                     text.setWidth(200);
                     text.setText(description);
                     LinerLayout.addView(text);
+
+
+                    ImageView ImageView = new ImageView(this);
+                    ImageView.setImageResource(R.drawable.coins);
+                    LinerLayout.addView(ImageView);
+
 
                 }
                 break;
