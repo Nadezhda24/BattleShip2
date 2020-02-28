@@ -21,20 +21,20 @@ public class Map {
     }
 
 
-    public Field[][] NearOneShip (Field[][] field, int i, int j){
+    public Field[][] NearOneShip ( int i, int j){
 
 
         try {
-            if (i != 10 || j != 10) {
+            if (i != 10 && j != 10) {
 
                 if (this.field[i + 1][j + 1].GetStatus() != status.ship)
                     this.field[i + 1][j + 1].SetStatus(status.near_ship);
             }
             if (i != 10) {
-                if (this.field[i + 1][j + 1].GetStatus() != status.ship)
+                if (this.field[i + 1][j].GetStatus() != status.ship)
                     this.field[i + 1][j].SetStatus(status.near_ship);
             }
-            if (i != 10 || j != 0) {
+            if (i != 10 && j != 0) {
                 if (this.field[i + 1][j - 1].GetStatus() != status.ship)
                     this.field[i + 1][j - 1].SetStatus(status.near_ship);
             }
@@ -46,7 +46,7 @@ public class Map {
                 if (this.field[i][j - 1].GetStatus() != status.ship)
                     this.field[i][j - 1].SetStatus(status.near_ship);
             }
-            if (i != 0 || j != 10) {
+            if (i != 0 && j != 10) {
                 if (this.field[i - 1][j + 1].GetStatus() != status.ship)
                     this.field[i - 1][j + 1].SetStatus(status.near_ship);
             }
@@ -54,7 +54,7 @@ public class Map {
                 if (this.field[i - 1][j].GetStatus() != status.ship)
                     this.field[i - 1][j].SetStatus(status.near_ship);
             }
-            if (i != 0 || j != 0) {
+            if (i != 0 && j != 0) {
                 if (this.field[i - 1][j - 1].GetStatus() != status.ship)
                     this.field[i - 1][j - 1].SetStatus(status.near_ship);
             }
@@ -64,6 +64,21 @@ public class Map {
         }
 
         return this.field;
+    }
+
+
+
+    public Field[][] PirateBomb(int count_bomd){
+    for(int k = 0; k<count_bomd; k++) {
+
+        int i = 0 + (int) (Math.random() * 9);
+        int j = 0 + (int) (Math.random() * 9);
+
+    this.field[i][j].SetStatus(status.bomb);
+
+}
+
+    return  this.field;
     }
 
 

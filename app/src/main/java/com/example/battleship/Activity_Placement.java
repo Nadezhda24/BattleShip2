@@ -139,10 +139,10 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 else if (ki== kj && ki == 0) {ki++;}
 
                 // размещение четырехпалубного
-                for (int k =0; k< 4 ; k++) {
+               for (int k =0; k< 4 ; k++) {
                     //   this.field[i + ki * k][j + kj * k].SetImageView(ship[0].GetShip(k));
                     this.field[i + ki * k][j + kj * k].SetStatus(status.ship);
-                    this.field = map.NearOneShip(this.field,i + ki * k,j + ki * k );
+                     this.field = map.NearOneShip(i + ki * k,j + kj * k );
 
                 }
                 this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.fouri1);
@@ -154,24 +154,30 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
 
                 // размещение трехпалубного
-                for (int r =1; r<3; r++) {
+              for (int r =1; r<3; r++) {
                     do {
                         i = 0 + (int) (Math.random() * 7);
                         j = 0 + (int) (Math.random() * 7);
-                    }
-                    while ( field[i][j].GetStatus() == status.ship ||field[i][j].GetStatus() == status.near_ship );
+
 
                     ki = 0 + (int) (Math.random() * 1);
                     kj = 0 + (int) (Math.random() * 1);
                     if (ki == kj && ki == 1) { ki--; }
                     else if (ki == kj && ki == 0) { ki++; }
 
+                    }
+                    while ( (field[i + ki * 0][i + kj * 0].GetStatus() == status.ship || field[i + ki * 0][i + kj * 0].GetStatus() == status.near_ship) ||
+                            (field[i + ki * 1][i + kj * 1].GetStatus() == status.ship || field[i + ki * 1][i + kj * 1].GetStatus() == status.near_ship )||
+                            (field[i + ki * 2][i + kj * 2].GetStatus() == status.ship || field[i + ki * 2][i + kj * 2].GetStatus() == status.near_ship )
+
+                    );
+
                     for (int k =0; k< 3 ; k++) {
                         //   this.field[i + ki * k][j + kj * k].SetImageView(ship[r].GetShip(k));
                         this.field[i + ki * k][j + kj * k].SetStatus(status.ship);
 
 
-                        this.field = map.NearOneShip(this.field,i + ki * k,j + ki * k );
+                        this.field = map.NearOneShip(i + ki * k,j + kj * k );
 
                     }
 
@@ -198,12 +204,13 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                     for (int k =0; k< 2 ; k++) {
                         //  this.field[i + ki * k][j + kj * k].SetImageView(ship[r].GetShip(k));
                         this.field[i + ki * k][j + kj * k].SetStatus(status.ship);
-                        this.field = map.NearOneShip(this.field,i + ki * k,j + ki * k );
+                        this.field = map.NearOneShip(i + ki * k,j + kj * k );
                     }
 
 
                     this.field[i + ki * 0][j + kj * 0]. GetImageView().setImageResource(R.drawable.two1);
                     this.field[i + ki * 1][j + kj * 1]. GetImageView().setImageResource(R.drawable.two2);
+
 
 
                 }
@@ -212,7 +219,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
 
                 // размещение однопалубного
-                for (int r =6; r<10; r++) {
+               for (int r =6; r<10; r++) {
                     do {
                         i = 0 + (int) (Math.random() * 9);
                         j = 0 + (int) (Math.random() * 9);
@@ -221,16 +228,31 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
                     //  this.field[i][j].SetImageView(ship[r].GetShip(0));
                     this.field[i][j].SetStatus(status.ship);
-                    this.field[i][j]. GetImageView().setImageResource(R.drawable.oneship);
+                    this.field[i][j]. GetImageView().setImageResource(R.drawable.ship1);
 
-                    this.field = map.NearOneShip(this.field,i ,j );
+                    this.field = map.NearOneShip(i ,j );
 
 
                 }
 
 
 
-            }
+//проверка растановки
+         /*     for (int k = 0; k < 10; k++) {
+                   for (int  p = 0; p < 10; p++) {
+                     if( field[k][p].GetStatus() == status.bomb)
+
+                       field[k][p].GetImageView().setImageResource(R.drawable.ka);
+
+                   }
+               }
+
+*/
+
+
+
+
+           }
             break;
 
             case R.id.Next: {
