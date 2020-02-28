@@ -255,6 +255,23 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
            }
             break;
 
+
+            case R.id.Start:{
+
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        field[i][j].SetStatus(status.empty);
+                        this.field[i][j].GetImageView().setImageResource(R.drawable.my_map);
+
+                    }
+                }
+
+
+                map = new Map(field, ship);
+
+
+            }
+            break;
             case R.id.Next: {
                 Intent intent = new Intent(Activity_Placement.this, Activity_Game.class);
                // intent.putExtra("field", field);
