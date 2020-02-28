@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 
 public class Activity_Placement extends AppCompatActivity implements View.OnTouchListener{
@@ -17,6 +17,12 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
     Ship [] ship = new Ship[10];
     Map map ;
     Player[] Player = new Player[2];
+
+
+    private ImageView mImageView11,mImageView12,mImageView13,mImageView14,mImageView21,mImageView22,mImageView23,mImageView31,mImageView32,mImageView41;
+    private ViewGroup mMoveLayout0;
+    private int mX;
+    private int mY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +82,52 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
 
         map = new Map(field, ship);
+
+
+//Связываемся с нашими объектами, определяя изображение через заданный ViewGroup:
+        mMoveLayout0 = (ViewGroup) findViewById(R.id.FL);
+
+
+
+        mImageView11 = (ImageView) mMoveLayout0.findViewById(R.id.Ship11);
+        mImageView12 = (ImageView) mMoveLayout0.findViewById(R.id.Ship12);
+        mImageView13 = (ImageView) mMoveLayout0.findViewById(R.id.Ship13);
+        mImageView14 = (ImageView) mMoveLayout0.findViewById(R.id.Ship14);
+
+        mImageView21 = (ImageView) mMoveLayout0.findViewById(R.id.Ship21);
+        mImageView22 = (ImageView) mMoveLayout0.findViewById(R.id.Ship22);
+        mImageView23 = (ImageView) mMoveLayout0.findViewById(R.id.Ship23);
+
+        mImageView31 = (ImageView) mMoveLayout0.findViewById(R.id.Ship31);
+        mImageView32 = (ImageView) mMoveLayout0.findViewById(R.id.Ship32);
+
+        mImageView41 = (ImageView) mMoveLayout0.findViewById(R.id.Ship41);
+
+        //Создаем программно RelativeLayout с параметрами 100*100:
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(100, 100);
+
+        //Применяем эти параметры к нашему изображению:
+       /* mImageView1.setLayoutParams(layoutParams);
+        mImageView2.setLayoutParams(layoutParams);
+        mImageView3.setLayoutParams(layoutParams);
+        mImageView4.setLayoutParams(layoutParams);*/
+        //И настраиваем ему слушателя (обработчик) прикосновений:
+        mImageView11.setOnTouchListener(this);
+        mImageView12.setOnTouchListener(this);
+        mImageView13.setOnTouchListener(this);
+        mImageView14.setOnTouchListener(this);
+
+        mImageView21.setOnTouchListener(this);
+        mImageView22.setOnTouchListener(this);
+        mImageView23.setOnTouchListener(this);
+
+        mImageView31.setOnTouchListener(this);
+        mImageView32.setOnTouchListener(this);
+
+        mImageView41.setOnTouchListener(this);
+
+
+
 
     }
 
@@ -295,9 +347,9 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
    public boolean onTouch(View v, MotionEvent event) {
 //Определение координат через getRawX() и getRawY() дает
         //координаты по отношению к размерам экрана устройства:
-     /*   final int X = (int) event.getRawX();
+        final int X = (int) event.getRawX();
         final int Y = (int) event.getRawY();
-
+          RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
             //ACTION_DOWN срабатывает при прикосновении к экрану,
@@ -306,19 +358,32 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
                 mX = X - lParams.leftMargin;
                 mY = Y - lParams.topMargin;
+
+                for (int k = 0; k < 10; k++) {
+                    for (int  p = 0; p < 10; p++) {
+
+
+
+                     if ( field[k][p].GetImageView().equals(layoutParams)) this.field[k][p]. GetImageView().setImageResource(R.drawable.ship1);
+
+                    }
+                }
+
+
+
                 break;
 
             //ACTION_MOVE обрабатывает случившиеся в процессе прикосновения изменения, здесь
             //содержится информация о последней точке, где находится объект после окончания действия прикосновения ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
+
                 layoutParams.leftMargin = X - mX;
                 layoutParams.topMargin = Y - mY;
                 layoutParams.rightMargin = -250;
                 layoutParams.bottomMargin = -250;
                 v.setLayoutParams(layoutParams);
                 break;
-        }*/
+        }
         return true;
     }
 }
