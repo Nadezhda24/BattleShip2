@@ -311,6 +311,34 @@ Player[] Player = new Player[2];
                     LinerLayout.addView(LL4);
 
 
+
+
+                    LinearLayout LL5 = new LinearLayout(this);
+                    LL4.setOrientation(LinearLayout.HORIZONTAL);
+
+                    ImageView ImageView5 = new ImageView(this);
+                    ImageView5.setImageResource(R.drawable.dynamite);
+                    ImageView5.setLayoutParams(new ViewGroup.LayoutParams
+                            (200, 200));
+
+                    LL5.addView(ImageView5);
+
+                    TextView text5 = new TextView(this);
+                    text5.setWidth(200);
+                    text5.setText("Поднять якорь!\n" +
+                            "Подними якорь  корабля и  перемести его " +
+                            "в другое место. Но будь внимателен, перемещать корабль уже " +
+                            "нельзя на клетки проверенные противником. За один ход ты можешь продвинуться на одну" +
+                            " клетку или повернуть корабль на 90* по часовой стрелки, если клетки для перемещения свободны.\n");
+                    text5.setLayoutParams(new ViewGroup.LayoutParams
+                            (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    LL5.addView(text5);
+
+                    LinerLayout.addView(LL5);
+
+
+
+
                 }
                 break;
                 case 5: {
@@ -335,7 +363,10 @@ Player[] Player = new Player[2];
                 break;
                 case 6: {
                     titles = "Победа или поражение ";
-                    description = "";
+                    description = "Бой закончен, пора забирать свои награды! " +
+                            "Одержав победу над противником, твое завоеванное золото удваивается." +
+                            " Выиграв бой над соперником выше званием, ты быстрее заработаешь очки и приблизишься к новому званию.\n" +
+                            "Не расстраивайся поражением, твоя награда тебя ждет, В следующий раз тебе точно повезет!  \n";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -349,7 +380,7 @@ Player[] Player = new Player[2];
                 break;
                 case 7: {
                     titles = "Звания";
-                    description = "";
+                    description = "В зависимости от твоих очков ты можешь получить следующий звания:";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -362,7 +393,8 @@ Player[] Player = new Player[2];
                 break;
                 case 8: {
                     titles = "Рейтинг";
-                    description = "";
+                    description = "Зарабатывая очки, ты соревнуешься с другими мореплавателями. Найди свое место в рейтинге в аккаунте.\n" +
+                            "Зарабатывай больше очков и стань самым могущественным повелителем морей.\n";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -372,11 +404,16 @@ Player[] Player = new Player[2];
                     text.setText(description);
                     LinerLayout.addView(text);
 
+
+                    ImageView ImageView = new ImageView(this);
+                    ImageView.setImageResource(R.drawable.svitok);
+                    LinerLayout.addView(ImageView);
+
                 }
                 break;
                case 9: {
                    titles = "Настройки";
-                   description = "";
+                   description = "Не забывай, что ты можешь разнообразить свои сражения, обновив обстановку музыкой на выбор. Перейди в настройки в меню и выбери понравившуюся композицию.";
                    LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                    LinerLayout.removeAllViewsInLayout();
                    TextView title = (TextView) findViewById(R.id.title);

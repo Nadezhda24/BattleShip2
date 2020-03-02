@@ -1,5 +1,7 @@
 package com.example.battleship;
 
-public class Feature {
+import java.io.Serializable;
+
+public class Feature implements Serializable {
 
 }

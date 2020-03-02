@@ -1,6 +1,8 @@
 package com.example.battleship;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
     int id;
     String name;
     String login;
@@ -12,6 +14,7 @@ public class Player {
     int count_feature;
     int count_win;
     Feature [] feature = new Feature[count_feature];
+
 
 
     public Player(){

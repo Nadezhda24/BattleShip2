@@ -8,6 +8,7 @@ import android.view.View;
 
 public class Activity_Regime extends AppCompatActivity {
     Player[] Player = new Player[2];
+    int regime_game ; // 1- расширенный 0- классический
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +62,8 @@ public class Activity_Regime extends AppCompatActivity {
                //настройки звука
             }
             break;
-            case R.id.NoClassic :
-            case R.id.Classic: {
+            case R.id.NoClassic : {
+
                 Intent intent = new Intent(Activity_Regime.this, Activity_Placement.class);
                 intent.putExtra("id", Player[0].Getid());
                 intent.putExtra("name", Player[0].Getname());
@@ -72,7 +73,25 @@ public class Activity_Regime extends AppCompatActivity {
                 intent.putExtra("experiment", Player[0].Getexperiment());
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
+                intent.putExtra("regime_game" , 1);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim, R.anim.anim1);
+            }
+            break;
+            case R.id.Classic: {
+
+                Intent intent = new Intent(Activity_Regime.this, Activity_Placement.class);
+                intent.putExtra("id", Player[0].Getid());
+                intent.putExtra("name", Player[0].Getname());
+                intent.putExtra("login", Player[0].Getlogin());
+                intent.putExtra("password", Player[0].Getpassword());
+                intent.putExtra("money", Player[0].Getmoney());
+                intent.putExtra("experiment", Player[0].Getexperiment());
+                intent.putExtra("count_game", Player[0].Getcount_game());
+                intent.putExtra("zvanie", Player[0].Getzvanie());
+                intent.putExtra("regime_game" , 0);
+                startActivity(intent);
+
                 overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;

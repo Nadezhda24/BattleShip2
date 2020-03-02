@@ -2,7 +2,9 @@ package com.example.battleship;
 
 import android.widget.ImageView;
 
-public class ThreeShip extends Ship {
+import java.io.Serializable;
+
+public class ThreeShip extends Ship  implements Serializable {
     private ImageView[] ship = new  ImageView[3];
 
     public ThreeShip(ImageView ImageView1,ImageView ImageView2, ImageView ImageView3) {

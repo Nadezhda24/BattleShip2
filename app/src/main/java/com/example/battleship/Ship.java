@@ -2,13 +2,15 @@ package com.example.battleship;
 
 import android.widget.ImageView;
 
+import java.io.Serializable;
+
 /* состояния карабля однопалубный, 1 элемент двухпалубного, 2 элемент двухпалубного,
 по аналогии с трехпалубным и четырехпалубным, убит, ранен*/
 
 
 
 // однопалубный
-public class Ship {
+public class Ship implements Serializable {
         ImageView [] ship = new ImageView[1];
 
 

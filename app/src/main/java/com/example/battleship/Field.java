@@ -4,6 +4,8 @@ package com.example.battleship;
 import android.content.Context;
 import android.widget.ImageView;
 
+import java.io.Serializable;
+
 //Состояния, в которых может находиться клетка поля
 //пусто, проверено(мимо), фича, бомба, убит
 
@@ -12,7 +14,7 @@ enum status{
 }
 
 
-public class Field  {
+public class Field implements Serializable {
 
     ImageView ImageView ;
     int id;

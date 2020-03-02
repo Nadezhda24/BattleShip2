@@ -2,8 +2,10 @@ package com.example.battleship;
 
 import android.widget.ImageView;
 
+import java.io.Serializable;
 
-public class TwoShip extends  Ship {
+
+public class TwoShip extends  Ship  implements Serializable {
     private ImageView[] ship = new  ImageView[2];
     private int[] x = new int[2];
     private int[] y = new int[2];

@@ -2,7 +2,10 @@ package com.example.battleship;
 
 import android.widget.ImageView;
 
-public class Map {
+import java.io.Serializable;
+
+
+public class Map implements Serializable {
     Field[][] field = new Field[10][10];
     Ship[] ship = new Ship[10];
 

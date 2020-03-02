@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import java.io.Serializable;
+
 
 public class Activity_Placement extends AppCompatActivity implements View.OnTouchListener{
     Field [][] field = new Field[10][10];
@@ -18,6 +20,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
     Map map ;
     Player[] Player = new Player[2];
 
+    int regime_game ; // 1- расширенный 0- классический
 
     private ImageView mImageView11,mImageView12,mImageView13,mImageView14,mImageView21,mImageView22,mImageView23,mImageView31,mImageView32,mImageView41;
     private ViewGroup mMoveLayout0;
@@ -39,6 +42,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
         Player[0].Setmoney(arguments.getInt("money"));
         Player[0].Setcount_game(arguments.getInt("count_game"));
         Player[0].Setexperiment(arguments.getInt("experiment"));
+        regime_game = arguments.getInt(" regime_game",2);
 
         ImageView ImageView1 = (ImageView) findViewById(R.id.imageView00);
         ImageView ImageView2 = (ImageView) findViewById(R.id.imageView01);
@@ -310,7 +314,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
             case R.id.Start:{
 
-                for (int i = 0; i < 10; i++) {
+              /*  for (int i = 0; i < 10; i++) {
                     for (int j = 0; j < 10; j++) {
                         field[i][j].SetStatus(status.empty);
                         this.field[i][j].GetImageView().setImageResource(R.drawable.my_map);
@@ -319,14 +323,14 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 }
 
 
-                map = new Map(field, ship);
+                map = new Map(field, ship);*/
 
 
             }
             break;
             case R.id.Next: {
                 Intent intent = new Intent(Activity_Placement.this, Activity_Game.class);
-               // intent.putExtra("field", field);
+
                 intent.putExtra("id", Player[0].Getid());
                 intent.putExtra("name", Player[0].Getname());
                 intent.putExtra("login", Player[0].Getlogin());
@@ -335,6 +339,8 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 intent.putExtra("experiment", Player[0].Getexperiment());
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
+                intent.putExtra("regime_game ", regime_game );
+              //  intent.putExtra(Map.class.getSimpleName(), (Serializable) this.map);
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim, R.anim.anim1);
 
