@@ -9,6 +9,9 @@ public class Map implements Serializable {
     Field[][] field = new Field[10][10];
     Ship[] ship = new Ship[10];
 
+
+
+
     public  Map (Field[][] field, Ship [] ship){
 
         for (int i =0; i < 10; i ++){
@@ -81,10 +84,17 @@ public class Map implements Serializable {
 
 }
 
+
     return  this.field;
     }
 
 
+    public Field[][] Play ( ){
+
+
+
+        return  this.field;
+    }
 
 
 

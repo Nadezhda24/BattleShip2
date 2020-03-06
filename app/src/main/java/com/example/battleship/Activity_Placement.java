@@ -2,6 +2,7 @@ package com.example.battleship;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 
@@ -32,7 +34,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity__placement);
 
 
-        Player[0] = new Player();
+        Player[0] = new Player(field ,ship );
         Bundle arguments = getIntent().getExtras();
         Player[0].Setid(arguments.getInt("id"));
         Player[0].Setname(arguments.getString("name"));
@@ -42,7 +44,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
         Player[0].Setmoney(arguments.getInt("money"));
         Player[0].Setcount_game(arguments.getInt("count_game"));
         Player[0].Setexperiment(arguments.getInt("experiment"));
-        regime_game = arguments.getInt(" regime_game",2);
+        Player[0].Setregim_game(arguments.getInt("regime_game"));
 
         ImageView ImageView1 = (ImageView) findViewById(R.id.imageView00);
         ImageView ImageView2 = (ImageView) findViewById(R.id.imageView01);
@@ -110,11 +112,6 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
         //Создаем программно RelativeLayout с параметрами 100*100:
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(100, 100);
 
-        //Применяем эти параметры к нашему изображению:
-       /* mImageView1.setLayoutParams(layoutParams);
-        mImageView2.setLayoutParams(layoutParams);
-        mImageView3.setLayoutParams(layoutParams);
-        mImageView4.setLayoutParams(layoutParams);*/
         //И настраиваем ему слушателя (обработчик) прикосновений:
         mImageView11.setOnTouchListener(this);
         mImageView12.setOnTouchListener(this);
@@ -135,6 +132,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
     }
 
+    @SuppressLint("NewApi")
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -164,6 +162,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
+
                 overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
@@ -291,7 +290,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
                 }
 
-
+        //      Player[0].SetMap(this.map);
 
 //проверка растановки
          /*     for (int k = 0; k < 10; k++) {
@@ -314,7 +313,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
             case R.id.Start:{
 
-              /*  for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 10; i++) {
                     for (int j = 0; j < 10; j++) {
                         field[i][j].SetStatus(status.empty);
                         this.field[i][j].GetImageView().setImageResource(R.drawable.my_map);
@@ -323,28 +322,24 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 }
 
 
-                map = new Map(field, ship);*/
-
+                map = new Map(field, ship);
 
             }
             break;
             case R.id.Next: {
-                Intent intent = new Intent(Activity_Placement.this, Activity_Game.class);
+try {
+    Intent intent = new Intent(Activity_Placement.this, Activity_Game.class);
+    intent.putExtra("player", Player[0]);
+    startActivity(intent);
+    overridePendingTransition(R.anim.anim, R.anim.anim1);
+} catch (Exception ex) {
 
-                intent.putExtra("id", Player[0].Getid());
-                intent.putExtra("name", Player[0].Getname());
-                intent.putExtra("login", Player[0].Getlogin());
-                intent.putExtra("password", Player[0].Getpassword());
-                intent.putExtra("money", Player[0].Getmoney());
-                intent.putExtra("experiment", Player[0].Getexperiment());
-                intent.putExtra("count_game", Player[0].Getcount_game());
-                intent.putExtra("zvanie", Player[0].Getzvanie());
-                intent.putExtra("regime_game ", regime_game );
-              //  intent.putExtra(Map.class.getSimpleName(), (Serializable) this.map);
-                startActivity(intent);
-                overridePendingTransition(R.anim.anim, R.anim.anim1);
 
-            }
+}
+
+
+}
+
             break;
         }
 
@@ -365,18 +360,6 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 mX = X - lParams.leftMargin;
                 mY = Y - lParams.topMargin;
 
-                for (int k = 0; k < 10; k++) {
-                    for (int  p = 0; p < 10; p++) {
-
-
-
-                     if ( field[k][p].GetImageView().equals(layoutParams)) this.field[k][p]. GetImageView().setImageResource(R.drawable.ship1);
-
-                    }
-                }
-
-
-
                 break;
 
             //ACTION_MOVE обрабатывает случившиеся в процессе прикосновения изменения, здесь
@@ -390,6 +373,12 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 v.setLayoutParams(layoutParams);
                 break;
         }
+
+
+
+
+
+
         return true;
     }
 }

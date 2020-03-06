@@ -63,7 +63,7 @@ public class Activity_Regime extends AppCompatActivity {
             }
             break;
             case R.id.NoClassic : {
-
+                Player[0].Setregim_game(1);
                 Intent intent = new Intent(Activity_Regime.this, Activity_Placement.class);
                 intent.putExtra("id", Player[0].Getid());
                 intent.putExtra("name", Player[0].Getname());
@@ -73,13 +73,13 @@ public class Activity_Regime extends AppCompatActivity {
                 intent.putExtra("experiment", Player[0].Getexperiment());
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
-                intent.putExtra("regime_game" , 1);
+                intent.putExtra("regime_game" , Player[0].Getregim_game());
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim, R.anim.anim1);
             }
             break;
             case R.id.Classic: {
-
+                Player[0].Setregim_game(0);
                 Intent intent = new Intent(Activity_Regime.this, Activity_Placement.class);
                 intent.putExtra("id", Player[0].Getid());
                 intent.putExtra("name", Player[0].Getname());
@@ -89,7 +89,7 @@ public class Activity_Regime extends AppCompatActivity {
                 intent.putExtra("experiment", Player[0].Getexperiment());
                 intent.putExtra("count_game", Player[0].Getcount_game());
                 intent.putExtra("zvanie", Player[0].Getzvanie());
-                intent.putExtra("regime_game" , 0);
+                intent.putExtra("regime_game" , Player[0].Getregim_game());
                 startActivity(intent);
 
                 overridePendingTransition(R.anim.anim, R.anim.anim1);

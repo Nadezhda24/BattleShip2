@@ -13,7 +13,10 @@ public class Player implements Serializable {
     String zvanie;
     int count_feature;
     int count_win;
+    int regim_game;
     Feature [] feature = new Feature[count_feature];
+    Map map;
+
 
 
 
@@ -28,7 +31,16 @@ public class Player implements Serializable {
         this.count_win =0;
         this.zvanie="матрос";
         int count_feature=4;
-        Feature [] feature = new Feature[count_feature];
+
+        feature = new Feature[count_feature];
+
+
+    }
+
+    public Player(Field[][] field, Ship [] ship){
+        this();
+        map = new Map(field, ship);
+
     }
 
     public Player(int id,
@@ -55,6 +67,8 @@ public class Player implements Serializable {
     public void Setcount_game(int count_game){this.count_game= count_game;}
     public void Setcount_win(int count_win){this.count_win= count_win;}
     public void Setzvanie(String zvanie){this.zvanie= zvanie;}
+    public void Setregim_game(int r){this.regim_game = r;}
+    public void SetMap (Map map){this.map = map;}
 
    public int Getid(){return  id;}
    public String Getname(){return name;}
@@ -65,8 +79,7 @@ public class Player implements Serializable {
    public int Getcount_game(){return count_game;}
     public int Getcount_win(){return count_win;}
    public String Getzvanie(){return zvanie;}
-
-
-
+    public  int Getregim_game(){return  regim_game;}
+    public Map GetMap (){return  map;}
 
 }

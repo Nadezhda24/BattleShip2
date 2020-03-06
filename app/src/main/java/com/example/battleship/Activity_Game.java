@@ -32,16 +32,23 @@ public class Activity_Game extends AppCompatActivity {
         flag = 0;
         Player[0] = new Player();
         Bundle arguments = getIntent().getExtras();
-        Player[0].Setid(arguments.getInt("id"));
-        Player[0].Setname(arguments.getString("name"));
-        Player[0].Setlogin(arguments.getString("login"));
-        Player[0].Setpassword(arguments.getString("password"));
-        Player[0].Setzvanie(arguments.getString("zvanie"));
-        Player[0].Setmoney(arguments.getInt("money"));
-        Player[0].Setcount_game(arguments.getInt("count_game"));
-        Player[0].Setexperiment(arguments.getInt("experiment"));
-        regime_game = arguments.getInt(" regime_game");
-        //   map = (Map) arguments.getSerializable(Map.class.getSimpleName());
+        Player[0] =  (Player) arguments.getSerializable("player");
+
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+
+                int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
+                field[i][j] = new Field((ImageView) findViewById(res),res);
+
+               field[i][j].GetImageView().setImageResource(R.drawable.my_map);
+
+
+            }
+        }
+
+
+
 
         TextView NamePlayer = findViewById(R.id.Use_name);
         NamePlayer.setText(Player[0].Getname());
@@ -54,7 +61,7 @@ public class Activity_Game extends AppCompatActivity {
 
 
 
-    if ( regime_game == 1 ) {
+    if (  Player[0].Getregim_game() == 1 ) {
 //сундучки
         final Dialog dialog = new Dialog(Activity_Game.this);
         dialog.setContentView(R.layout.choice);
