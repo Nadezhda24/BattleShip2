@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -184,11 +182,11 @@ public class Activity_Game extends AppCompatActivity {
                 ImageView ImageView = (ImageView) findViewById(R.id.Ukaz);
                         if (flag == 1){
 
-                ImageView.setImageResource(R.drawable.left_1);
+                ImageView.setImageResource(R.drawable.button_left);
                         flag = 0;}
                         else {
 
-                            ImageView.setImageResource(R.drawable.right_1);
+                            ImageView.setImageResource(R.drawable.button_right);
                             flag = 1;
                         }
 

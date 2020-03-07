@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -19,8 +19,9 @@
 
     <style name="strings">
         <item name="android:textColor">#B22222</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/maintext</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
 

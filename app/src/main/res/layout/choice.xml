@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:id="@+id/LL"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
@@ -15,11 +15,14 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Выбор  права первого хода " />
+            android:gravity="center"
+            android:text="Выбор  права первого хода "
+            android:textColor="#000000"
+            app:fontFamily="@font/maintext" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="179dp"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -27,21 +30,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/cofre" />
+                app:srcCompat="@drawable/box_close" />
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/cofre" />
+                app:srcCompat="@drawable/box_close" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/Ok"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
+            style="@style/strings"
+            android:layout_width="102dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center"
             android:background="@drawable/button"
             android:text="ок" />
 

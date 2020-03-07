@@ -807,6 +807,6 @@
         android:onClick="OnClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/right_1" />
+        app:srcCompat="@drawable/button_right" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
