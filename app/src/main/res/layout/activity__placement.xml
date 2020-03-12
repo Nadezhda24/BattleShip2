@@ -78,8 +78,8 @@
 
         <Space
             android:id="@+id/l2"
-            android:layout_width="145dp"
-            android:layout_height="200dp"
+            android:layout_width="153dp"
+            android:layout_height="120dp"
             android:layout_below="@+id/l1" />
 
         <ImageView
@@ -88,7 +88,7 @@
             android:layout_height="30dp"
             android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/ship1" />
+            app:srcCompat="@drawable/ship_one" />
 
         <ImageView
             android:id="@+id/Ship12"
@@ -97,42 +97,40 @@
             android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
 
-            app:srcCompat="@drawable/ship1"  />
+            app:srcCompat="@drawable/ship_one" />
 
         <ImageView
             android:id="@+id/Ship13"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_below = "@+id/l1"
+            android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
 
-            app:srcCompat="@drawable/ship1"
-            />
+            app:srcCompat="@drawable/ship_one" />
 
         <ImageView
             android:id="@+id/Ship14"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_below = "@+id/l1"
+            android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/ship1"
-            />
+            app:srcCompat="@drawable/ship_one" />
 
         <ImageView
             android:id="@+id/Ship21"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_below = "@+id/l1"
+            android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/ship2" />
+            app:srcCompat="@drawable/ship_two" />
 
         <ImageView
             android:id="@+id/Ship22"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_below = "@+id/l1"
+            android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/ship2" />
+            app:srcCompat="@drawable/ship_two" />
 
         <ImageView
             android:id="@+id/Ship23"
@@ -140,7 +138,7 @@
             android:layout_height="60dp"
             android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/ship2" />
+            app:srcCompat="@drawable/ship_two" />
 
         <ImageView
             android:id="@+id/Ship31"
@@ -148,7 +146,7 @@
             android:layout_height="90dp"
             android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/threeship" />
+            app:srcCompat="@drawable/ship_three" />
 
         <ImageView
             android:id="@+id/Ship32"
@@ -156,7 +154,7 @@
             android:layout_height="90dp"
             android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/threeship" />
+            app:srcCompat="@drawable/ship_three" />
 
         <ImageView
             android:id="@+id/Ship41"
@@ -164,14 +162,27 @@
             android:layout_height="120dp"
             android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
-            app:srcCompat="@drawable/fourship" />
+            app:srcCompat="@drawable/ship_four" />
+
+        <Space
+            android:id="@+id/spase111"
+            android:layout_width="157dp"
+            android:layout_height="109dp"
+            android:layout_below="@+id/l1"/>
+
+        <Space
+            android:id="@+id/spase222"
+            android:layout_width="160dp"
+            android:layout_height="78dp"
+            android:layout_below="@+id/spase111" />
 
         <Button
             android:id="@+id/turn"
-            android:layout_width="99dp"
-            android:layout_height="44dp"
-            android:layout_below="@+id/l1"
-            android:layout_toRightOf="@+id/Ship41"
+            style="@style/strings"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/spase111"
+            android:layout_toRightOf="@+id/spase222"
             android:background="@drawable/b1"
             android:text="Повернуть " />
 
@@ -185,10 +196,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="false"
 
-            android:layout_marginStart="28dp"
+            android:layout_marginStart="30dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="100dp"
-
             android:layout_marginBottom="85dp">
 
 
@@ -772,6 +782,10 @@
             </TableRow>
 
         </TableLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
     </RelativeLayout>

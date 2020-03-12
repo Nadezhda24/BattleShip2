@@ -3,6 +3,7 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -53,6 +54,8 @@ Player[] Player = new Player[2];
         title.setText(titles);
         TextView text = new TextView(this);
         text.setWidth(200);
+       //  Typeface face = Typeface.createFromAsset(getAssets(), "maintext.ttf");
+        text.setTypeface(Typeface.createFromAsset(getAssets(), "maintext.ttf"));
         text.setText(description);
         LinerLayout.addView(text);
 

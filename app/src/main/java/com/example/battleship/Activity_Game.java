@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -66,8 +64,40 @@ public class Activity_Game extends AppCompatActivity {
         final Dialog dialog = new Dialog(Activity_Game.this);
         dialog.setContentView(R.layout.choice);
         Button button = dialog.findViewById(R.id.Ok);
+        final TextView text = dialog.findViewById(R.id.Choice);
+        final ImageView box_one = dialog.findViewById(R.id.box_one);
+        final ImageView box_two= dialog.findViewById(R.id.box_two);
 
+        //Право первого хода
+         final int player_choice = 0+(int)(Math.random() * 2);
 
+        box_one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (player_choice == 1){
+                box_one.setImageResource(R.drawable.box_open);
+                text.setText("Твой ход первый!");
+
+                }
+                else { box_one.setImageResource(R.drawable.box_empy);
+                    text.setText("Увы, первый ход у твоего противника...");
+
+                }
+                box_two.setClickable(false);
+            }
+        });
+        box_two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (player_choice == 1){
+                box_two.setImageResource(R.drawable.box_open);
+                    text.setText("Твой ход первый!");}
+                else { box_two.setImageResource(R.drawable.box_empy);
+                    text.setText("Увы, первый ход у твоего противника...");}
+                box_one.setClickable(false);
+
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,11 +214,11 @@ public class Activity_Game extends AppCompatActivity {
                 ImageView ImageView = (ImageView) findViewById(R.id.Ukaz);
                         if (flag == 1){
 
-                ImageView.setImageResource(R.drawable.left_1);
+                ImageView.setImageResource(R.drawable.button_left);
                         flag = 0;}
                         else {
 
-                            ImageView.setImageResource(R.drawable.right_1);
+                            ImageView.setImageResource(R.drawable.button_right);
                             flag = 1;
                         }
 

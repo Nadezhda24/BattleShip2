@@ -187,8 +187,8 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 int i = 0+(int)(Math.random() * 6);
                 int j = 0+(int)(Math.random() * 6);
                 // для выбора смещаения по горизонтали i и вертикали j
-                int ki = 0+(int)(Math.random() * 1);
-                int kj = 0+(int)(Math.random() * 1);
+                int ki = 0+(int)(Math.random() * 2);
+                int kj = 0+(int)(Math.random() * 2);
 
                 if (ki == kj && ki == 1) { ki--;}
                 else if (ki== kj && ki == 0) {ki++;}
@@ -215,9 +215,9 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                         j = 0 + (int) (Math.random() * 7);
 
 
-                    ki = 0 + (int) (Math.random() * 1);
-                    kj = 0 + (int) (Math.random() * 1);
-                    if (ki == kj && ki == 1) { ki--; }
+                         ki = 0+(int)(Math.random() * 2);
+                        kj = 0+(int)(Math.random() * 2);
+                        if (ki == kj && ki == 1) { ki--; }
                     else if (ki == kj && ki == 0) { ki++; }
 
                     }
@@ -251,8 +251,8 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                     }
                     while ( field[i][j].GetStatus() == status.ship ||field[i][j].GetStatus() == status.near_ship);
 
-                    ki = 0 + (int) (Math.random() * 1);
-                    kj = 0 + (int) (Math.random() * 1);
+                    ki = 0+(int)(Math.random() * 2);
+                    kj = 0+(int)(Math.random() * 2);
                     if (ki == kj && ki == 1) {ki--; }
                     else if (ki == kj && ki == 0) { ki++; }
 
@@ -290,7 +290,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
                 }
 
-        //      Player[0].SetMap(this.map);
+             Player[0].SetMap(this.map);
 
 //проверка растановки
          /*     for (int k = 0; k < 10; k++) {
@@ -327,15 +327,12 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
             }
             break;
             case R.id.Next: {
-try {
+
     Intent intent = new Intent(Activity_Placement.this, Activity_Game.class);
     intent.putExtra("player", Player[0]);
     startActivity(intent);
     overridePendingTransition(R.anim.anim, R.anim.anim1);
-} catch (Exception ex) {
 
-
-}
 
 
 }
