@@ -6,19 +6,23 @@ import java.io.Serializable;
 
 
 public class TwoShip extends  Ship  implements Serializable {
-    private ImageView[] ship = new  ImageView[2];
-    private int[] x = new int[2];
-    private int[] y = new int[2];
+    private ships [] ship = new  ships[2];
 
-    public TwoShip(ImageView ImageView1,ImageView ImageView2) {
-        ship[0]=  ImageView1;
-        ship[1]=  ImageView2;
+    public TwoShip() {
+        ship[0] =  com.example.battleship.ships.ship21;
+        ship[1] =  com.example.battleship.ships.ship22;
+    }
+
+
+    public TwoShip(ships st1,ships st2) {
+        ship[0]=  st1;
+        ship[1]=  st2;
 
     }
 
 
 
-    public ImageView GetShip (int i){
+    public ships GetShip (int i){
         return  ship[i];
 
     }

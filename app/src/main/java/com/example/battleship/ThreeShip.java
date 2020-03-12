@@ -5,16 +5,22 @@ import android.widget.ImageView;
 import java.io.Serializable;
 
 public class ThreeShip extends Ship  implements Serializable {
-    private ImageView[] ship = new  ImageView[3];
+    private ships[] ship = new  ships[3];
 
-    public ThreeShip(ImageView ImageView1,ImageView ImageView2, ImageView ImageView3) {
-
-        ship[0]=  ImageView1;
-        ship[1]=  ImageView2;
-        ship[2]= ImageView3;
+    public ThreeShip() {
+        ship[0] =  com.example.battleship.ships.ship31;
+        ship[1] =  com.example.battleship.ships.ship32;
+        ship[2] =  com.example.battleship.ships.ship33;
     }
 
-    public ImageView GetShip (int i){
+    public ThreeShip(ships st1,ships st2, ships st3) {
+
+        ship[0]=  st1;
+        ship[1]=  st2;
+        ship[2]=  st3;
+    }
+
+    public ships GetShip (int i){
         return  ship[i];
 
     }

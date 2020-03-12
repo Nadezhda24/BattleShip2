@@ -30,10 +30,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-<<<<<<< HEAD
+
                 android:clickable="true"
-=======
->>>>>>> d8e88b2ba0670c905b495b7649c959a5f03b3d99
+
                 app:srcCompat="@drawable/box_close" />
 
             <ImageView
@@ -41,10 +40,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-<<<<<<< HEAD
+
                 android:clickable="true"
-=======
->>>>>>> d8e88b2ba0670c905b495b7649c959a5f03b3d99
+
                 app:srcCompat="@drawable/box_close" />
 
         </LinearLayout>

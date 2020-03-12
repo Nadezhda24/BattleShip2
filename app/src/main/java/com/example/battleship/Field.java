@@ -13,10 +13,7 @@ enum status{
      empty, ship, near_ship, checked, feature, bomb, kill
 }
 
-enum ship {
-    ship11, ship21, ship22, ship31, ship32, ship33, ship41, ship42, ship43, ship44
-    
-}
+
 
 public class Field implements Serializable {
 
@@ -24,7 +21,7 @@ public class Field implements Serializable {
     int id;
     status st;
 
-    public Field(ImageView ImageView, int id){
+    public Field(int id){
 
         this.id = id;
       //  this.ImageView =  ImageView;

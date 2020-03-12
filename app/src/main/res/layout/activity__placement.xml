@@ -163,7 +163,7 @@
             android:layout_below="@+id/l1"
             android:layout_toRightOf="@+id/l2"
             app:srcCompat="@drawable/ship_four" />
-<<<<<<< HEAD
+
 
         <Space
             android:id="@+id/spase111"
@@ -176,25 +176,17 @@
             android:layout_width="160dp"
             android:layout_height="78dp"
             android:layout_below="@+id/spase111" />
-=======
->>>>>>> d8e88b2ba0670c905b495b7649c959a5f03b3d99
+
 
         <Button
             android:id="@+id/turn"
             style="@style/strings"
-<<<<<<< HEAD
+
             android:layout_width="100dp"
             android:layout_height="48dp"
             android:layout_below="@+id/spase111"
             android:layout_toRightOf="@+id/spase222"
-=======
-            android:layout_width="127dp"
-            android:layout_height="48dp"
-            android:layout_below="@+id/l1"
-            android:layout_toRightOf="@+id/Ship41"
->>>>>>> d8e88b2ba0670c905b495b7649c959a5f03b3d99
-            android:background="@drawable/b1"
-            android:text="Повернуть " />
+ />
 
         <TableLayout
             android:id="@+id/map_ship"
