@@ -24,7 +24,8 @@ public class Activity_Game extends AppCompatActivity {
     Serializable map ;
     Player[] Player = new Player[2];
     int flag;//переключатель между игроками во время игры
-    
+
+    int flag_bomb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,7 @@ public class Activity_Game extends AppCompatActivity {
         }
 
         flag = 0;
+        flag_bomb = 1;
         Player[0] = new Player();
         Player[1] = new Player();
         Bundle arguments = getIntent().getExtras();
@@ -188,6 +190,18 @@ public class Activity_Game extends AppCompatActivity {
         LinerLayout1.addView(ImageView5);
 
 
+        ImageView0.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                flag_bomb = 1;
+            }
+        });
+
+
+
+
     }
 
 
@@ -242,12 +256,16 @@ public class Activity_Game extends AppCompatActivity {
 
                             ImageView.setImageResource(R.drawable.button_left);
 
+
                 for(int i =0; i< 10; i++){
                     for (int j =0; j<10;j++){
 
                         final int ii = i;
                         final int jj = j;
+                       // if (field2[i][j].GetStatus() != checked){
                         Im[i][j].setImageResource(R.drawable.my_map);
+
+                      //  }
                         final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
                         Im[i][j].setOnClickListener(new View.OnClickListener() {
 
@@ -258,6 +276,8 @@ public class Activity_Game extends AppCompatActivity {
                                  NoClick(Im);
                             }
                         });
+
+
 
 
                     }

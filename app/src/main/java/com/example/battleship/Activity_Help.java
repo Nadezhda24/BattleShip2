@@ -58,7 +58,7 @@ Player[] Player = new Player[2];
         TextView text = new TextView(this);
         text.setWidth(200);
        //  Typeface face = Typeface.createFromAsset(getAssets(), "maintext.ttf");
-        text.setTypeface(Typeface.createFromAsset(getAssets(), "maintext.ttf"));
+      //  text.setTypeface(Typeface.createFromAsset(getAssets(), "maintext.ttf"));
         text.setText(description);
         LinerLayout.addView(text);
 
