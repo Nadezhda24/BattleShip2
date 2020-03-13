@@ -24,7 +24,7 @@ public class Activity_Game extends AppCompatActivity {
     Serializable map ;
     Player[] Player = new Player[2];
     int flag;//переключатель между игроками во время игры
-    int regime_game ; // 1- расширенный 0- классический
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +46,22 @@ public class Activity_Game extends AppCompatActivity {
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-
+                final int ii =i ;
+                final int jj =  j;
                 final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
-              //  field[i][j] = new Field(res);
-                Im [i][j] = (ImageView) findViewById(res);
 
+
+                Im [i][j] = (ImageView) findViewById(res);
+                Im[i][j].setOnClickListener(new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View v) {
+                        ChangePlayer (res, ii, jj);
+                        NoClick(Im);
+
+                    }
+                });
             }
         }
 
@@ -225,12 +236,15 @@ public class Activity_Game extends AppCompatActivity {
 
             case R.id.Ukaz:{
                 ImageView ImageView = (ImageView) findViewById(R.id.Ukaz);
+               // Click(Im);
                         if (flag == 1){
                 // поле противника
+
                             ImageView.setImageResource(R.drawable.button_left);
 
                 for(int i =0; i< 10; i++){
                     for (int j =0; j<10;j++){
+
                         final int ii = i;
                         final int jj = j;
                         Im[i][j].setImageResource(R.drawable.my_map);
@@ -241,8 +255,11 @@ public class Activity_Game extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 ChangeOpponent (res, ii, jj);
+                                 NoClick(Im);
                             }
                         });
+
+
                     }
 
                 }
@@ -254,6 +271,7 @@ public class Activity_Game extends AppCompatActivity {
                             DrawMap(field);
                             for(int i =0; i< 10; i++){
                                 for (int j =0; j<10;j++){
+
                                     final int ii = i;
                                     final int jj = j;
                                     final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
@@ -263,6 +281,7 @@ public class Activity_Game extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
                                             ChangePlayer (res, ii, jj);
+                                            NoClick(Im);
                                         }
                                     });
                                 }
@@ -270,6 +289,7 @@ public class Activity_Game extends AppCompatActivity {
                             }
                             ImageView.setImageResource(R.drawable.button_right);
                             flag = 1;
+
                         }
 
 
@@ -317,6 +337,30 @@ switch (k){
 }
     }
 
+    public void NoClick( ImageView [][] Im){
+
+        for(int i =0; i< 10; i++){
+            for (int j =0; j<10;j++) {
+                Im[i][j].setClickable(false);
+                    }
+        }
+
+            }
+
+
+            public  void Click (ImageView [][] Im){
+
+                for(int i =0; i< 10; i++){
+                    for (int j =0; j<10;j++) {
+                        Im[i][j].setClickable(true);
+                    }
+                }
+
+
+            }
+
+
+    //нанесение удара
     public void ChangePlayer(int res, int i, int j){
 
         ImageView Imm = (ImageView) findViewById(res);
