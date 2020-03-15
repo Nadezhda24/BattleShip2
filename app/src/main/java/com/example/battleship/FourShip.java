@@ -5,16 +5,16 @@ import android.widget.ImageView;
 import java.io.Serializable;
 
 public class FourShip extends Ship implements Serializable {
-    private ships[] ship = new  ships[4];
+    private status.ShipType[] ship = new status.ShipType[4];
 
     public FourShip() {
-        ship[0] =  com.example.battleship.ships.ship41;
-        ship[1] =  com.example.battleship.ships.ship42;
-        ship[2] =  com.example.battleship.ships.ship43;
-        ship[3] = com.example.battleship.ships.ship44;
+        ship[0] =  status.Ship.ship41;
+        ship[1] =  status.Ship.ship42;
+        ship[2] =  status.Ship.ship43;
+        ship[3] =  status.Ship.ship44;
     }
 
-    public FourShip(ships st1,ships st2, ships st3, ships st4 ) {
+    public FourShip(status.ShipType st1,status.ShipType st2, status.ShipType st3, status.ShipType st4 ) {
 
         ship[0]=  st1;
         ship[1]=  st2;
@@ -23,7 +23,7 @@ public class FourShip extends Ship implements Serializable {
     }
 
 
-    public ships GetShip (int i){
+    public status.ShipType GetShip (int i){
         return  ship[i];
 
     }

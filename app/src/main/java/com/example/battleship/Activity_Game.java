@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,11 +18,14 @@ import java.io.Serializable;
 import static com.example.battleship.status.checked;
 
 public class Activity_Game extends AppCompatActivity {
-    Field [][] field = new Field[10][10];
-    Field [][] field2 = new Field[10][10];
-    ImageView [][] Im = new ImageView[10][10];
+
+
+    Field [][] fieldPlayer = new Field[10][10];
+    Field [][] fieldOpponent = new Field[10][10];
+    ImageView [][] ImPlayer = new ImageView[10][10];
+    ImageView [][] ImOpponent = new ImageView[10][10];
     Ship [] ship = new Ship[10];
-    Serializable map ;
+    Map mapPlayer, mapOpponent ;
     Player[] Player = new Player[2];
     int flag;//переключатель между игроками во время игры
 
@@ -41,9 +45,11 @@ public class Activity_Game extends AppCompatActivity {
         Bundle arguments = getIntent().getExtras();
         Player[0] =  (Player) arguments.getSerializable("player");
 
-        field=  Player[0].GetMap().field ;
-// проверка карты у игроков пока одинаковые
-        field2 = Player[0].GetMap().field;
+
+        fieldPlayer=  Player[0].GetMap().field ;
+
+        // проверка карты у игроков пока одинаковые
+        fieldOpponent = Player[0].GetMap().field;
 
 
         for (int i = 0; i < 10; i++) {
@@ -53,14 +59,17 @@ public class Activity_Game extends AppCompatActivity {
                 final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
 
 
-                Im [i][j] = (ImageView) findViewById(res);
-                Im[i][j].setOnClickListener(new View.OnClickListener() {
+                ImPlayer [i][j] = (ImageView) findViewById(res);
+                ImOpponent [i][j] = (ImageView) findViewById(res);
+
+
+                ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
 
 
                     @Override
                     public void onClick(View v) {
                         ChangePlayer (res, ii, jj);
-                        NoClick(Im);
+                        NoClick(ImPlayer);
 
                     }
                 });
@@ -68,7 +77,7 @@ public class Activity_Game extends AppCompatActivity {
         }
 
 
-        DrawMap(field);
+        DrawMap(fieldPlayer, ImPlayer);
 
         TextView NamePlayer = findViewById(R.id.Use_name);
         NamePlayer.setText(Player[0].Getname());
@@ -79,10 +88,13 @@ public class Activity_Game extends AppCompatActivity {
         TextView ExperiencePlayer = findViewById(R.id.Count);
         ExperiencePlayer.setText(String.valueOf(Player[0].Getexperiment()));
 
+        mapPlayer = new Map(fieldPlayer, ship);
+        mapOpponent = new Map(fieldOpponent, ship);
+
 
 
     if (  Player[0].Getregim_game() == 1 ) {
-//сундучки
+        //сундучки
         final Dialog dialog = new Dialog(Activity_Game.this);
         dialog.setContentView(R.layout.choice);
         Button button = dialog.findViewById(R.id.Ok);
@@ -126,20 +138,20 @@ public class Activity_Game extends AppCompatActivity {
 
                 dialog.dismiss();
                 //пират
-
                 final Dialog dialog1 = new Dialog(Activity_Game.this);
                 dialog1.setContentView(R.layout.pirate);
                 Button button1 = dialog1.findViewById(R.id.yes);
                 Button button2 = dialog1.findViewById(R.id.no);
 
                 TextView text = dialog1.findViewById(R.id.piratetext);
-                //   text.setText("Расставь бамбы и напакости противнику!\n хе хе хе ");
 
 
                 button1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //  map.PirateBomb(0+(int)(Math.random() * 3));
+                    // расстановка бомб
+                      fieldOpponent = mapOpponent.PirateBomb(0+(int)(Math.random() * 4));
+
                         dialog1.dismiss();
                     }
                 });
@@ -249,59 +261,58 @@ public class Activity_Game extends AppCompatActivity {
             break;
 
             case R.id.Ukaz:{
-                ImageView ImageView = (ImageView) findViewById(R.id.Ukaz);
-               // Click(Im);
-                        if (flag == 1){
-                // поле противника
 
+                ImageView ImageView = (ImageView) findViewById(R.id.Ukaz);
+
+                        if (flag == 1){
+                            // поле противника
                             ImageView.setImageResource(R.drawable.button_left);
 
+                            for(int i =0; i< 10; i++){
+                                for (int j =0; j<10;j++){
 
-                for(int i =0; i< 10; i++){
-                    for (int j =0; j<10;j++){
+                                    final int ii = i;
+                                    final int jj = j;
+                                    // скрытие поля противника
+                                    ImOpponent[i][j].setImageResource(R.drawable.my_map);
 
-                        final int ii = i;
-                        final int jj = j;
-                       // if (field2[i][j].GetStatus() != checked){
-                        Im[i][j].setImageResource(R.drawable.my_map);
-
-                      //  }
-                        final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
-                        Im[i][j].setOnClickListener(new View.OnClickListener() {
+                                    final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
+                                    ImOpponent[i][j].setOnClickListener(new View.OnClickListener() {
 
 
-                            @Override
-                            public void onClick(View v) {
-                                ChangeOpponent (res, ii, jj);
-                                 NoClick(Im);
+                                        @Override
+                                        public void onClick(View v) {
+                                            // прорисовка выбранной клетки
+                                            ChangeOpponent (res, ii, jj, fieldOpponent);
+                                            // запрет  на нажатия всех клеток после совершения хода
+                                            NoClick(ImOpponent);
+                                        }
+                                    });
+
+                                }
+
                             }
-                        });
 
-
-
-
-                    }
-
-                }
-
-
-                        flag = 0;}
+                            flag = 0;
+                        }
                         else {
-               // поле игрока
-                            DrawMap(field);
+                            // поле игрока
+                            DrawMap(fieldPlayer, ImPlayer);
                             for(int i =0; i< 10; i++){
                                 for (int j =0; j<10;j++){
 
                                     final int ii = i;
                                     final int jj = j;
                                     final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
-                                    Im[i][j].setOnClickListener(new View.OnClickListener() {
+                                    ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
 
 
                                         @Override
                                         public void onClick(View v) {
+                                            // перерисовка выбранной клетки
                                             ChangePlayer (res, ii, jj);
-                                            NoClick(Im);
+                                            // запрет  на нажатия всех клеток после совершения хода
+                                            NoClick(ImPlayer);
                                         }
                                     });
                                 }
@@ -315,6 +326,8 @@ public class Activity_Game extends AppCompatActivity {
 
             }
             break;
+
+            // чат
             case R.id.Auto: {
                 final Dialog dialog = new Dialog(Activity_Game.this);
                 dialog.setContentView(R.layout.chat);
@@ -326,80 +339,66 @@ public class Activity_Game extends AppCompatActivity {
                     }
                 });
 
-
-
                 dialog.setCancelable(false);
                 dialog.show();
             }
             break;
         }
 
-
-
     }
 
 
-    int k =0 ;
 //изменение состояния клетки при нажатии
-    public  void  ChangeOpponent (int res, int i, int j){
+    public  void  ChangeOpponent (int res, int i, int j, Field[][] field){
 
-ImageView Imm = (ImageView) findViewById(res);
+        ImageView Imm = (ImageView) findViewById(res);
+        switch (field[i][j].GetStatus()){
 
-switch (k){
-    case 0:
-       // Imm.setImageResource(R.drawable.indikator);
+            case ship:
+                Imm.setImageResource(R.drawable.ship1);
+                break;
+            case empty:
+                Imm.setImageResource(R.drawable.my_map);
+                break;
+            case bomb:
+                Imm.setImageResource(R.drawable.bomb);
+                break;
 
-        DrawField ( field2[i][j], i ,  j);
+        }
 
-        break;
-
-
-}
     }
 
+    // запрет на нажатие клеток после совершения хода
     public void NoClick( ImageView [][] Im){
 
         for(int i =0; i< 10; i++){
             for (int j =0; j<10;j++) {
                 Im[i][j].setClickable(false);
-                    }
-        }
-
             }
+        }
+    }
 
 
-            public  void Click (ImageView [][] Im){
+   // разрешение нажатия на клетки поля
+    public  void Click (ImageView [][] Im){
 
-                for(int i =0; i< 10; i++){
-                    for (int j =0; j<10;j++) {
-                        Im[i][j].setClickable(true);
+        for(int i =0; i< 10; i++){
+            for (int j =0; j<10;j++) {
+                Im[i][j].setClickable(true);
                     }
                 }
-
-
-            }
-
+    }
 
     //нанесение удара
     public void ChangePlayer(int res, int i, int j){
 
         ImageView Imm = (ImageView) findViewById(res);
-
-        switch (k){
-            case 0:
-                 Imm.setImageResource(R.drawable.indikator);
-                 field[i][j].SetStatus(checked);
-                break;
-
-
-        }
-
-
+        Imm.setImageResource(R.drawable.indikator);
+        fieldPlayer[i][j].SetStatus(checked);
     }
 
-
     //заполнение клетки картинкой
-    public Field DrawField (Field field, int i , int j){
+    public Field DrawField (Field field, int i , int j, ImageView [][] Im){
         switch (field.GetStatus()){
 
             case ship:
@@ -411,18 +410,12 @@ switch (k){
             case bomb:
                 Im[i][j].setImageResource(R.drawable.bomb);
                 break;
-
-
-
-
         }
-
         return field;
     }
 
-
     // заполнение поля картинками
-    public  void DrawMap (Field[][] field){
+    public  void DrawMap (Field[][] field, ImageView [][] Im){
         for(int i =0; i<10; i++) {
             for (int j = 0; j < 10; j++) {
                 switch (field[i][j].GetStatus()){
@@ -439,10 +432,6 @@ switch (k){
                     case checked:
                         Im[i][j].setImageResource(R.drawable.indikator);
                         break;
-
-
-
-
                 }
 
             }
