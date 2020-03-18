@@ -27,3 +27,9 @@ enum status {
             ship11, ship21, ship22, ship31, ship32, ship33, ship41, ship42, ship43, ship44;
         }
 }
+
+
+enum ImageStatus {
+
+    up, down;
+}

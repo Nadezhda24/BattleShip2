@@ -167,9 +167,9 @@
 
         <Space
             android:id="@+id/spase111"
-            android:layout_width="157dp"
-            android:layout_height="109dp"
-            android:layout_below="@+id/l1"/>
+            android:layout_width="97dp"
+            android:layout_height="107dp"
+            android:layout_below="@+id/l1" />
 
         <Space
             android:id="@+id/spase222"
@@ -177,6 +177,29 @@
             android:layout_height="78dp"
             android:layout_below="@+id/spase111" />
 
+        <Space
+            android:id="@+id/spase333"
+            android:layout_width="121dp"
+            android:layout_height="103dp"
+            android:layout_below="@+id/l1"
+            android:layout_toRightOf="@+id/l2"/>
+
+        <ImageView
+            android:id="@+id/left"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/l1"
+            android:layout_toRightOf="@+id/spase111"
+            app:srcCompat="@drawable/button_left" />
+
+
+        <ImageView
+            android:id="@+id/right"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/l1"
+            android:layout_toRightOf="@+id/spase333"
+            app:srcCompat="@drawable/button_right" />
 
         <Button
             android:id="@+id/turn"
@@ -784,10 +807,6 @@
             </TableRow>
 
         </TableLayout>
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
 
     </RelativeLayout>

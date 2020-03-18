@@ -24,6 +24,8 @@ public class Activity_Game extends AppCompatActivity {
     Field [][] fieldOpponent = new Field[10][10];
     ImageView [][] ImPlayer = new ImageView[10][10];
     ImageView [][] ImOpponent = new ImageView[10][10];
+    ImageStatus [][] ImStOpponent =  new ImageStatus[10][10];
+  //  ImageStatus [][] ImStPlayer =  new ImageStatus[10][10];
     Ship [] ship = new Ship[10];
     Map mapPlayer, mapOpponent ;
     Player[] Player = new Player[2];
@@ -62,6 +64,8 @@ public class Activity_Game extends AppCompatActivity {
                 ImPlayer [i][j] = (ImageView) findViewById(res);
                 ImOpponent [i][j] = (ImageView) findViewById(res);
 
+                ImStOpponent [i][j] = ImageStatus.down;
+           //     ImStPlayer [i][j] = ImageStatus.up;
 
                 ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
 
@@ -101,14 +105,17 @@ public class Activity_Game extends AppCompatActivity {
         final TextView text = dialog.findViewById(R.id.Choice);
         final ImageView box_one = dialog.findViewById(R.id.box_one);
         final ImageView box_two= dialog.findViewById(R.id.box_two);
-
+        final Button ok = dialog.findViewById(R.id.Ok);
+        ok.setClickable(false);
         //Право первого хода
          final int player_choice = 0+(int)(Math.random() * 2);
 
         box_one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ok.setClickable(true);
                 if (player_choice == 1){
+
                 box_one.setImageResource(R.drawable.box_open);
                 text.setText("Твой ход первый!");
 
@@ -123,6 +130,7 @@ public class Activity_Game extends AppCompatActivity {
         box_two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ok.setClickable(true);
                 if (player_choice == 1){
                 box_two.setImageResource(R.drawable.box_open);
                     text.setText("Твой ход первый!");}
@@ -151,8 +159,8 @@ public class Activity_Game extends AppCompatActivity {
                     public void onClick(View v) {
                     // расстановка бомб
                       fieldOpponent = mapOpponent.PirateBomb(0+(int)(Math.random() * 4));
-
-                        dialog1.dismiss();
+                      DrawMap(fieldPlayer, ImPlayer);
+                      dialog1.dismiss();
                     }
                 });
 
@@ -274,7 +282,8 @@ public class Activity_Game extends AppCompatActivity {
                                     final int ii = i;
                                     final int jj = j;
                                     // скрытие поля противника
-                                    ImOpponent[i][j].setImageResource(R.drawable.my_map);
+
+                              if (ImStOpponent[i][j] == ImageStatus.down) ImOpponent[i][j].setImageResource(R.drawable.my_map);
 
                                     final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
                                     ImOpponent[i][j].setOnClickListener(new View.OnClickListener() {
@@ -284,6 +293,7 @@ public class Activity_Game extends AppCompatActivity {
                                         public void onClick(View v) {
                                             // прорисовка выбранной клетки
                                             ChangeOpponent (res, ii, jj, fieldOpponent);
+                                            ImStOpponent[ii][jj] =  ImageStatus.up;
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImOpponent);
                                         }
@@ -413,6 +423,7 @@ public class Activity_Game extends AppCompatActivity {
         }
         return field;
     }
+
 
     // заполнение поля картинками
     public  void DrawMap (Field[][] field, ImageView [][] Im){
