@@ -31,7 +31,7 @@ public class Activity_Game extends AppCompatActivity {
     Player[] Player = new Player[2];
     int flag;//переключатель между игроками во время игры
 
-    int flag_bomb;
+    boolean flag_bomb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class Activity_Game extends AppCompatActivity {
         }
 
         flag = 0;
-        flag_bomb = 1;
+        flag_bomb = false;
         Player[0] = new Player();
         Player[1] = new Player();
         Bundle arguments = getIntent().getExtras();
@@ -191,6 +191,15 @@ public class Activity_Game extends AppCompatActivity {
         ImageView0.setImageResource(R.drawable.coins);
         LinerLayout.addView(ImageView0);
 
+        ImageView0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // поражение области 3*3
+                flag_bomb = true;
+            }
+        });
+
+
         ImageView ImageView2 = new ImageView(this);
         ImageView2.setImageResource(R.drawable.coins);
         LinerLayout.addView(ImageView2);
@@ -209,13 +218,11 @@ public class Activity_Game extends AppCompatActivity {
         ImageView5.setImageResource(R.drawable.coins);
         LinerLayout1.addView(ImageView5);
 
-
         ImageView0.setOnClickListener(new View.OnClickListener() {
-
 
             @Override
             public void onClick(View v) {
-                flag_bomb = 1;
+                flag_bomb = true;
             }
         });
 
@@ -293,6 +300,18 @@ public class Activity_Game extends AppCompatActivity {
                                         public void onClick(View v) {
                                             // прорисовка выбранной клетки
                                             ChangeOpponent (res, ii, jj, fieldOpponent);
+                                            if(flag_bomb) {
+                                                if (ii != 10 && jj != 10)   ImStOpponent[ii+1][jj+1] =  ImageStatus.up;
+                                                if (ii != 10) ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                if (ii != 10 && jj != 0)ImStOpponent[ii+1][jj-1] =  ImageStatus.up;
+                                                if (jj != 10)ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                if (jj != 0) ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                if (ii != 0 && jj != 10)ImStOpponent[ii-1][jj+1] =  ImageStatus.up;
+                                                if (ii != 0)ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                if (ii != 0 && jj != 0) ImStOpponent[ii-1][jj+1] =  ImageStatus.up;
+                                            }
+
+
                                             ImStOpponent[ii][jj] =  ImageStatus.up;
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImOpponent);
@@ -303,7 +322,9 @@ public class Activity_Game extends AppCompatActivity {
 
                             }
 
-                            flag = 0;
+
+
+                                    flag = 0;
                         }
                         else {
                             // поле игрока
@@ -449,4 +470,6 @@ public class Activity_Game extends AppCompatActivity {
         }
 
     }
+
+
 }

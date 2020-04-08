@@ -173,7 +173,7 @@ Player[] Player = new Player[2];
 
 
                     ImageView ImageView = new ImageView(this);
-                    ImageView.setImageResource(R.drawable.oneship);
+                    ImageView.setImageResource(R.drawable.bomb);
                     LinerLayout.addView(ImageView);
 
                     TextView text1 = new TextView(this);
@@ -182,7 +182,7 @@ Player[] Player = new Player[2];
                     LinerLayout.addView(text1);
 
                     ImageView ImageView1 = new ImageView(this);
-                    ImageView1.setImageResource(R.drawable.oneship);
+                    ImageView1.setImageResource(R.drawable.bomb);
                     LinerLayout.addView(ImageView1);
 
 
@@ -205,7 +205,7 @@ Player[] Player = new Player[2];
 
 
                     ImageView ImageView = new ImageView(this);
-                    ImageView.setImageResource(R.drawable.oneship);
+                    ImageView.setImageResource(R.drawable.bomb);
                     LinerLayout.addView(ImageView);
 
                     TextView text1 = new TextView(this);
@@ -214,7 +214,7 @@ Player[] Player = new Player[2];
                     LinerLayout.addView(text1);
 
                     ImageView ImageView1 = new ImageView(this);
-                    ImageView1.setImageResource(R.drawable.oneship);
+                    ImageView1.setImageResource(R.drawable.bomb);
                     LinerLayout.addView(ImageView1);
 
                 }
