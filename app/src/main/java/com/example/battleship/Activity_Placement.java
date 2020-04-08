@@ -209,6 +209,12 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                      this.field = map.NearOneShip(i + ki * k,j + kj * k );
 
                 }
+
+               this.field[i + ki * 0][j + kj * 0].SetStatus_Ship(ships_st.ship41);
+               this.field[i + ki * 1][j + kj * 1].SetStatus_Ship(ships_st.ship42);
+               this.field[i + ki * 2][j + kj * 2].SetStatus_Ship(ships_st.ship43);
+               this.field[i + ki * 3][j + kj * 3].SetStatus_Ship(ships_st.ship44);
+
                if (ki== 1){
                    Im[i + ki * 0][j + kj * 0].animate().rotation(90);
                    Im[i + ki * 1][j + kj * 1].animate().rotation(90);
@@ -249,6 +255,10 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                         this.field = map.NearOneShip(i + ki * k,j + kj * k );
 
                     }
+                  this.field[i + ki * 0][j + kj * 0].SetStatus_Ship(ships_st.ship31);
+                  this.field[i + ki * 1][j + kj * 1].SetStatus_Ship(ships_st.ship32);
+                  this.field[i + ki * 2][j + kj * 2].SetStatus_Ship(ships_st.ship33);
+
                   if (ki== 1){
                       Im[i + ki * 0][j + kj * 0].animate().rotation(90);
                       Im[i + ki * 1][j + kj * 1].animate().rotation(90);
@@ -281,6 +291,8 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                         this.field[i + ki * k][j + kj * k].SetStatus(status.ship);
                         this.field = map.NearOneShip(i + ki * k,j + kj * k );
                     }
+                    this.field[i + ki * 0][j + kj * 0].SetStatus_Ship(ships_st.ship21);
+                    this.field[i + ki * 1][j + kj * 1].SetStatus_Ship(ships_st.ship22);
 
                     if (ki== 1){
                         Im[i + ki * 0][j + kj * 0].animate().rotation(90);
@@ -307,8 +319,9 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
 
                     //  this.field[i][j].SetImageView(ship[r].GetShip(0));
                     this.field[i][j].SetStatus(status.ship);
+                   this.field[i + ki * 0][j + kj * 0].SetStatus_Ship(ships_st.ship11);
 
-                  
+
                    Im[i + ki * 0][j + kj * 0].setImageResource(R.drawable.ship_one);
 
 

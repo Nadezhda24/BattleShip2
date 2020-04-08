@@ -386,8 +386,40 @@ public class Activity_Game extends AppCompatActivity {
         switch (field[i][j].GetStatus()){
 
             case ship:
-                Imm.setImageResource(R.drawable.ship1);
-                break;
+                switch (field[i][j].GetStatus_Ship()){
+                case ship11:
+                    Imm.setImageResource(R.drawable.ship_one);
+                    break;
+                case ship21:
+                    Imm.setImageResource(R.drawable.ship_two_1);
+                    break;
+                case ship22:
+                    Imm.setImageResource(R.drawable.ship_two_2);
+                    break;
+                case ship31:
+                    Imm.setImageResource(R.drawable.ship_three_1);
+                    break;
+                case ship32:
+                    Imm.setImageResource(R.drawable.ship_three_2);
+                    break;
+                case ship33:
+                    Imm.setImageResource(R.drawable.ship_three_3);
+                    break;
+                case ship41:
+                    Imm.setImageResource(R.drawable.ship_four_1);
+                    break;
+                case ship42:
+                    Imm.setImageResource(R.drawable.ship_four_2);
+                    break;
+                case ship43:
+                    Imm.setImageResource(R.drawable.ship_four_3);
+                    break;
+                case ship44:
+                    Imm.setImageResource(R.drawable.ship_four_4);
+                    break;
+
+            }
+            break;
             case empty:
                 Imm.setImageResource(R.drawable.my_map);
                 break;
@@ -433,7 +465,40 @@ public class Activity_Game extends AppCompatActivity {
         switch (field.GetStatus()){
 
             case ship:
-                Im[i][j].setImageResource(R.drawable.ship1);
+                switch (field.GetStatus_Ship()){
+                    case ship11:
+                        Im[i][j].setImageResource(R.drawable.ship_one);
+
+                        break;
+                    case ship21:
+                        Im[i][j].setImageResource(R.drawable.ship_two_1);
+                        break;
+                    case ship22:
+                        Im[i][j].setImageResource(R.drawable.ship_two_2);
+                        break;
+                    case ship31:
+                        Im[i][j].setImageResource(R.drawable.ship_three_1);
+                        break;
+                    case ship32:
+                        Im[i][j].setImageResource(R.drawable.ship_three_2);
+                        break;
+                    case ship33:
+                        Im[i][j].setImageResource(R.drawable.ship_three_3);
+                        break;
+                    case ship41:
+                        Im[i][j].setImageResource(R.drawable.ship_four_1);
+                        break;
+                    case ship42:
+                        Im[i][j].setImageResource(R.drawable.ship_four_2);
+                        break;
+                    case ship43:
+                        Im[i][j].setImageResource(R.drawable.ship_four_3);
+                        break;
+                    case ship44:
+                        Im[i][j].setImageResource(R.drawable.ship_four_4);
+                        break;
+
+                }
                 break;
             case empty:
                 Im[i][j].setImageResource(R.drawable.my_map);
@@ -453,7 +518,40 @@ public class Activity_Game extends AppCompatActivity {
                 switch (field[i][j].GetStatus()){
 
                     case ship:
-                        Im[i][j].setImageResource(R.drawable.ship1);
+                        switch (field[i][j].GetStatus_Ship()){
+                            case ship11:
+                                Im[i][j].setImageResource(R.drawable.ship_one);
+
+                                break;
+                            case ship21:
+                                Im[i][j].setImageResource(R.drawable.ship_two_1);
+                                break;
+                            case ship22:
+                                Im[i][j].setImageResource(R.drawable.ship_two_2);
+                                break;
+                            case ship31:
+                                Im[i][j].setImageResource(R.drawable.ship_three_1);
+                                break;
+                            case ship32:
+                                Im[i][j].setImageResource(R.drawable.ship_three_2);
+                                break;
+                            case ship33:
+                                Im[i][j].setImageResource(R.drawable.ship_three_3);
+                                break;
+                            case ship41:
+                                Im[i][j].setImageResource(R.drawable.ship_four_1);
+                                break;
+                            case ship42:
+                                Im[i][j].setImageResource(R.drawable.ship_four_2);
+                                break;
+                            case ship43:
+                                Im[i][j].setImageResource(R.drawable.ship_four_3);
+                                break;
+                            case ship44:
+                                Im[i][j].setImageResource(R.drawable.ship_four_4);
+                                break;
+
+                        }
                         break;
                     case empty:
                         Im[i][j].setImageResource(R.drawable.my_map);
@@ -465,6 +563,7 @@ public class Activity_Game extends AppCompatActivity {
                         Im[i][j].setImageResource(R.drawable.indikator);
                         break;
                 }
+
 
             }
         }
