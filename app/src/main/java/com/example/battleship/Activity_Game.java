@@ -426,6 +426,8 @@ public class Activity_Game extends AppCompatActivity {
             case bomb:
                 Imm.setImageResource(R.drawable.bomb);
                 break;
+            case kill:
+                Imm.setImageResource(R.drawable.fire);
 
         }
 
@@ -456,8 +458,14 @@ public class Activity_Game extends AppCompatActivity {
     public void ChangePlayer(int res, int i, int j){
 
         ImageView Imm = (ImageView) findViewById(res);
-        Imm.setImageResource(R.drawable.indikator);
-        fieldPlayer[i][j].SetStatus(checked);
+       if (fieldPlayer[i][j].GetStatus() == status.ship){
+
+           Imm.setImageResource(R.drawable.fire);
+           fieldPlayer[i][j].SetStatus(status.kill);
+       }else {
+           Imm.setImageResource(R.drawable.mimo);
+           fieldPlayer[i][j].SetStatus(checked);
+       }
     }
 
     //заполнение клетки картинкой
@@ -506,6 +514,8 @@ public class Activity_Game extends AppCompatActivity {
             case bomb:
                 Im[i][j].setImageResource(R.drawable.bomb);
                 break;
+            case kill:
+                Im[i][j].setImageResource(R.drawable.fire);
         }
         return field;
     }
@@ -560,8 +570,10 @@ public class Activity_Game extends AppCompatActivity {
                         Im[i][j].setImageResource(R.drawable.bomb);
                         break;
                     case checked:
-                        Im[i][j].setImageResource(R.drawable.indikator);
+                        Im[i][j].setImageResource(R.drawable.mimo);
                         break;
+                    case kill:
+                        Im[i][j].setImageResource(R.drawable.fire);
                 }
 
 
