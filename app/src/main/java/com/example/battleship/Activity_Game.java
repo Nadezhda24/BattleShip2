@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.io.Serializable;
 
 import static com.example.battleship.status.checked;
+import static com.example.battleship.status.empty;
 
 public class Activity_Game extends AppCompatActivity {
 
@@ -65,7 +66,7 @@ public class Activity_Game extends AppCompatActivity {
                 ImOpponent [i][j] = (ImageView) findViewById(res);
 
                 ImStOpponent [i][j] = ImageStatus.down;
-           //     ImStPlayer [i][j] = ImageStatus.up;
+
 
                 ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
 
@@ -188,35 +189,37 @@ public class Activity_Game extends AppCompatActivity {
 
 
         ImageView ImageView0 = new ImageView(this);
-        ImageView0.setImageResource(R.drawable.coins);
+        ImageView0.setImageResource(R.drawable.anchor100);
         LinerLayout.addView(ImageView0);
-
-        ImageView0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // поражение области 3*3
-                flag_bomb = true;
-            }
-        });
 
 
         ImageView ImageView2 = new ImageView(this);
-        ImageView2.setImageResource(R.drawable.coins);
+        ImageView2.setImageResource(R.drawable.trumpet100);
         LinerLayout.addView(ImageView2);
 
         ImageView ImageView3 = new ImageView(this);
-        ImageView3.setImageResource(R.drawable.coins);
+        ImageView3.setImageResource(R.drawable.abortazh);
         LinerLayout.addView(ImageView3);
 
         LinearLayout LinerLayout1 = (LinearLayout) findViewById(R.id.LF2);
 
         ImageView ImageView4 = new ImageView(this);
-        ImageView4.setImageResource(R.drawable.coins);
+        ImageView4.setImageResource(R.drawable.dinamit100);
         LinerLayout1.addView(ImageView4);
 
         ImageView ImageView5 = new ImageView(this);
-        ImageView5.setImageResource(R.drawable.coins);
+        ImageView5.setImageResource(R.drawable.tool);
         LinerLayout1.addView(ImageView5);
+
+        ImageView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // поражение области 3*3
+
+                flag_bomb = true;
+            }
+        });
+
 
         ImageView0.setOnClickListener(new View.OnClickListener() {
 
@@ -298,21 +301,79 @@ public class Activity_Game extends AppCompatActivity {
 
                                         @Override
                                         public void onClick(View v) {
+                                            if(fieldOpponent[ii][jj].GetStatus() != status.ship){
+
+                                                fieldOpponent[ii][jj].SetStatus(checked);}
+
+                                            ImStOpponent[ii][jj] =  ImageStatus.up;
                                             // прорисовка выбранной клетки
                                             ChangeOpponent (res, ii, jj, fieldOpponent);
+
                                             if(flag_bomb) {
-                                                if (ii != 10 && jj != 10)   ImStOpponent[ii+1][jj+1] =  ImageStatus.up;
-                                                if (ii != 10) ImStOpponent[ii+1][jj] =  ImageStatus.up;
-                                                if (ii != 10 && jj != 0)ImStOpponent[ii+1][jj-1] =  ImageStatus.up;
-                                                if (jj != 10)ImStOpponent[ii][jj+1] =  ImageStatus.up;
-                                                if (jj != 0) ImStOpponent[ii][jj-1] =  ImageStatus.up;
-                                                if (ii != 0 && jj != 10)ImStOpponent[ii-1][jj+1] =  ImageStatus.up;
-                                                if (ii != 0)ImStOpponent[ii-1][jj] =  ImageStatus.up;
-                                                if (ii != 0 && jj != 0) ImStOpponent[ii-1][jj+1] =  ImageStatus.up;
+
+                                                if (ii != 10 && jj != 10)   {
+
+                                                    ImStOpponent[ii+1][jj+1] =  ImageStatus.up;
+                                                    if((fieldOpponent[ii+1][jj+1].GetStatus() != status.ship) &&(fieldOpponent[ii+1][jj+1].GetStatus() != status.kill) ){
+
+                                                        fieldOpponent[ii+1][jj+1].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj+1), "id", getPackageName()), ii+1, jj+1, fieldOpponent);
+                                                }
+                                                if (ii != 10) {
+
+                                                    ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                    if(fieldOpponent[ii+1][jj].GetStatus() != status.ship && fieldOpponent[ii+1][jj].GetStatus() != status.kill){
+
+                                                        fieldOpponent[ii+1][jj].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + jj, "id", getPackageName()), ii+1, jj, fieldOpponent);
+                                                }
+                                                if (ii != 10 && jj != 0){
+
+                                                    ImStOpponent[ii+1][jj-1] =  ImageStatus.up;
+                                                    if(fieldOpponent[ii+1][jj-1].GetStatus() != status.ship && fieldOpponent[ii+1][jj-1].GetStatus() != status.kill){
+
+                                                        fieldOpponent[ii+1][jj-1].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj-1), "id", getPackageName()), ii+1, jj-1, fieldOpponent);
+                                                    }
+                                                if (jj != 10){ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                    if(fieldOpponent[ii][jj+1].GetStatus() != status.ship&& fieldOpponent[ii][jj+1].GetStatus() != status.kill){
+
+                                                        fieldOpponent[ii][jj+1].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + ii + (jj+1), "id", getPackageName()), ii, jj+1, fieldOpponent);
+                                                    }
+                                                if (jj != 0) {ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                    if(fieldOpponent[ii][jj-1].GetStatus() != status.ship&&fieldOpponent[ii][jj-1].GetStatus() != status.kill){
+
+                                                        fieldOpponent[ii][jj-1].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + ii + (jj-1), "id", getPackageName()), ii, jj-1, fieldOpponent);
+                                                    }
+                                                if (ii != 0 && jj != 10){ImStOpponent[ii-1][jj+1] =  ImageStatus.up;
+                                                    if(fieldOpponent[ii-1][jj+1].GetStatus() != status.ship && fieldOpponent[ii-1][jj+1].GetStatus() != status.kill){
+
+                                                        fieldOpponent[ii-1][jj+1].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj+1), "id", getPackageName()), ii-1, jj+1, fieldOpponent);
+                                                    }
+                                                if (ii != 0){
+                                                    ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                    if(fieldOpponent[ii-1][jj].GetStatus() != status.ship&&fieldOpponent[ii-1][jj].GetStatus() != status.kill){
+
+                                                    fieldOpponent[ii-1][jj].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + jj, "id", getPackageName()), ii-1, jj, fieldOpponent);
+                                                }
+                                                if (ii != 0 && jj != 0) {
+                                                    ImStOpponent[ii-1][jj-1] =  ImageStatus.up;
+                                                    if( fieldOpponent[ii-1][jj-1].GetStatus() != status.ship && fieldOpponent[ii-1][jj-1].GetStatus() != status.kill){
+
+                                                    fieldOpponent[ii-1][jj-1].SetStatus(checked);}
+                                                        ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj-1), "id", getPackageName()), ii-1, jj+1, fieldOpponent);
+                                                }
+
+                                                flag_bomb = false;
                                             }
 
 
-                                            ImStOpponent[ii][jj] =  ImageStatus.up;
+
+
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImOpponent);
                                         }
@@ -320,7 +381,12 @@ public class Activity_Game extends AppCompatActivity {
 
                                 }
 
+
                             }
+
+
+
+
 
 
 
@@ -428,6 +494,8 @@ public class Activity_Game extends AppCompatActivity {
                 break;
             case kill:
                 Imm.setImageResource(R.drawable.fire);
+            case checked:
+                Imm.setImageResource(R.drawable.mimo);
 
         }
 
