@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import android.widget.Toast;
 
 import static com.example.battleship.status.checked;
 import static com.example.battleship.status.empty;
@@ -33,6 +41,7 @@ public class Activity_Game extends AppCompatActivity {
     int flag;//переключатель между игроками во время игры
 
     boolean flag_bomb;
+    boolean flag_trubka;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -189,7 +198,7 @@ public class Activity_Game extends AppCompatActivity {
 
 
         ImageView ImageView0 = new ImageView(this);
-        ImageView0.setImageResource(R.drawable.anchor100);
+        ImageView0.setImageResource(R.drawable.dinamit100);
         LinerLayout.addView(ImageView0);
 
 
@@ -204,14 +213,14 @@ public class Activity_Game extends AppCompatActivity {
         LinearLayout LinerLayout1 = (LinearLayout) findViewById(R.id.LF2);
 
         ImageView ImageView4 = new ImageView(this);
-        ImageView4.setImageResource(R.drawable.dinamit100);
+        ImageView4.setImageResource(R.drawable.anchor100);
         LinerLayout1.addView(ImageView4);
 
         ImageView ImageView5 = new ImageView(this);
         ImageView5.setImageResource(R.drawable.tool);
         LinerLayout1.addView(ImageView5);
 
-        ImageView4.setOnClickListener(new View.OnClickListener() {
+        ImageView0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // поражение области 3*3
@@ -220,14 +229,17 @@ public class Activity_Game extends AppCompatActivity {
             }
         });
 
-
-        ImageView0.setOnClickListener(new View.OnClickListener() {
-
+        ImageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag_bomb = true;
+                // подгляделка
+
+                flag_trubka = true;
             }
         });
+
+
+
 
 
 
@@ -371,7 +383,19 @@ public class Activity_Game extends AppCompatActivity {
                                                 flag_bomb = false;
                                             }
 
+                                            if(flag_trubka){
+                                           
+                                                    ImStOpponent[ii][jj] =  ImageStatus.up;
 
+                                                    Toast toast = Toast.makeText(getApplicationContext(),
+                                                            "Пора покормить кота!", Toast.LENGTH_SHORT);
+                                                    toast.show();
+
+                                                    ImStOpponent[ii][jj] =  ImageStatus.down;
+
+                                                flag_trubka = false;
+
+                                            }
 
 
                                             // запрет  на нажатия всех клеток после совершения хода
@@ -441,6 +465,7 @@ public class Activity_Game extends AppCompatActivity {
             }
             break;
         }
+
 
     }
 
