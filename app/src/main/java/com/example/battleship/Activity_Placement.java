@@ -330,7 +330,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                     //  this.field[i][j].SetImageView(ship[r].GetShip(0));
                     this.field[i][j].SetStatus(status.ship);
                    this.field[i + ki * 0][j + kj * 0].SetStatus_Ship(ships_st.ship11);
-                   
+
 
 
                    Im[i + ki * 0][j + kj * 0].setImageResource(R.drawable.ship_one);

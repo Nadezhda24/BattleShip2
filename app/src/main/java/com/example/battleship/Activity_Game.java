@@ -430,14 +430,10 @@ public class Activity_Game extends AppCompatActivity {
                                                 ChangeOpponent (res, ii, jj, fieldOpponent);
 
 
-
-                                                try {
-                                                    Thread.sleep(5000);
-                                                } catch (InterruptedException e) {
-                                                    e.printStackTrace();
-                                                }
-
                                                 Toast toast = Toast.makeText(getApplicationContext(),
+                                                        "У тебя есть 5 секунд!", Toast.LENGTH_LONG);
+                                                toast.show();
+                                                 toast = Toast.makeText(getApplicationContext(),
                                                         "У тебя есть 5 секунд!", Toast.LENGTH_SHORT);
                                                 toast.show();
 
@@ -450,78 +446,184 @@ public class Activity_Game extends AppCompatActivity {
                                             }
 
                                             if(flag_abortazh) {
-                                            if (fieldOpponent[ii][jj].GetStatus() == status.ship ) {
 
-                                                switch ( fieldOpponent[ii][jj].GetStatus_Ship()) {
-                                                    case ship11:
+
+                                                if (fieldOpponent[ii][jj].GetStatus() == status.ship ) {
+
+
+                                                    switch ( fieldOpponent[ii][jj].GetStatus_Ship()) {
+
+
+                                                        case ship11:
                                                         ImStOpponent[ii][jj] =  ImageStatus.up;
                                                         ChangeOpponent (res, ii, jj, fieldOpponent);
                                                         break;
                                                     case ship21:
+                                                            if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                                ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                                ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj), "id", getPackageName()), ii+1, jj, fieldOpponent);
+
+                                                            }else {
+                                                                ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                                ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+1), "id", getPackageName()), ii, jj+1, fieldOpponent);
+
+                                                            }
+
 
                                                         break;
                                                     case ship22:
 
+                                                        if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj), "id", getPackageName()), ii-1, jj, fieldOpponent);
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-1), "id", getPackageName()), ii, jj-1, fieldOpponent);
+
+                                                        }
+
                                                         break;
                                                     case ship31:
+                                                        if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj), "id", getPackageName()), ii+1, jj, fieldOpponent);
+                                                            ImStOpponent[ii+2][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+2) + (jj), "id", getPackageName()), ii+2, jj, fieldOpponent);
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+1), "id", getPackageName()), ii, jj+1, fieldOpponent);
+                                                            ImStOpponent[ii][jj+2] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+2), "id", getPackageName()), ii, jj+2, fieldOpponent);
+
+                                                        }
+
 
                                                         break;
                                                     case ship32:
+                                                        if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj), "id", getPackageName()), ii-1, jj, fieldOpponent);
+                                                            ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj), "id", getPackageName()), ii+1, jj, fieldOpponent);
 
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-1), "id", getPackageName()), ii, jj-1, fieldOpponent);
+                                                            ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+1), "id", getPackageName()), ii, jj+1, fieldOpponent);
+
+                                                        }
                                                         break;
                                                     case ship33:
+
+                                                         if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj), "id", getPackageName()), ii-1, jj, fieldOpponent);
+                                                            ImStOpponent[ii-2][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-2) + (jj), "id", getPackageName()), ii-2, jj, fieldOpponent);
+
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-1), "id", getPackageName()), ii, jj-1, fieldOpponent);
+                                                            ImStOpponent[ii][jj-2] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-2), "id", getPackageName()), ii, jj-2, fieldOpponent);
+
+                                                        }
+
 
                                                         break;
                                                     case ship41:
 
-                                                        break;
-                                                    case ship42:
+                                                        if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj), "id", getPackageName()), ii+1, jj, fieldOpponent);
+                                                            ImStOpponent[ii+2][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+2) + (jj), "id", getPackageName()), ii+2, jj, fieldOpponent);
+                                                            ImStOpponent[ii+3][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+3) + (jj), "id", getPackageName()), ii+3, jj, fieldOpponent);
+
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-1), "id", getPackageName()), ii, jj-1, fieldOpponent);
+                                                            ImStOpponent[ii][jj-2] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-2), "id", getPackageName()), ii, jj-2, fieldOpponent);
+                                                            ImStOpponent[ii][jj-3] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-3), "id", getPackageName()), ii, jj-3, fieldOpponent);
+
+                                                        }
 
                                                         break;
+                                                    case ship42:
+                                                        if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj), "id", getPackageName()), ii-1, jj, fieldOpponent);
+                                                            ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj), "id", getPackageName()), ii+1, jj, fieldOpponent);
+                                                            ImStOpponent[ii+2][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+2) + (jj), "id", getPackageName()), ii+2, jj, fieldOpponent);
+
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-1), "id", getPackageName()), ii, jj-1, fieldOpponent);
+                                                            ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+1), "id", getPackageName()), ii, jj+1, fieldOpponent);
+                                                            ImStOpponent[ii][jj+2] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+2), "id", getPackageName()), ii, jj+2, fieldOpponent);
+
+                                                        }
+                                                        break;
                                                     case ship43:
+                                                        if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj), "id", getPackageName()), ii-1, jj, fieldOpponent);
+                                                            ImStOpponent[ii-2][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-2) + (jj), "id", getPackageName()), ii-2, jj, fieldOpponent);
+                                                            ImStOpponent[ii+1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii+1) + (jj), "id", getPackageName()), ii+1, jj, fieldOpponent);
+
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj-1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-1), "id", getPackageName()), ii, jj-1, fieldOpponent);
+                                                            ImStOpponent[ii][jj-2] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj-2), "id", getPackageName()), ii, jj-2, fieldOpponent);
+                                                            ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+1), "id", getPackageName()), ii, jj+1, fieldOpponent);
+
+                                                        }
 
                                                         break;
                                                     case ship44:
 
+                                                        if(fieldOpponent[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                            ImStOpponent[ii-1][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-1) + (jj), "id", getPackageName()), ii-1, jj, fieldOpponent);
+                                                            ImStOpponent[ii-2][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-2) + (jj), "id", getPackageName()), ii-2, jj, fieldOpponent);
+                                                            ImStOpponent[ii-3][jj] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii-3) + (jj), "id", getPackageName()), ii-3, jj, fieldOpponent);
+
+
+                                                        }else {
+                                                            ImStOpponent[ii][jj+1] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+1), "id", getPackageName()), ii, jj+1, fieldOpponent);
+                                                            ImStOpponent[ii][jj+2] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+2), "id", getPackageName()), ii, jj+2, fieldOpponent);
+                                                            ImStOpponent[ii][jj+3] =  ImageStatus.up;
+                                                            ChangeOpponent (getResources().getIdentifier("imageView" + (ii) + (jj+3), "id", getPackageName()), ii, jj+3, fieldOpponent);
+
+                                                        }
+
                                                         break;
                                                 }
-                                            /*    if (ii != 10) {
-
-                                                    ImStOpponent[ii + 1][jj] = ImageStatus.up;
-                                                    if (fieldOpponent[ii + 1][jj].GetStatus() != status.ship && fieldOpponent[ii + 1][jj].GetStatus() != status.kill) {
-
-                                                        fieldOpponent[ii + 1][jj].SetStatus(checked);
-                                                    }
-                                                    ChangeOpponent(getResources().getIdentifier("imageView" + (ii + 1) + jj, "id", getPackageName()), ii + 1, jj, fieldOpponent);
                                                 }
 
-                                                if (jj != 10) {
-                                                    ImStOpponent[ii][jj + 1] = ImageStatus.up;
-                                                    if (fieldOpponent[ii][jj + 1].GetStatus() != status.ship && fieldOpponent[ii][jj + 1].GetStatus() != status.kill) {
-
-                                                        fieldOpponent[ii][jj + 1].SetStatus(checked);
-                                                    }
-                                                    ChangeOpponent(getResources().getIdentifier("imageView" + ii + (jj + 1), "id", getPackageName()), ii, jj + 1, fieldOpponent);
-                                                }
-                                                if (jj != 0) {
-                                                    ImStOpponent[ii][jj - 1] = ImageStatus.up;
-                                                    if (fieldOpponent[ii][jj - 1].GetStatus() != status.ship && fieldOpponent[ii][jj - 1].GetStatus() != status.kill) {
-
-                                                        fieldOpponent[ii][jj - 1].SetStatus(checked);
-                                                    }
-                                                    ChangeOpponent(getResources().getIdentifier("imageView" + ii + (jj - 1), "id", getPackageName()), ii, jj - 1, fieldOpponent);
-                                                }
-
-                                                if (ii != 0) {
-                                                    ImStOpponent[ii - 1][jj] = ImageStatus.up;
-                                                    if (fieldOpponent[ii - 1][jj].GetStatus() != status.ship && fieldOpponent[ii - 1][jj].GetStatus() != status.kill) {
-
-                                                        fieldOpponent[ii - 1][jj].SetStatus(checked);
-                                                    }
-                                                    ChangeOpponent(getResources().getIdentifier("imageView" + (ii - 1) + jj, "id", getPackageName()), ii - 1, jj, fieldOpponent);
-                                                }
-*/
-                                            }
                                                 flag_abortazh = false;
                                             }
 
