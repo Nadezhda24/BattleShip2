@@ -20,9 +20,11 @@ import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import android.widget.Toast;
 
+import static com.example.battleship.status.Ship.ship11;
 import static com.example.battleship.status.checked;
 import static com.example.battleship.status.empty;
 
@@ -42,6 +44,9 @@ public class Activity_Game extends AppCompatActivity {
 
     boolean flag_bomb;
     boolean flag_trubka;
+    boolean flag_anchor;
+    boolean flag_abortazh;
+    boolean flag_tool;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +56,11 @@ public class Activity_Game extends AppCompatActivity {
         }
 
         flag = 0;
-        flag_bomb = false;
+       /* flag_bomb = false;
+        flag_trubka= false;
+        flag_anchor= false;
+        flag_abortazh= false;
+        flag_tool= false;*/
         Player[0] = new Player();
         Player[1] = new Player();
         Bundle arguments = getIntent().getExtras();
@@ -76,7 +85,12 @@ public class Activity_Game extends AppCompatActivity {
 
                 ImStOpponent [i][j] = ImageStatus.down;
 
+                if (fieldPlayer[ii][jj].GetStatusOrientation() == orientation.vertically) {
+                    ImPlayer[i][j].animate().rotation(90);}
+                if (fieldOpponent[ii][jj].GetStatusOrientation() == orientation.vertically) {
+                    ImOpponent[i][j].animate().rotation(90);
 
+                }
                 ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
 
 
@@ -220,6 +234,7 @@ public class Activity_Game extends AppCompatActivity {
         ImageView5.setImageResource(R.drawable.tool);
         LinerLayout1.addView(ImageView5);
 
+
         ImageView0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -237,8 +252,30 @@ public class Activity_Game extends AppCompatActivity {
                 flag_trubka = true;
             }
         });
+        ImageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // подгляделка
 
+                flag_abortazh = true;
+            }
+        });
+        ImageView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // подгляделка
 
+                flag_anchor = true;
+            }
+        });
+        ImageView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // подгляделка
+
+                flag_tool = true;
+            }
+        });
 
 
 
@@ -313,6 +350,8 @@ public class Activity_Game extends AppCompatActivity {
 
                                         @Override
                                         public void onClick(View v) {
+
+
                                             if(fieldOpponent[ii][jj].GetStatus() != status.ship){
 
                                                 fieldOpponent[ii][jj].SetStatus(checked);}
@@ -383,18 +422,107 @@ public class Activity_Game extends AppCompatActivity {
                                                 flag_bomb = false;
                                             }
 
+
+
                                             if(flag_trubka){
-                                           
+
                                                     ImStOpponent[ii][jj] =  ImageStatus.up;
+                                                ChangeOpponent (res, ii, jj, fieldOpponent);
 
-                                                    Toast toast = Toast.makeText(getApplicationContext(),
-                                                            "Пора покормить кота!", Toast.LENGTH_SHORT);
-                                                    toast.show();
 
-                                                    ImStOpponent[ii][jj] =  ImageStatus.down;
+
+                                                try {
+                                                    Thread.sleep(5000);
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+
+                                                Toast toast = Toast.makeText(getApplicationContext(),
+                                                        "У тебя есть 5 секунд!", Toast.LENGTH_SHORT);
+                                                toast.show();
+
+                                                ImStOpponent[ii][jj] =  ImageStatus.down;
+
+                                                ImOpponent[ii][jj].setImageResource(R.drawable.my_map);
 
                                                 flag_trubka = false;
 
+                                            }
+
+                                            if(flag_abortazh) {
+                                            if (fieldOpponent[ii][jj].GetStatus() == status.ship ) {
+
+                                                switch ( fieldOpponent[ii][jj].GetStatus_Ship()) {
+                                                    case ship11:
+                                                        ImStOpponent[ii][jj] =  ImageStatus.up;
+                                                        ChangeOpponent (res, ii, jj, fieldOpponent);
+                                                        break;
+                                                    case ship21:
+
+                                                        break;
+                                                    case ship22:
+
+                                                        break;
+                                                    case ship31:
+
+                                                        break;
+                                                    case ship32:
+
+                                                        break;
+                                                    case ship33:
+
+                                                        break;
+                                                    case ship41:
+
+                                                        break;
+                                                    case ship42:
+
+                                                        break;
+                                                    case ship43:
+
+                                                        break;
+                                                    case ship44:
+
+                                                        break;
+                                                }
+                                            /*    if (ii != 10) {
+
+                                                    ImStOpponent[ii + 1][jj] = ImageStatus.up;
+                                                    if (fieldOpponent[ii + 1][jj].GetStatus() != status.ship && fieldOpponent[ii + 1][jj].GetStatus() != status.kill) {
+
+                                                        fieldOpponent[ii + 1][jj].SetStatus(checked);
+                                                    }
+                                                    ChangeOpponent(getResources().getIdentifier("imageView" + (ii + 1) + jj, "id", getPackageName()), ii + 1, jj, fieldOpponent);
+                                                }
+
+                                                if (jj != 10) {
+                                                    ImStOpponent[ii][jj + 1] = ImageStatus.up;
+                                                    if (fieldOpponent[ii][jj + 1].GetStatus() != status.ship && fieldOpponent[ii][jj + 1].GetStatus() != status.kill) {
+
+                                                        fieldOpponent[ii][jj + 1].SetStatus(checked);
+                                                    }
+                                                    ChangeOpponent(getResources().getIdentifier("imageView" + ii + (jj + 1), "id", getPackageName()), ii, jj + 1, fieldOpponent);
+                                                }
+                                                if (jj != 0) {
+                                                    ImStOpponent[ii][jj - 1] = ImageStatus.up;
+                                                    if (fieldOpponent[ii][jj - 1].GetStatus() != status.ship && fieldOpponent[ii][jj - 1].GetStatus() != status.kill) {
+
+                                                        fieldOpponent[ii][jj - 1].SetStatus(checked);
+                                                    }
+                                                    ChangeOpponent(getResources().getIdentifier("imageView" + ii + (jj - 1), "id", getPackageName()), ii, jj - 1, fieldOpponent);
+                                                }
+
+                                                if (ii != 0) {
+                                                    ImStOpponent[ii - 1][jj] = ImageStatus.up;
+                                                    if (fieldOpponent[ii - 1][jj].GetStatus() != status.ship && fieldOpponent[ii - 1][jj].GetStatus() != status.kill) {
+
+                                                        fieldOpponent[ii - 1][jj].SetStatus(checked);
+                                                    }
+                                                    ChangeOpponent(getResources().getIdentifier("imageView" + (ii - 1) + jj, "id", getPackageName()), ii - 1, jj, fieldOpponent);
+                                                }
+*/
+                                            }
+                                                flag_abortazh = false;
                                             }
 
 
@@ -424,6 +552,10 @@ public class Activity_Game extends AppCompatActivity {
 
                                     final int ii = i;
                                     final int jj = j;
+                                    if (fieldPlayer[ii][jj].GetStatusOrientation() == orientation.vertically) {
+                                        ImPlayer[i][j].animate().rotation(90);
+
+                                    }
                                     final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
                                     ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
 
@@ -432,10 +564,25 @@ public class Activity_Game extends AppCompatActivity {
                                         public void onClick(View v) {
                                             // перерисовка выбранной клетки
                                             ChangePlayer (res, ii, jj);
+
+                                            if(flag_tool){
+                                                flag_tool = false;
+                                            }
+                                            if (flag_anchor){
+
+                                                flag_anchor = false;
+
+                                            }
+
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImPlayer);
+
+
                                         }
                                     });
+
+
+
                                 }
 
                             }

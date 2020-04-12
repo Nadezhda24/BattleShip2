@@ -10,6 +10,9 @@ import java.io.Serializable;
 //пусто, проверено(мимо), фича, бомба, убит
 
 
+enum orientation{
+    horizontally, vertically
+}
 
 
 public class Field implements Serializable {
@@ -17,12 +20,15 @@ public class Field implements Serializable {
     int id;
     status st;
     ships_st status_ship ;
+    orientation st_orientation;
+
 
     public Field(int id){
 
         this.id = id;
         this.st =   status.empty;
         this.status_ship = ships_st.empty;
+        this.st_orientation = orientation.horizontally;
     }
 
     public status GetStatus(){ return st; }
@@ -31,6 +37,9 @@ public class Field implements Serializable {
 
     public void SetStatus(status status){ this.st= status; }
     public void SetStatus_Ship(ships_st status_ship){this.status_ship = status_ship;}
+
+    public void SetStatusOrientation(orientation st_orientation){ this.st_orientation= st_orientation; }
+    public orientation GetStatusOrientation(){ return st_orientation; }
 
 
 
