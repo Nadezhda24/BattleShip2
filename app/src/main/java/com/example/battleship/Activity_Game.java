@@ -668,6 +668,148 @@ public class Activity_Game extends AppCompatActivity {
                                             ChangePlayer (res, ii, jj);
 
                                             if(flag_tool){
+
+
+                                                if (fieldPlayer[ii][jj].GetStatus() == status.kill ) {
+
+                                                    fieldPlayer[ii][jj].SetStatus(status.ship);
+
+                                                    switch ( fieldPlayer[ii][jj].GetStatus_Ship()) {
+
+
+                                                        case ship11:
+
+                                                            fieldPlayer[ii][jj].SetStatus(status.ship);
+
+                                                            break;
+                                                        case ship21:
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+
+                                                                fieldPlayer[ii+1][jj].SetStatus(status.ship);
+
+                                                            }else {
+                                                                fieldPlayer[ii][jj+1].SetStatus(status.ship);
+                                                            }
+
+
+                                                            break;
+                                                        case ship22:
+
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+
+                                                                fieldPlayer[ii-1][jj].SetStatus(status.ship);
+                                                            }else {
+
+                                                                fieldPlayer[ii][jj-1].SetStatus(status.ship);
+                                                            }
+
+                                                            break;
+                                                        case ship31:
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                                fieldPlayer[ii+1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii+2][jj].SetStatus(status.ship);
+
+                                                            }else {
+                                                                fieldPlayer[ii][jj+1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj+2].SetStatus(status.ship);
+                                                            }
+
+
+                                                            break;
+                                                        case ship32:
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+
+                                                                fieldPlayer[ii-1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii+1][jj].SetStatus(status.ship);
+
+
+                                                            }else {
+                                                                fieldPlayer[ii][jj-1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj+1].SetStatus(status.ship);
+
+                                                            }
+                                                            break;
+                                                        case ship33:
+
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                                fieldPlayer[ii-1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii-2][jj].SetStatus(status.ship);
+
+                                                            }else {
+                                                                fieldPlayer[ii][jj-1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj-2].SetStatus(status.ship);
+
+                                                            }
+
+
+                                                            break;
+                                                        case ship41:
+
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                                fieldPlayer[ii+1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii+2][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii+3][jj].SetStatus(status.ship);
+
+                                                            }else {
+                                                                fieldPlayer[ii][jj-1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj-2].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj-3].SetStatus(status.ship);
+
+                                                            }
+
+                                                            break;
+                                                        case ship42:
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                                fieldPlayer[ii-1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii+1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii+2][jj].SetStatus(status.ship);
+
+
+                                                            }else {
+                                                                fieldPlayer[ii][jj-1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj+1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj+2].SetStatus(status.ship);
+
+
+                                                            }
+                                                            break;
+                                                        case ship43:
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                                fieldPlayer[ii-1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii-2][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii+1][jj].SetStatus(status.ship);
+
+
+
+                                                            }else {
+                                                                fieldPlayer[ii][jj-1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj-2].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj+1].SetStatus(status.ship);
+
+                                                            }
+
+                                                            break;
+                                                        case ship44:
+
+                                                            if(fieldPlayer[ii][jj].GetStatusOrientation() ==  orientation.vertically){
+                                                                fieldPlayer[ii-1][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii-2][jj].SetStatus(status.ship);
+                                                                fieldPlayer[ii-3][jj].SetStatus(status.ship);
+
+
+
+                                                            }else {
+
+                                                                fieldPlayer[ii][jj-1].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj-2].SetStatus(status.ship);
+                                                                fieldPlayer[ii][jj-3].SetStatus(status.ship);
+
+                                                            }
+
+                                                            break;
+                                                    }
+                                                }
+
                                                 flag_tool = false;
                                             }
                                             if (flag_anchor){
@@ -678,7 +820,8 @@ public class Activity_Game extends AppCompatActivity {
 
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImPlayer);
-
+                                            // поле игрока
+                                            DrawMap(fieldPlayer, ImPlayer);
 
                                         }
                                     });
@@ -803,7 +946,9 @@ public class Activity_Game extends AppCompatActivity {
        if (fieldPlayer[i][j].GetStatus() == status.ship){
 
            Imm.setImageResource(R.drawable.fire);
-           fieldPlayer[i][j].SetStatus(status.kill);
+           fieldPlayer[i][j].SetStatus(status.kill);}
+           else if (fieldPlayer[i][j].GetStatus() == status.kill &&  flag_tool){
+           DrawField(fieldPlayer[i][j], i,j, ImPlayer);
        }else {
            Imm.setImageResource(R.drawable.mimo);
            fieldPlayer[i][j].SetStatus(checked);
