@@ -197,7 +197,7 @@ else{
 
         startActivity(intent);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-            overridePendingTransition(R.anim.anim, R.anim.anim1);
+          //  overridePendingTransition(R.anim.anim, R.anim.anim1);
         }
     }
 }

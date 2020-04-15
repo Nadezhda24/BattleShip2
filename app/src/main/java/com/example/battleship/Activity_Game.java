@@ -1,5 +1,6 @@
 package com.example.battleship;
-
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -170,7 +171,7 @@ public class Activity_Game extends AppCompatActivity {
 
                 dialog.dismiss();
                 //пират
-                final Dialog dialog1 = new Dialog(Activity_Game.this);
+                final Dialog dialog1 = new Dialog(Activity_Game.this, R.style.NewDialog);
                 dialog1.setContentView(R.layout.pirate);
                 Button button1 = dialog1.findViewById(R.id.yes);
                 Button button2 = dialog1.findViewById(R.id.no);
@@ -211,13 +212,21 @@ public class Activity_Game extends AppCompatActivity {
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LF);
 
 
-        ImageView ImageView0 = new ImageView(this);
-        ImageView0.setImageResource(R.drawable.dinamit100);
+        final ImageView ImageView0 = new ImageView(this);
+        ImageView0.setImageResource(R.drawable.bomb);
+        final Animation myanimfig = AnimationUtils.loadAnimation(this, R.anim.myanimfig);
+        ImageView0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView0.setImageResource(R.drawable.abortazh);
+                v.startAnimation(myanimfig);
+            }
+        });
         LinerLayout.addView(ImageView0);
 
 
         ImageView ImageView2 = new ImageView(this);
-        ImageView2.setImageResource(R.drawable.trumpet100);
+        ImageView2.setImageResource(R.drawable.trumpet);
         LinerLayout.addView(ImageView2);
 
         ImageView ImageView3 = new ImageView(this);
@@ -227,11 +236,11 @@ public class Activity_Game extends AppCompatActivity {
         LinearLayout LinerLayout1 = (LinearLayout) findViewById(R.id.LF2);
 
         ImageView ImageView4 = new ImageView(this);
-        ImageView4.setImageResource(R.drawable.anchor100);
+        ImageView4.setImageResource(R.drawable.yak);
         LinerLayout1.addView(ImageView4);
 
         ImageView ImageView5 = new ImageView(this);
-        ImageView5.setImageResource(R.drawable.tool);
+        ImageView5.setImageResource(R.drawable.molot);
         LinerLayout1.addView(ImageView5);
 
 
@@ -322,7 +331,7 @@ public class Activity_Game extends AppCompatActivity {
                 intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-                    overridePendingTransition(R.anim.anim, R.anim.anim1);
+                  //  overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
             }
             break;
@@ -910,7 +919,7 @@ public class Activity_Game extends AppCompatActivity {
                 Imm.setImageResource(R.drawable.bomb);
                 break;
             case kill:
-                Imm.setImageResource(R.drawable.fire);
+                Imm.setImageResource(R.drawable.fire1);
             case checked:
                 Imm.setImageResource(R.drawable.mimo);
 
@@ -945,7 +954,7 @@ public class Activity_Game extends AppCompatActivity {
         ImageView Imm = (ImageView) findViewById(res);
        if (fieldPlayer[i][j].GetStatus() == status.ship){
 
-           Imm.setImageResource(R.drawable.fire);
+           Imm.setImageResource(R.drawable.fire1);
            fieldPlayer[i][j].SetStatus(status.kill);}
            else if (fieldPlayer[i][j].GetStatus() == status.kill &&  flag_tool){
            DrawField(fieldPlayer[i][j], i,j, ImPlayer);
@@ -1002,7 +1011,7 @@ public class Activity_Game extends AppCompatActivity {
                 Im[i][j].setImageResource(R.drawable.bomb);
                 break;
             case kill:
-                Im[i][j].setImageResource(R.drawable.fire);
+                Im[i][j].setImageResource(R.drawable.fire1);
         }
         return field;
     }
@@ -1060,7 +1069,7 @@ public class Activity_Game extends AppCompatActivity {
                         Im[i][j].setImageResource(R.drawable.mimo);
                         break;
                     case kill:
-                        Im[i][j].setImageResource(R.drawable.fire);
+                        Im[i][j].setImageResource(R.drawable.fire1);
                 }
 
 

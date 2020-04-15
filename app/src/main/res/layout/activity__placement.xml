@@ -208,6 +208,8 @@
             android:layout_width="100dp"
             android:layout_height="48dp"
             android:layout_below="@+id/spase111"
+            android:layout_marginLeft="-8dp"
+            android:layout_marginTop="-10dp"
             android:layout_toRightOf="@+id/spase222"
             android:background="@drawable/b1"
             android:onClick="OnClick" />

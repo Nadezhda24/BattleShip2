@@ -142,7 +142,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                 startActivity(intent);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-                    overridePendingTransition(R.anim.anim, R.anim.anim1);
+                   // overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
             }
             break;
@@ -392,7 +392,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
     intent.putExtra("player", Player[0]);
     startActivity(intent);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-                    overridePendingTransition(R.anim.anim, R.anim.anim1);
+                  //  overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
 
 
@@ -448,7 +448,7 @@ for(int i =0; i<10; i++) {
         switch (field[i][j].GetStatus()){
 
     case ship:
-        Im[i][j].setImageResource(R.drawable.ship1);
+        Im[i][j].setImageResource(R.drawable.ship_one);
         break;
         case empty:
        Im[i][j].setImageResource(R.drawable.my_map);
