@@ -88,51 +88,7 @@ public class Map implements Serializable {
     return  this.field;
     }
 
-// реализация фичи бомба
-    public Field[][] Bomb ( int i, int j){
-status st = status.checked;
-        try {
-            if (i != 10 && j != 10) {
 
-
-                    this.field[i + 1][j + 1].SetStatus(st);
-            }
-            if (i != 10) {
-
-                    this.field[i + 1][j].SetStatus(st);
-            }
-            if (i != 10 && j != 0) {
-
-                    this.field[i + 1][j - 1].SetStatus(st);
-            }
-            if (j != 10) {
-
-                    this.field[i][j + 1].SetStatus(st);
-            }
-            if (j != 0) {
-
-                    this.field[i][j - 1].SetStatus(st);
-            }
-            if (i != 0 && j != 10) {
-
-                    this.field[i - 1][j + 1].SetStatus(st);
-            }
-            if (i != 0) {
-
-                    this.field[i - 1][j].SetStatus(st);
-            }
-            if (i != 0 && j != 0) {
-
-                    this.field[i - 1][j - 1].SetStatus(st);
-            }
-
-        } catch (Exception e) {
-
-        }
-
-
-        return  this.field;
-    }
 
 
 

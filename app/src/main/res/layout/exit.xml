@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sea12"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="При выходе из игры ты потерпишь поражение? Ты уверен, что хочешь завершить?" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/Ok"
+            style="@style/strings"
+            android:layout_width="142dp"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:background="@drawable/b1"
+            android:text="Нет" />
+
+        <Button
+            android:id="@+id/ok2"
+            style="@style/strings"
+            android:layout_width="142dp"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:background="@drawable/b1"
+            android:text="Да" />
+    </LinearLayout>
+
+</LinearLayout>

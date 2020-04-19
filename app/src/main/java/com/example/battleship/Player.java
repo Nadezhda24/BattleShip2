@@ -14,7 +14,7 @@ public class Player implements Serializable {
     int count_feature;
     int count_win;
     int regim_game;
-    Feature [] feature = new Feature[count_feature];
+
     Map map;
 
 
@@ -32,7 +32,7 @@ public class Player implements Serializable {
         this.zvanie="матрос";
         int count_feature=4;
 
-        feature = new Feature[count_feature];
+
 
 
     }

@@ -97,7 +97,7 @@ Player[] Player = new Player[2];
                 intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-                    overridePendingTransition(R.anim.anim, R.anim.anim1);
+                   // overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
 
             }
@@ -236,7 +236,7 @@ Player[] Player = new Player[2];
                     LL.setOrientation(LinearLayout.HORIZONTAL);
 
                     ImageView ImageView1 = new ImageView(this);
-                    ImageView1.setImageResource(R.drawable.galternatives);
+                    ImageView1.setImageResource(R.drawable.molot);
                     ImageView1.setLayoutParams(new ViewGroup.LayoutParams
                             (200, 200));
 
@@ -260,7 +260,7 @@ Player[] Player = new Player[2];
                     LL2.setOrientation(LinearLayout.HORIZONTAL);
 
                     ImageView ImageView2 = new ImageView(this);
-                    ImageView2.setImageResource(R.drawable.trubka);
+                    ImageView2.setImageResource(R.drawable.trumpet);
                     ImageView2.setLayoutParams(new ViewGroup.LayoutParams
                             (200, 200));
 
@@ -282,7 +282,7 @@ Player[] Player = new Player[2];
                     LL3.setOrientation(LinearLayout.HORIZONTAL);
 
                     ImageView ImageView3 = new ImageView(this);
-                    ImageView3.setImageResource(R.drawable.ka);
+                    ImageView3.setImageResource(R.drawable.bomb);
                     ImageView3.setLayoutParams(new ViewGroup.LayoutParams
                             (200, 200));
 
@@ -304,7 +304,7 @@ Player[] Player = new Player[2];
                     LL4.setOrientation(LinearLayout.HORIZONTAL);
 
                     ImageView ImageView4 = new ImageView(this);
-                    ImageView4.setImageResource(R.drawable.dynamite);
+                    ImageView4.setImageResource(R.drawable.bomb);
                     ImageView4.setLayoutParams(new ViewGroup.LayoutParams
                             (200, 200));
 
@@ -327,7 +327,7 @@ Player[] Player = new Player[2];
                     LL4.setOrientation(LinearLayout.HORIZONTAL);
 
                     ImageView ImageView5 = new ImageView(this);
-                    ImageView5.setImageResource(R.drawable.dynamite);
+                    ImageView5.setImageResource(R.drawable.bomb);
                     ImageView5.setLayoutParams(new ViewGroup.LayoutParams
                             (200, 200));
 

@@ -11,6 +11,10 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:activityOpenEnterAnimation">@anim/activity_down_up_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_down_up_exit</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_down_up_close_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_down_up_close_enter</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -25,10 +29,27 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="DownUpActivity" parent="@android:style/Animation.Activity">
+
+    </style>
+
     <style name="strings_shop">
         <item name="android:textColor">#553535</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">17sp</item>
         <item name="android:textAllCaps">true</item>
+    </style>
+
+
+    <style name="NewDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>

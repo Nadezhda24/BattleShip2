@@ -78,7 +78,7 @@ public class Activity_Setting_Account extends AppCompatActivity {
                 intent.putExtra("zvanie", Player[0].Getzvanie());
                 startActivity(intent);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-                    overridePendingTransition(R.anim.anim, R.anim.anim1);
+                  //  overridePendingTransition(R.anim.anim, R.anim.anim1);
                 }
             }
             break;
