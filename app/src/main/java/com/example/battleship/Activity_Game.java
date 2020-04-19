@@ -88,9 +88,14 @@ public class Activity_Game extends AppCompatActivity {
                 ImStOpponent [i][j] = ImageStatus.down;
 
                 if (fieldPlayer[ii][jj].GetStatusOrientation() == orientation.vertically) {
-                    ImPlayer[i][j].animate().rotation(90);}
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                        ImPlayer[i][j].animate().rotation(90);
+                    }
+                }
                 if (fieldOpponent[ii][jj].GetStatusOrientation() == orientation.vertically) {
-                    ImOpponent[i][j].animate().rotation(90);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                        ImOpponent[i][j].animate().rotation(90);
+                    }
 
                 }
                 ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
@@ -320,6 +325,7 @@ public class Activity_Game extends AppCompatActivity {
     public void OnClick(View view) {
         switch (view.getId()) {
             case R.id.Back: {
+
 
 
 
@@ -703,7 +709,9 @@ public class Activity_Game extends AppCompatActivity {
                                     final int ii = i;
                                     final int jj = j;
                                     if (fieldPlayer[ii][jj].GetStatusOrientation() == orientation.vertically) {
-                                        ImPlayer[i][j].animate().rotation(90);
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                                            ImPlayer[i][j].animate().rotation(90);
+                                        }
 
                                     }
                                     final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
