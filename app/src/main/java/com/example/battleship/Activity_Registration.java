@@ -41,17 +41,18 @@ public class Activity_Registration extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         }
 
-        try {
-            Socket s = new Socket("192.168.0.101", 45000); // создаем сокет
-           // Client_obj client_obj = new Client_obj();
-            //  client_obj.run(); // Пробуем приконнетиться...
+        Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+            //Socket s = new Socket("192.168.0.101", 45000); // создаем сокет
+            Client_obj client_obj = new Client_obj();
+               client_obj.run(); // Пробуем приконнетиться...
         } catch (IOException e) {
             // если объект не создан...
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Unable to connect. Server not running?", Toast.LENGTH_LONG);
             toast.show();
 
-        }
+        } } }); thread.start();
+
         flag = true;
         Player[0] = new Player();
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);

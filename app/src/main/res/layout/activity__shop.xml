@@ -37,10 +37,6 @@
                 android:onClick="onClick"
                 android:text="Назад" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="5" />
 
             <Button
                 android:id="@+id/Help"
@@ -216,7 +212,7 @@
         android:layout_marginRight="131dp"
         android:layout_weight="1"
         android:background="@drawable/shop"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

@@ -149,8 +149,10 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
             case R.id.Turn:{
 
                if(!flag_turn) {
-                    mImageView11.animate().rotation(90);
-                    mImageView12.animate().rotation(90);
+                   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                       mImageView11.animate().rotation(90);
+
+                   mImageView12.animate().rotation(90);
                     mImageView13.animate().rotation(90);
                     mImageView14.animate().rotation(90);
 
@@ -161,10 +163,12 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                     mImageView31.animate().rotation(90);
                     mImageView32.animate().rotation(90);
 
-                    mImageView41.animate().rotation(90);
+                    mImageView41.animate().rotation(90);}
                     flag_turn = true;
                 }else{
-                   mImageView11.animate().rotation(0);
+                   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                       mImageView11.animate().rotation(0);
+
                    mImageView12.animate().rotation(0);
                    mImageView13.animate().rotation(0);
                    mImageView14.animate().rotation(0);
@@ -176,7 +180,7 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                    mImageView31.animate().rotation(0);
                    mImageView32.animate().rotation(0);
 
-                   mImageView41.animate().rotation(0);
+                   mImageView41.animate().rotation(0);}
                    flag_turn = false;
                }
 
@@ -216,10 +220,12 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                this.field[i + ki * 3][j + kj * 3].SetStatus_Ship(ships_st.ship44);
 
                if (ki== 1){
-                   Im[i + ki * 0][j + kj * 0].animate().rotation(90);
+                   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                       Im[i + ki * 0][j + kj * 0].animate().rotation(90);
+
                    Im[i + ki * 1][j + kj * 1].animate().rotation(90);
                    Im[i + ki * 2][j + kj * 2].animate().rotation(90);
-                   Im[i + ki * 3][j + kj * 3].animate().rotation(90);
+                   Im[i + ki * 3][j + kj * 3].animate().rotation(90);}
                    this.field[i + ki * 0][j + kj * 0].SetStatusOrientation(orientation.vertically);
                    this.field[i + ki * 1][j + kj * 1].SetStatusOrientation(orientation.vertically);
                    this.field[i + ki * 2][j + kj * 2].SetStatusOrientation(orientation.vertically);
@@ -264,9 +270,11 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                   this.field[i + ki * 2][j + kj * 2].SetStatus_Ship(ships_st.ship33);
 
                   if (ki== 1){
-                      Im[i + ki * 0][j + kj * 0].animate().rotation(90);
+                      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                          Im[i + ki * 0][j + kj * 0].animate().rotation(90);
+
                       Im[i + ki * 1][j + kj * 1].animate().rotation(90);
-                      Im[i + ki * 2][j + kj * 2].animate().rotation(90);
+                      Im[i + ki * 2][j + kj * 2].animate().rotation(90);}
                       this.field[i + ki * 0][j + kj * 0].SetStatusOrientation(orientation.vertically);
                       this.field[i + ki * 1][j + kj * 1].SetStatusOrientation(orientation.vertically);
                       this.field[i + ki * 2][j + kj * 2].SetStatusOrientation(orientation.vertically);
@@ -302,8 +310,10 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
                     this.field[i + ki * 1][j + kj * 1].SetStatus_Ship(ships_st.ship22);
 
                     if (ki== 1){
-                        Im[i + ki * 0][j + kj * 0].animate().rotation(90);
-                        Im[i + ki * 1][j + kj * 1].animate().rotation(90);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                            Im[i + ki * 0][j + kj * 0].animate().rotation(90);
+
+                        Im[i + ki * 1][j + kj * 1].animate().rotation(90);}
                         this.field[i + ki * 0][j + kj * 0].SetStatusOrientation(orientation.vertically);
                         this.field[i + ki * 1][j + kj * 1].SetStatusOrientation(orientation.vertically);
 

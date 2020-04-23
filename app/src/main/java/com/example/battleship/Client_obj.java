@@ -8,13 +8,13 @@ public class Client_obj {
     final BufferedReader socketReader; // буферизированный читатель с сервера
     final BufferedWriter socketWriter; // буферизированный писатель на сервер
     final BufferedReader userInput; // буферизированный читатель пользовательского ввода с консоли
-    String host = "192.168.0.101";
+    String host = "192.168.43.61";
     int port = 45000;
 
 
     public Client_obj() throws IOException {
 
-        s = new Socket("192.168.0.101", 45000); // создаем сокет
+        s = new Socket(host, port); // создаем сокет
         // создаем читателя и писателя в сокет с дефолной кодировкой UTF-8
         socketReader = new BufferedReader(new InputStreamReader(s.getInputStream(), "UTF-8"));
         socketWriter = new BufferedWriter(new OutputStreamWriter(s.getOutputStream(), "UTF-8"));

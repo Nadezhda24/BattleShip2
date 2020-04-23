@@ -50,10 +50,7 @@
                         android:text="Войти"
                         android:textSize="14sp" />
 
-                    <Space
-                        android:layout_width="5dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
+
 
                     <Button
                         android:id="@+id/Registration"
