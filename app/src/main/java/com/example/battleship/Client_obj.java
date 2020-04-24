@@ -8,8 +8,9 @@ public class Client_obj {
     final BufferedReader socketReader; // буферизированный читатель с сервера
     final BufferedWriter socketWriter; // буферизированный писатель на сервер
     final BufferedReader userInput; // буферизированный читатель пользовательского ввода с консоли
-    String host = "192.168.43.61";
+    String host = "192.168.0.104";
     int port = 45000;
+    static String ansServer;
 
 
     public Client_obj() throws IOException {
@@ -27,16 +28,16 @@ public class Client_obj {
      * метод, где происходит главный цикл чтения сообщений с консоли и отправки на сервер
      * @return
      */
-    public void run() {
+    public void run( String userString ) {
         System.out.println("Type phrase(s) (hit Enter to exit):");
-        while (true) {
-            String userString = null;
+      //  while (true) {
+            //String userString = null;
             //  userString = userInput.readLine(); // читаем строку от пользователя
-            userString = "Hello";
+           // userString = "Hello";
             //если что-то не так или пользователь просто нажал Enter...
             if (userString == null || userString.length() == 0 || s.isClosed()) {
                 close(); // ...закрываем коннект.
-                break; // до этого break мы не дойдем, но стоит он, чтобы компилятор не ругался
+               // break; // до этого break мы не дойдем, но стоит он, чтобы компилятор не ругался
             } else { //...иначе...
                 try {
                     socketWriter.write(userString); //пишем строку пользователя
@@ -46,7 +47,7 @@ public class Client_obj {
                     close(); // в любой ошибке - закрываем.
                 }
             }
-        }
+       // }
 
     }
 
@@ -91,7 +92,7 @@ public class Client_obj {
                     System.out.println("Server has closed connection");
                     close(); // ...закрываемся
                 } else { // иначе печатаем то, что прислал сервер.
-                    //  System.out.println("Server:" + line);
+                    ansServer = line;
                 }
             }
         }

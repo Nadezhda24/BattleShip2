@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Calendar;
@@ -24,6 +25,8 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import static com.example.battleship.status.Ship.ship11;
 import static com.example.battleship.status.checked;
@@ -58,11 +61,11 @@ public class Activity_Game extends AppCompatActivity {
         }
 
         flag = 0;
-       /* flag_bomb = false;
+        flag_bomb = false;
         flag_trubka= false;
         flag_anchor= false;
         flag_abortazh= false;
-        flag_tool= false;*/
+        flag_tool= false;
         Player[0] = new Player();
         Player[1] = new Player();
         Bundle arguments = getIntent().getExtras();
@@ -681,7 +684,17 @@ public class Activity_Game extends AppCompatActivity {
                                                 flag_abortazh = false;
                                             }
 
+                                            Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
+                                                Client_obj client_obj = new Client_obj();
+                                                client_obj.run(String.valueOf(ii) + " " +String.valueOf(jj)); // Пробуем приконнетиться...
+                                            } catch (IOException e) {
+                                                // если объект не создан...
+                                                Toast toast = Toast.makeText(getApplicationContext(),
+                                                        "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+                                                toast.show();
+
+                                            } } }); thread.start();
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImOpponent);
                                         }
@@ -901,12 +914,39 @@ public class Activity_Game extends AppCompatActivity {
                 final Dialog dialog = new Dialog(Activity_Game.this);
                 dialog.setContentView(R.layout.chat);
                 Button button =  dialog.findViewById(R.id.Ok);
+                Button button1 = dialog.findViewById(R.id.Send);
+                final TextView Message = dialog.findViewById(R.id.Edit_chat_text);
+                 final TextView Message1 = dialog.findViewById(R.id.Message1);
+                final TextView Message2 = dialog.findViewById(R.id.Message2);
+                final TextView Message3 = dialog.findViewById(R.id.Message3);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
                     }
                 });
+
+                button1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+
+                            Client_obj client_obj = new Client_obj();
+                            client_obj.run( Message.getText().toString() ); // Пробуем приконнетиться...
+
+                            Message1.setText(Message2.getText().toString());
+                            Message2.setText(Message3.getText().toString());
+                            Message3.setText(Client_obj.ansServer);
+                        } catch (IOException e) {
+                            // если объект не создан...
+                            Toast toast = Toast.makeText(getApplicationContext(),
+                                    "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+                            toast.show();
+
+                        } } }); thread.start();
+                    }
+                });
+
 
                 dialog.setCancelable(false);
                 dialog.show();

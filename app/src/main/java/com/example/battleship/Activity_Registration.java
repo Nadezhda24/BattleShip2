@@ -41,17 +41,7 @@ public class Activity_Registration extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         }
 
-        Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
-            //Socket s = new Socket("192.168.0.101", 45000); // создаем сокет
-            Client_obj client_obj = new Client_obj();
-               client_obj.run(); // Пробуем приконнетиться...
-        } catch (IOException e) {
-            // если объект не создан...
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Unable to connect. Server not running?", Toast.LENGTH_LONG);
-            toast.show();
 
-        } } }); thread.start();
 
         flag = true;
         Player[0] = new Player();
@@ -196,7 +186,17 @@ else{
         SPassword = Password_edit.getText().toString();
         SPassword2 = Password2_edit.getText().toString();
 
+    Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
+        Client_obj client_obj = new Client_obj();
+        client_obj.run(SName+" "+SLogin + " " +SPassword); // Пробуем приконнетиться...
+    } catch (IOException e) {
+        // если объект не создан...
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+        toast.show();
+
+    } } }); thread.start();
         Player[0] = new Player(1,SName,SLogin,SPassword, SPassword2);}
 
         Intent intent = new Intent(Activity_Registration.this, Activity_Menu.class);
