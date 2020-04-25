@@ -186,7 +186,7 @@ else{
         SPassword = Password_edit.getText().toString();
         SPassword2 = Password2_edit.getText().toString();
 
-    Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+   /* Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
         Client_obj client_obj = new Client_obj();
         client_obj.run(SName+" "+SLogin + " " +SPassword); // Пробуем приконнетиться...
@@ -196,7 +196,7 @@ else{
                 "Unable to connect. Server not running?", Toast.LENGTH_LONG);
         toast.show();
 
-    } } }); thread.start();
+    } } }); thread.start();*/
         Player[0] = new Player(1,SName,SLogin,SPassword, SPassword2);}
 
         Intent intent = new Intent(Activity_Registration.this, Activity_Menu.class);

@@ -28,16 +28,12 @@ public class Client_obj {
      * метод, где происходит главный цикл чтения сообщений с консоли и отправки на сервер
      * @return
      */
-    public void run( String userString ) {
-        System.out.println("Type phrase(s) (hit Enter to exit):");
-      //  while (true) {
-            //String userString = null;
-            //  userString = userInput.readLine(); // читаем строку от пользователя
-           // userString = "Hello";
-            //если что-то не так или пользователь просто нажал Enter...
+    public void run(  byte[] byteArray ) {
+        String   userString = new String(byteArray);
+
             if (userString == null || userString.length() == 0 || s.isClosed()) {
                 close(); // ...закрываем коннект.
-               // break; // до этого break мы не дойдем, но стоит он, чтобы компилятор не ругался
+
             } else { //...иначе...
                 try {
                     socketWriter.write(userString); //пишем строку пользователя
@@ -47,7 +43,7 @@ public class Client_obj {
                     close(); // в любой ошибке - закрываем.
                 }
             }
-       // }
+
 
     }
 

@@ -5,32 +5,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.icu.text.SimpleDateFormat;
+
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.format.DateFormat;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
-import java.sql.Time;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+
 
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
 
-import static com.example.battleship.status.Ship.ship11;
 import static com.example.battleship.status.checked;
-import static com.example.battleship.status.empty;
+
 
 public class Activity_Game extends AppCompatActivity {
 
@@ -59,6 +54,8 @@ public class Activity_Game extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         }
+
+
 
         flag = 0;
         flag_bomb = false;
@@ -302,6 +299,25 @@ public class Activity_Game extends AppCompatActivity {
     }
 
 
+        Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+
+            Client_obj client_obj = new Client_obj();
+
+
+
+             ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                 ObjectOutput out = new ObjectOutputStream(bos);
+                out.writeObject(Player[0]);
+
+            client_obj.run(bos.toByteArray()); // Пробуем приконнетиться...
+        } catch (IOException e) {
+            // если объект не создан...
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+            toast.show();
+
+        } } }); thread.start();
+
 
 
     }
@@ -386,6 +402,8 @@ public class Activity_Game extends AppCompatActivity {
 
             case R.id.Ukaz:{
 
+
+
                 ImageView ImageView = (ImageView) findViewById(R.id.Ukaz);
 
                         if (flag == 1){
@@ -402,12 +420,26 @@ public class Activity_Game extends AppCompatActivity {
                               if (ImStOpponent[i][j] == ImageStatus.down) ImOpponent[i][j].setImageResource(R.drawable.my_map);
 
                                     final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
+
                                     ImOpponent[i][j].setOnClickListener(new View.OnClickListener() {
 
 
                                         @Override
                                         public void onClick(View v) {
 
+                                            Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+
+                                                Client_obj client_obj = new Client_obj();
+
+                                                byte[] byteArray = ( "[g] "+String.valueOf(ii) + " " + String.valueOf(jj)).getBytes();
+                                                client_obj.run(byteArray); // Пробуем приконнетиться...
+                                            } catch (IOException e) {
+                                                // если объект не создан...
+                                                Toast toast = Toast.makeText(getApplicationContext(),
+                                                        "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+                                                toast.show();
+
+                                            } } }); thread.start();
 
                                             if(fieldOpponent[ii][jj].GetStatus() != status.ship){
 
@@ -684,17 +716,7 @@ public class Activity_Game extends AppCompatActivity {
                                                 flag_abortazh = false;
                                             }
 
-                                            Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
-                                                Client_obj client_obj = new Client_obj();
-                                                client_obj.run(String.valueOf(ii) + " " +String.valueOf(jj)); // Пробуем приконнетиться...
-                                            } catch (IOException e) {
-                                                // если объект не создан...
-                                                Toast toast = Toast.makeText(getApplicationContext(),
-                                                        "Unable to connect. Server not running?", Toast.LENGTH_LONG);
-                                                toast.show();
-
-                                            } } }); thread.start();
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImOpponent);
                                         }
@@ -716,6 +738,17 @@ public class Activity_Game extends AppCompatActivity {
                         else {
                             // поле игрока
                             DrawMap(fieldPlayer, ImPlayer);
+
+                            if( Client_obj.ansServer.contains("[g]") ){
+                                // перерисовка выбранной клетки
+                                String s = Client_obj.ansServer;
+
+                                int i =  Character.getNumericValue(Client_obj.ansServer.charAt(4));
+                                int j=Character.getNumericValue( Client_obj.ansServer.charAt(6));
+                                ChangePlayer (getResources().getIdentifier("imageView" + i + j, "id", getPackageName()), i, j);
+                            }
+
+
                             for(int i =0; i< 10; i++){
                                 for (int j =0; j<10;j++){
 
@@ -889,8 +922,7 @@ public class Activity_Game extends AppCompatActivity {
 
                                             // запрет  на нажатия всех клеток после совершения хода
                                             NoClick(ImPlayer);
-                                            // поле игрока
-                                            DrawMap(fieldPlayer, ImPlayer);
+
 
                                         }
                                     });
@@ -900,6 +932,9 @@ public class Activity_Game extends AppCompatActivity {
                                 }
 
                             }
+
+                            // поле игрока
+                            DrawMap(fieldPlayer, ImPlayer);
                             ImageView.setImageResource(R.drawable.button_right);
                             flag = 1;
 
@@ -932,13 +967,15 @@ public class Activity_Game extends AppCompatActivity {
                         Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
                             Client_obj client_obj = new Client_obj();
-                            client_obj.run( Message.getText().toString() ); // Пробуем приконнетиться...
+                            byte[] byteArray = ("[c] " +Message.getText().toString()).getBytes();
+                            client_obj.run( byteArray ); // Пробуем приконнетиться...
 
+                            if( Client_obj.ansServer.contains("[c]") ){
                             Message1.setText(Message2.getText().toString());
                             Message2.setText(Message3.getText().toString());
-                            Message3.setText(Client_obj.ansServer);
+                            Message3.setText(Client_obj.ansServer.replace("[c]", Player[0].Getname()+": "));}
                         } catch (IOException e) {
-                            // если объект не создан...
+
                             Toast toast = Toast.makeText(getApplicationContext(),
                                     "Unable to connect. Server not running?", Toast.LENGTH_LONG);
                             toast.show();
