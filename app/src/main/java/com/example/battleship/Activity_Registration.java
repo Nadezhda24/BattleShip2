@@ -178,7 +178,24 @@ public class Activity_Registration extends AppCompatActivity {
     public void OnClickNext(View view) {
 
 if(flag){
-    Player[0] = new Player();
+
+    SLogin = Login_edit.getText().toString();
+    SPassword = Password_edit.getText().toString();
+    Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+
+        Client_obj client_obj = new Client_obj();
+        byte[] byteArray = ("[a] " + SLogin + " " + SPassword).getBytes();
+        client_obj.run( byteArray ); // Пробуем приконнетиться...
+
+    } catch (IOException e) {
+        // если объект не создан...
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+        toast.show();
+
+    } } }); thread.start();
+    Player[0] = new Player(1,"p","p","p", "p");
+
 }
 else{
         SName =  Name_edit.getText().toString() ;
@@ -186,17 +203,19 @@ else{
         SPassword = Password_edit.getText().toString();
         SPassword2 = Password2_edit.getText().toString();
 
-   /* Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+    Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
         Client_obj client_obj = new Client_obj();
-        client_obj.run(SName+" "+SLogin + " " +SPassword); // Пробуем приконнетиться...
+        byte[] byteArray = ("[r] " +SName+" "+SLogin + " " + SPassword).getBytes();
+        client_obj.run( byteArray ); // Пробуем приконнетиться...
+
     } catch (IOException e) {
         // если объект не создан...
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Unable to connect. Server not running?", Toast.LENGTH_LONG);
         toast.show();
 
-    } } }); thread.start();*/
+    } } }); thread.start();
         Player[0] = new Player(1,SName,SLogin,SPassword, SPassword2);}
 
         Intent intent = new Intent(Activity_Registration.this, Activity_Menu.class);

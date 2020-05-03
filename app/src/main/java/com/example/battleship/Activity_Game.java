@@ -305,10 +305,10 @@ public class Activity_Game extends AppCompatActivity {
 
 
 
-             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                 ObjectOutput out = new ObjectOutputStream(bos);
-                out.writeObject(Player[0]);
 
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutput out = new ObjectOutputStream(bos);
+            out.writeObject(Player[0]);
             client_obj.run(bos.toByteArray()); // Пробуем приконнетиться...
         } catch (IOException e) {
             // если объект не создан...
@@ -969,20 +969,18 @@ public class Activity_Game extends AppCompatActivity {
                             Client_obj client_obj = new Client_obj();
                             byte[] byteArray = ("[c] " +Message.getText().toString()).getBytes();
                             client_obj.run( byteArray ); // Пробуем приконнетиться...
-
                             if( Client_obj.ansServer.contains("[c]") ){
-                            Message1.setText(Message2.getText().toString());
-                            Message2.setText(Message3.getText().toString());
-                            Message3.setText(Client_obj.ansServer.replace("[c]", Player[0].Getname()+": "));}
+                                Message1.setText(Message2.getText().toString());
+                                Message2.setText(Message3.getText().toString());
+                                Message3.setText(Client_obj.ansServer.replace("[c]", Player[0].Getname()+": "));}
                         } catch (IOException e) {
-
                             Toast toast = Toast.makeText(getApplicationContext(),
                                     "Unable to connect. Server not running?", Toast.LENGTH_LONG);
                             toast.show();
 
-                        } } }); thread.start();
-                    }
-                });
+                } } }); thread.start();
+            }
+        });
 
 
                 dialog.setCancelable(false);
