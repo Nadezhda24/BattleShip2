@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 public class Activity_Account extends AppCompatActivity {
     Player[] Player = new Player[2];
@@ -119,6 +122,7 @@ public class Activity_Account extends AppCompatActivity {
                 dialog.setContentView(R.layout.rating);
 
 
+
                 Button button = (Button) dialog.findViewById(R.id.Ok);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -128,9 +132,51 @@ public class Activity_Account extends AppCompatActivity {
                 });
 
 
+                final TextView N1 = (TextView) dialog.findViewById(R.id.Name1);
+                final TextView N2 = (TextView) dialog.findViewById(R.id.Name2);
+                final TextView N3 = (TextView) dialog.findViewById(R.id.Name3);
+                final TextView L1 = (TextView) dialog.findViewById(R.id.Login1);
+                final TextView L2 = (TextView) dialog.findViewById(R.id.Login2);
+                final TextView L3 = (TextView) dialog.findViewById(R.id.Login3);
+                final TextView Z1 = (TextView) dialog.findViewById(R.id.Zvanie1);
+                final TextView Z2 = (TextView) dialog.findViewById(R.id.Zvanie2);
+                final TextView Z3 = (TextView) dialog.findViewById(R.id.Zvanie3);
+                final TextView E1 = (TextView) dialog.findViewById(R.id.Count_exp1);
+                final TextView E2 = (TextView) dialog.findViewById(R.id.Count_exp2);
+                final TextView E3 = (TextView) dialog.findViewById(R.id.Count_exp3);
+
+                final String[] s = {"1 3 2"};
+
+                Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+
+                    Client_obj client_obj = new Client_obj();
+                    byte[] byteArray = ("[t] ").getBytes();
+                    client_obj.run( byteArray ); // Пробуем приконнетиться...
+
+                    if( Client_obj.ansServer.contains("[t]") ){
+
+                        N1.setText(Client_obj.ansServer);}
+                } catch (IOException e) {
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+                    toast.show();
+
+                } } }); thread.start();
+
+
+
+                String ans_Server = s[0];
+
+                N1.setText("Player2");L1.setText("PL");Z1.setText("главный старшина"); E1.setText("480");
+                N2.setText("Player1");L2.setText("PL1");Z2.setText("матрос"); E2.setText("100");
+                N3.setText("Player3");L3.setText("PL3");Z3.setText("матрос"); E3.setText("0");
+
 
                 dialog.setCancelable(false);
                 dialog.show();
+
+
+
 
             }
             break;

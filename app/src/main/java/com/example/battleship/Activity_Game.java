@@ -210,11 +210,17 @@ public class Activity_Game extends AppCompatActivity {
         dialog.show();
 
 
+
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LF);
 
+        ImageView ImageView6 = new ImageView(this);
+        ImageView6.setVisibility(View.INVISIBLE);
+            ImageView6.setImageResource(R.drawable.t70);
+            LinerLayout.addView(ImageView6);
 
         final ImageView ImageView0 = new ImageView(this);
         ImageView0.setImageResource(R.drawable.bomb70);
+
         final Animation myanimfig = AnimationUtils.loadAnimation(this, R.anim.myanimfig);
         ImageView0.setOnClickListener(new View.OnClickListener() {
             @Override

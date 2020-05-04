@@ -137,6 +137,10 @@ Player[] Player = new Player[2];
                     text.setWidth(200);
                     text.setText(description);
                     LinerLayout.addView(text);
+
+
+
+
                 }
                 break;
                 case 1: {
@@ -157,6 +161,7 @@ Player[] Player = new Player[2];
                     text.setText(description);
                     LinerLayout.addView(text);
 
+
                 }
                 break;
                 case 2: {
@@ -173,7 +178,7 @@ Player[] Player = new Player[2];
 
 
                     ImageView ImageView = new ImageView(this);
-                    ImageView.setImageResource(R.drawable.bomb);
+                    ImageView.setImageResource(R.drawable.p1);
                     LinerLayout.addView(ImageView);
 
                     TextView text1 = new TextView(this);
@@ -182,7 +187,7 @@ Player[] Player = new Player[2];
                     LinerLayout.addView(text1);
 
                     ImageView ImageView1 = new ImageView(this);
-                    ImageView1.setImageResource(R.drawable.bomb);
+                    ImageView1.setImageResource(R.drawable.f2);
                     LinerLayout.addView(ImageView1);
 
 
@@ -205,7 +210,7 @@ Player[] Player = new Player[2];
 
 
                     ImageView ImageView = new ImageView(this);
-                    ImageView.setImageResource(R.drawable.bomb);
+                    ImageView.setImageResource(R.drawable.p4);
                     LinerLayout.addView(ImageView);
 
                     TextView text1 = new TextView(this);
@@ -214,7 +219,7 @@ Player[] Player = new Player[2];
                     LinerLayout.addView(text1);
 
                     ImageView ImageView1 = new ImageView(this);
-                    ImageView1.setImageResource(R.drawable.bomb);
+                    ImageView1.setImageResource(R.drawable.p);
                     LinerLayout.addView(ImageView1);
 
                 }
@@ -304,7 +309,7 @@ Player[] Player = new Player[2];
                     LL4.setOrientation(LinearLayout.HORIZONTAL);
 
                     ImageView ImageView4 = new ImageView(this);
-                    ImageView4.setImageResource(R.drawable.bomb);
+                    ImageView4.setImageResource(R.drawable.abortazh);
                     ImageView4.setLayoutParams(new ViewGroup.LayoutParams
                             (200, 200));
 
@@ -312,8 +317,8 @@ Player[] Player = new Player[2];
 
                     TextView text4 = new TextView(this);
                     text4.setWidth(200);
-                    text4.setText("Динамит\n" +
-                            "Комендор предоставляет твоей команде динамит, сокруши весь корабль противника одним ударом!");
+                    text4.setText("Абордаж\n" +
+                            "Взять корабль на абордаж и захватить его весь!");
                     text4.setLayoutParams(new ViewGroup.LayoutParams
                             (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     LL4.addView(text4);
@@ -327,7 +332,7 @@ Player[] Player = new Player[2];
                     LL4.setOrientation(LinearLayout.HORIZONTAL);
 
                     ImageView ImageView5 = new ImageView(this);
-                    ImageView5.setImageResource(R.drawable.bomb);
+                    ImageView5.setImageResource(R.drawable.yak);
                     ImageView5.setLayoutParams(new ViewGroup.LayoutParams
                             (200, 200));
 
@@ -365,7 +370,7 @@ Player[] Player = new Player[2];
 
 
                     ImageView ImageView = new ImageView(this);
-                    ImageView.setImageResource(R.drawable.coins);
+                    ImageView.setImageResource(R.drawable.money);
                     LinerLayout.addView(ImageView);
 
 
@@ -390,7 +395,21 @@ Player[] Player = new Player[2];
                 break;
                 case 7: {
                     titles = "Звания";
-                    description = "В зависимости от твоих очков ты можешь получить следующий звания:";
+                    description = "В зависимости от твоих очков ты можешь получить следующиe звания:1.\tматрос\n" +
+                            "2.\tстаршина 2 статьи\n" +
+                            "3.\tстаршина 1 статьи\n" +
+                            "4.\tглавный старшина\n" +
+                            "5.\tглавный корабельный старшина\n" +
+                            "6.\tмичман\n" +
+                            "7.\tстарший мичман\n" +
+                            "8.\tмладший лейтенант\n" +
+                            "9.\tлейтенант\n" +
+                            "10.\tстарший лейтенант\n" +
+                            "11.\tкапитан 1-го ранга\n" +
+                            "12.\tконтр-адмирал\n" +
+                            "13.\tвице-адмирал\n" +
+                            "14.\tадмирал\n" +
+                            "15.\tадмирал флота\n";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);

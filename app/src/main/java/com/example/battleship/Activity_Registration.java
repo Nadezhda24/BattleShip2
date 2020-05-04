@@ -206,7 +206,7 @@ if(flag){
 
     } } }); thread.start();
 
-    Player[0] = new Player(1,"p","p","p", "p");
+    Player[0] = new Player(1,"Player2","PL","12345Player2", "12345Player2");
 
 }
 else{
