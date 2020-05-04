@@ -191,6 +191,22 @@ public class Activity_Placement extends AppCompatActivity implements View.OnTouc
             }
             break;
            case R.id.Auto: {
+               mImageView11.setVisibility(View.INVISIBLE);
+
+               mImageView12.setVisibility(View.INVISIBLE);
+               mImageView13.setVisibility(View.INVISIBLE);
+               mImageView14.setVisibility(View.INVISIBLE);
+
+               mImageView21.setVisibility(View.INVISIBLE);
+               mImageView22.setVisibility(View.INVISIBLE);
+               mImageView23.setVisibility(View.INVISIBLE);
+
+               mImageView31.setVisibility(View.INVISIBLE);
+               mImageView32.setVisibility(View.INVISIBLE);
+
+               mImageView41.setVisibility(View.INVISIBLE);
+
+
                 for (int k = 0; k < 10; k++) {
                     for (int  p = 0; p < 10; p++) {
                         field[k][p].SetStatus(empty);

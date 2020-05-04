@@ -15,8 +15,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
@@ -64,71 +67,59 @@ public class Activity_Game extends AppCompatActivity {
         flag_abortazh= false;
         flag_tool= false;
         Player[0] = new Player();
+
+
+
         Player[1] = new Player();
         Bundle arguments = getIntent().getExtras();
         Player[0] =  (Player) arguments.getSerializable("player");
 
+        Thread  thread = new Thread(new Runnable() { @Override public void run() {  try {
 
-        fieldPlayer=  Player[0].GetMap().field ;
+            Client_obj client_obj = new Client_obj();
+            client_obj.run("[p]".getBytes());
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutput out = new ObjectOutputStream(bos);
+            out.writeObject(Player[0]);
 
-        // проверка карты у игроков пока одинаковые
-        fieldOpponent = Player[0].GetMap().field;
+            client_obj.run(bos.toByteArray());
+            client_obj.run("[p]".getBytes());
+            // Пробуем приконнетиться...
+        } catch (IOException e) {
+            // если объект не создан...
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+            toast.show();
 
+        } } }); thread.start();
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                final int ii =i ;
-                final int jj =  j;
-                final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
+     /*   thread = new Thread(new Runnable() { @Override public void run() {  try {
 
+            Client_obj client_obj = new Client_obj();
 
-                ImPlayer [i][j] = (ImageView) findViewById(res);
-                ImOpponent [i][j] = (ImageView) findViewById(res);
+            ByteArrayInputStream bis = new ByteArrayInputStream(client_obj.ansServer.getBytes());
 
-                ImStOpponent [i][j] = ImageStatus.down;
-
-                if (fieldPlayer[ii][jj].GetStatusOrientation() == orientation.vertically) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
-                        ImPlayer[i][j].animate().rotation(90);
-                    }
-                }
-                if (fieldOpponent[ii][jj].GetStatusOrientation() == orientation.vertically) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
-                        ImOpponent[i][j].animate().rotation(90);
-                    }
-
-                }
-                ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View v) {
-                        ChangePlayer (res, ii, jj);
-                        NoClick(ImPlayer);
-
-                    }
-                });
+            ObjectInput in = new ObjectInputStream(bis);
+            try {
+                Player[1] = (Player) in.readObject();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-        }
 
 
-        DrawMap(fieldPlayer, ImPlayer);
+        } catch (IOException e) {
+            // если объект не создан...
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+            toast.show();
 
-        TextView NamePlayer = findViewById(R.id.Use_name);
-        NamePlayer.setText(Player[0].Getname());
+        } } }); thread.start();
 
-        TextView ZvaniePlayer = findViewById(R.id.Zvanie);
-        ZvaniePlayer.setText(Player[0].Getzvanie());
+*/
 
-        TextView ExperiencePlayer = findViewById(R.id.Count);
-        ExperiencePlayer.setText(String.valueOf(Player[0].Getexperiment()));
-
-        mapPlayer = new Map(fieldPlayer, ship);
-        mapOpponent = new Map(fieldOpponent, ship);
+        if (  Player[0].Getregim_game() == 1 ) {
 
 
-
-    if (  Player[0].Getregim_game() == 1 ) {
         //сундучки
         final Dialog dialog = new Dialog(Activity_Game.this);
         dialog.setContentView(R.layout.choice);
@@ -176,6 +167,10 @@ public class Activity_Game extends AppCompatActivity {
             public void onClick(View v) {
 
                 dialog.dismiss();
+
+
+
+
                 //пират
                 final Dialog dialog1 = new Dialog(Activity_Game.this, R.style.NewDialog);
                 dialog1.setContentView(R.layout.pirate);
@@ -219,12 +214,12 @@ public class Activity_Game extends AppCompatActivity {
 
 
         final ImageView ImageView0 = new ImageView(this);
-        ImageView0.setImageResource(R.drawable.bomb);
+        ImageView0.setImageResource(R.drawable.bomb70);
         final Animation myanimfig = AnimationUtils.loadAnimation(this, R.anim.myanimfig);
         ImageView0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView0.setImageResource(R.drawable.abortazh);
+                ImageView0.setImageResource(R.drawable.abortazh70);
                 v.startAnimation(myanimfig);
             }
         });
@@ -232,21 +227,21 @@ public class Activity_Game extends AppCompatActivity {
 
 
         ImageView ImageView2 = new ImageView(this);
-        ImageView2.setImageResource(R.drawable.trumpet);
+        ImageView2.setImageResource(R.drawable.t70);
         LinerLayout.addView(ImageView2);
 
         ImageView ImageView3 = new ImageView(this);
-        ImageView3.setImageResource(R.drawable.abortazh);
+        ImageView3.setImageResource(R.drawable.abortazh70);
         LinerLayout.addView(ImageView3);
 
         LinearLayout LinerLayout1 = (LinearLayout) findViewById(R.id.LF2);
 
         ImageView ImageView4 = new ImageView(this);
-        ImageView4.setImageResource(R.drawable.yak);
+        ImageView4.setImageResource(R.drawable.yak70);
         LinerLayout1.addView(ImageView4);
 
         ImageView ImageView5 = new ImageView(this);
-        ImageView5.setImageResource(R.drawable.molot);
+        ImageView5.setImageResource(R.drawable.molot70);
         LinerLayout1.addView(ImageView5);
 
 
@@ -296,27 +291,74 @@ public class Activity_Game extends AppCompatActivity {
 
 
 
+
+
+
+
     }
 
 
-        Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
-
-            Client_obj client_obj = new Client_obj();
 
 
 
+        fieldPlayer=  Player[0].GetMap().field ;
 
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ObjectOutput out = new ObjectOutputStream(bos);
-            out.writeObject(Player[0]);
-            client_obj.run(bos.toByteArray()); // Пробуем приконнетиться...
-        } catch (IOException e) {
-            // если объект не создан...
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Unable to connect. Server not running?", Toast.LENGTH_LONG);
-            toast.show();
+        // проверка карты у игроков пока одинаковые
+        fieldOpponent = Player[0].GetMap().field;
 
-        } } }); thread.start();
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                final int ii =i ;
+                final int jj =  j;
+                final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
+
+
+                ImPlayer [i][j] = (ImageView) findViewById(res);
+                ImOpponent [i][j] = (ImageView) findViewById(res);
+
+                ImStOpponent [i][j] = ImageStatus.down;
+
+                if (fieldPlayer[ii][jj].GetStatusOrientation() == orientation.vertically) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                        ImPlayer[i][j].animate().rotation(90);
+                    }
+                }
+                if (fieldOpponent[ii][jj].GetStatusOrientation() == orientation.vertically) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                        ImOpponent[i][j].animate().rotation(90);
+                    }
+
+                }
+                ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View v) {
+                        ChangePlayer (res, ii, jj);
+                        NoClick(ImPlayer);
+
+                    }
+                });
+            }
+        }
+
+
+        DrawMap(fieldPlayer, ImPlayer);
+
+        mapPlayer = new Map(fieldPlayer, ship);
+        mapOpponent = new Map(fieldOpponent, ship);
+
+        TextView NamePlayer = findViewById(R.id.Use_name);
+        NamePlayer.setText(Player[0].Getname());
+
+        TextView ZvaniePlayer = findViewById(R.id.Zvanie);
+        ZvaniePlayer.setText(Player[0].Getzvanie());
+
+        TextView ExperiencePlayer = findViewById(R.id.Count);
+        ExperiencePlayer.setText(String.valueOf(Player[0].Getexperiment()));
+
+
 
 
 
@@ -1038,7 +1080,7 @@ public class Activity_Game extends AppCompatActivity {
                 Imm.setImageResource(R.drawable.my_map);
                 break;
             case bomb:
-                Imm.setImageResource(R.drawable.bomb);
+                Imm.setImageResource(R.drawable.bomb70);
                 break;
             case kill:
                 Imm.setImageResource(R.drawable.fire1);
@@ -1130,7 +1172,7 @@ public class Activity_Game extends AppCompatActivity {
                 Im[i][j].setImageResource(R.drawable.my_map);
                 break;
             case bomb:
-                Im[i][j].setImageResource(R.drawable.bomb);
+                Im[i][j].setImageResource(R.drawable.bomb70);
                 break;
             case kill:
                 Im[i][j].setImageResource(R.drawable.fire1);
@@ -1185,7 +1227,7 @@ public class Activity_Game extends AppCompatActivity {
                         Im[i][j].setImageResource(R.drawable.my_map);
                         break;
                     case bomb:
-                        Im[i][j].setImageResource(R.drawable.bomb);
+                        Im[i][j].setImageResource(R.drawable.bomb70);
                         break;
                     case checked:
                         Im[i][j].setImageResource(R.drawable.mimo);

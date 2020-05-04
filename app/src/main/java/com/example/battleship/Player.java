@@ -17,6 +17,20 @@ public class Player implements Serializable {
 
     Map map;
 
+    public Player(int id, String name, String login,
+                  String password, int money, int experiment, int count_game,
+                  int count_win, String zvanie){
+        this.id = id;
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.money = money;
+        this.experiment= experiment;
+        this.count_game=count_game;
+        this.count_win = count_win;
+        this.zvanie= zvanie;
+
+    }
 
 
 

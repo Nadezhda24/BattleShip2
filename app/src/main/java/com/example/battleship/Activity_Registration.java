@@ -48,12 +48,15 @@ public class Activity_Registration extends AppCompatActivity {
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
 
 
+        Login_edit = new EditText(this);
+        Password_edit = new EditText(this);
+
         TextView Login = new TextView(this);
         Login.setWidth(200);
         Login.setText("Логин");
         LinerLayout.addView(Login);
 
-        EditText  Login_edit = new EditText(this);
+        Login_edit = new EditText(this);
         Login_edit.setWidth(200);
         LinerLayout.addView(Login_edit);
 
@@ -62,7 +65,7 @@ public class Activity_Registration extends AppCompatActivity {
         Password.setText("Пароль");
         LinerLayout.addView(Password);
 
-        EditText  Password_edit = new EditText(this);
+        Password_edit = new EditText(this);
         Password_edit.setWidth(200);
         LinerLayout.addView(Password_edit);
 
@@ -151,12 +154,16 @@ public class Activity_Registration extends AppCompatActivity {
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
 
 
+        Login_edit = new EditText(this);
+        Password_edit = new EditText(this);
+
+
         TextView Login = new TextView(this);
         Login.setWidth(200);
         Login.setText("Логин");
         LinerLayout.addView(Login);
 
-        EditText  Login_edit = new EditText(this);
+        Login_edit = new EditText(this);
         Login_edit.setWidth(200);
         LinerLayout.addView(Login_edit);
 
@@ -165,7 +172,7 @@ public class Activity_Registration extends AppCompatActivity {
         Password.setText("Пароль");
         LinerLayout.addView(Password);
 
-        EditText  Password_edit = new EditText(this);
+        Password_edit = new EditText(this);
         Password_edit.setWidth(200);
         LinerLayout.addView(Password_edit);
 
@@ -177,11 +184,13 @@ public class Activity_Registration extends AppCompatActivity {
 
     public void OnClickNext(View view) {
 
+        SLogin = Login_edit.getText().toString();
+        SPassword = Password_edit.getText().toString();
 if(flag){
 
-    SLogin = Login_edit.getText().toString();
-    SPassword = Password_edit.getText().toString();
-    Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+
+
+   Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
         Client_obj client_obj = new Client_obj();
         byte[] byteArray = ("[a] " + SLogin + " " + SPassword).getBytes();
@@ -193,14 +202,16 @@ if(flag){
                 "Unable to connect. Server not running?", Toast.LENGTH_LONG);
         toast.show();
 
+
+
     } } }); thread.start();
+
     Player[0] = new Player(1,"p","p","p", "p");
 
 }
 else{
         SName =  Name_edit.getText().toString() ;
-        SLogin = Login_edit.getText().toString();
-        SPassword = Password_edit.getText().toString();
+
         SPassword2 = Password2_edit.getText().toString();
 
     Thread thread = new Thread(new Runnable() { @Override public void run() {  try {

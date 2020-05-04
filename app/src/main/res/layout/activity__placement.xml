@@ -78,7 +78,7 @@
 
         <Space
             android:id="@+id/l2"
-            android:layout_width="153dp"
+            android:layout_width="133dp"
             android:layout_height="120dp"
             android:layout_below="@+id/l1" />
 
@@ -167,15 +167,16 @@
 
         <Space
             android:id="@+id/spase111"
-            android:layout_width="97dp"
-            android:layout_height="107dp"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
             android:layout_below="@+id/l1" />
 
         <Space
             android:id="@+id/spase222"
-            android:layout_width="160dp"
-            android:layout_height="78dp"
-            android:layout_below="@+id/spase111" />
+            android:layout_width="137dp"
+            android:layout_height="81dp"
+            android:layout_below="@+id/spase111"
+            android:layout_marginTop="-5dp" />
 
         <Space
             android:id="@+id/spase333"
@@ -205,13 +206,13 @@
             android:id="@+id/Turn"
             style="@style/strings"
 
-            android:layout_width="100dp"
-            android:layout_height="48dp"
+            android:layout_width="54dp"
+            android:layout_height="43dp"
             android:layout_below="@+id/spase111"
-            android:layout_marginLeft="-8dp"
-            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="32dp"
             android:layout_toRightOf="@+id/spase222"
-            android:background="@drawable/b1"
+            android:background="@drawable/rotate"
             android:onClick="OnClick" />
 
         <TableLayout

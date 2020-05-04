@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class Activity_Setting_Account extends AppCompatActivity {
 
     Player[] Player = new Player[2];
@@ -84,28 +86,44 @@ public class Activity_Setting_Account extends AppCompatActivity {
             break;
             case R.id.Save: {
 
-                EditText editTextName = findViewById(R.id.editTextName);
-                EditText editTextLogin = findViewById(R.id.editTextLogin);
-                EditText editTextPassword = findViewById(R.id.editTextPassword);
-                EditText editTextPassword2 = findViewById(R.id.editTextPassword2);
+                final EditText editTextName = findViewById(R.id.editTextName);
+                final EditText editTextLogin = findViewById(R.id.editTextLogin);
+                final EditText editTextPassword = findViewById(R.id.editTextPassword);
+                final EditText editTextPassword2 = findViewById(R.id.editTextPassword2);
 
 
-              //  if(editTextPassword.getText().toString()==editTextPassword2.getText().toString()) {
+                if(editTextPassword.getText().toString().contains(editTextPassword2.getText().toString())) {
 
                     Player[0].Setname(editTextName.getText().toString());
 
                     Player[0].Setlogin(editTextLogin.getText().toString());
 
                     Player[0].Setpassword(editTextPassword.getText().toString());
+
+                    Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+
+                        Client_obj client_obj = new Client_obj();
+                        byte[] byteArray = ("[u] " + "update Player set name = '" + editTextName.getText().toString() + "', login = '"+ editTextLogin.getText().toString()+"', password = '"+editTextPassword.getText().toString() +"' "+
+                        "where id_Player = "+ String.valueOf(Player[0].Getid()) +";" ).getBytes();
+                        client_obj.run( byteArray ); // Пробуем приконнетиться...
+
+                    } catch (IOException e) {
+                        // если объект не создан...
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "Unable to connect. Server not running?", Toast.LENGTH_LONG);
+                        toast.show();
+
+                    } } }); thread.start();
+
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "Изменения сохранены", Toast.LENGTH_SHORT);
                     toast.show();
-             /*   }else {
+                }else {
 
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "Изменения не сохранены.Пароль повторно был введен не верно.", Toast.LENGTH_SHORT);
                     toast.show();
-                }*/
+                }
             }
         }
     }
