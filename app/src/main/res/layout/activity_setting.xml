@@ -76,9 +76,12 @@
 
             <TextView
                 android:id="@+id/textView5"
+                style="@style/strings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Выбор музыки " />
+                android:gravity="center"
+                android:text="Выбор музыки "
+                android:textColor="@android:color/background_dark" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -86,24 +89,30 @@
 
                 <RadioButton
                     android:id="@+id/radioButton"
+                    style="@style/strings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="OnClick"
-                    android:text="1-ая" />
+                    android:text="1-ая"
+                    android:textColor="@android:color/background_dark" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
+                    style="@style/strings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="OnClick"
-                    android:text="2-ая" />
+                    android:text="2-ая"
+                    android:textColor="@android:color/background_dark" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
+                    style="@style/strings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="OnClick"
-                    android:text="3-ая" />
+                    android:text="3-ая"
+                    android:textColor="@android:color/background_dark" />
             </RadioGroup>
 
             <Button

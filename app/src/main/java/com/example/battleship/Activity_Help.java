@@ -3,6 +3,7 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Build;
@@ -46,7 +47,7 @@ Player[] Player = new Player[2];
 
 
         titles = "Предыстория";
-        description = "Дорогой друг, ты попал в те времена, когда океаны еще не были исследованы, " +
+        description = "     Дорогой друг, ты попал в те времена, когда океаны еще не были исследованы, " +
                 "моря не принадлежали государствам. " +
                 "Вокруг происходят сражения за территорию. " +
                 "Брось вызов другим завоевателям и стань повелителем морей!" ;
@@ -55,11 +56,21 @@ Player[] Player = new Player[2];
 
         TextView title = (TextView) findViewById(R.id.title);
         title.setText(titles);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            title.setTextAppearance(R.style.strings);
+            title.setTextSize(12);
+            title.setTextColor(Color.BLACK);
+        }
         TextView text = new TextView(this);
         text.setWidth(200);
-       //  Typeface face = Typeface.createFromAsset(getAssets(), "maintext.ttf");
-      //  text.setTypeface(Typeface.createFromAsset(getAssets(), "maintext.ttf"));
+
+
         text.setText(description);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            text.setTextAppearance(R.style.strings);
+            text.setTextSize(10);
+            text.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(text);
 
         flag = 0;
@@ -120,11 +131,13 @@ Player[] Player = new Player[2];
 
 
            switch (flag) {
+
+
                 case 0: {
 
 
                     titles = "Предыстория";
-                    description = "Дорогой друг, ты попал в те времена, когда океаны еще не были исследованы, " +
+                    description = "     Дорогой друг, ты попал в те времена, когда океаны еще не были исследованы, " +
                             "моря не принадлежали государствам. " +
                             "Вокруг происходят сражения за территорию. " +
                             "Брось вызов другим завоевателям и стань повелителем морей!";
@@ -133,9 +146,19 @@ Player[] Player = new Player[2];
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
 
@@ -145,7 +168,7 @@ Player[] Player = new Player[2];
                 break;
                 case 1: {
                     titles = "Общие правила";
-                    description = "Ты сражаешься с противником." +
+                    description = "     Ты сражаешься с противником." +
                             " Перед началом битвы ты тянешь жребий, " +
                             "выбирая один из двух сундуков." +
                             " Если сундук заполнен, поздравляем – первый ход твой!" +
@@ -156,9 +179,19 @@ Player[] Player = new Player[2];
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
 
@@ -166,14 +199,24 @@ Player[] Player = new Player[2];
                 break;
                 case 2: {
                     titles = "Расстановка кораблей";
-                    description = "1)\tСамостоятельная расстановка\n"+"Выбери самостоятельно позиции для своих боевых кораблей.";
+                    description = "     1)\tСамостоятельная расстановка\n"+"Выбери самостоятельно позиции для своих боевых кораблей.";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
 
@@ -183,8 +226,13 @@ Player[] Player = new Player[2];
 
                     TextView text1 = new TextView(this);
                     text1.setWidth(200);
-                    text1.setText("2)\tРасстановка автоматически\n" +"Кнопка \"авто\" поможет расставить за тебя корабли.");
+                    text1.setText("     2)\tРасстановка автоматически\n" +"Кнопка \"авто\" поможет расставить за тебя корабли.");
                     LinerLayout.addView(text1);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text1.setTextAppearance(R.style.strings);
+                        text1.setTextSize(10);
+                        text1.setTextColor(Color.BLACK);
+                    }
 
                     ImageView ImageView1 = new ImageView(this);
                     ImageView1.setImageResource(R.drawable.f2);
@@ -198,14 +246,24 @@ Player[] Player = new Player[2];
                 break;
                 case 3: {
                     titles = "Режимы игры";
-                    description = "1)\tКлассический режим\n" + "Наслаждайся классическими правилами игры в данном режи";
+                    description = "     1)\tКлассический режим\n" + "Наслаждайся классическими правилами игры в данном режи";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
 
@@ -215,7 +273,12 @@ Player[] Player = new Player[2];
 
                     TextView text1 = new TextView(this);
                     text1.setWidth(200);
-                    text1.setText("2)\tРассширенный режим\n" +"Мы добавили новые возможности для тебя, дорогой друг. Попробуй их все, стань сильнее, побеждай противников и выигрывай быстрее!");
+                    text1.setText("     2)\tРассширенный режим\n" +"Мы добавили новые возможности для тебя, дорогой друг. Попробуй их все, стань сильнее, побеждай противников и выигрывай быстрее!");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text1.setTextAppearance(R.style.strings);
+                        text1.setTextSize(10);
+                        text1.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text1);
 
                     ImageView ImageView1 = new ImageView(this);
@@ -226,14 +289,24 @@ Player[] Player = new Player[2];
                 break;
                 case 4: {
                     titles = "Новые возможности";
-                    description = "Для твоих героических сражений мы добавили новые возможности";
+                    description = "     Для твоих героических сражений мы добавили новые возможности";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
 
@@ -250,10 +323,15 @@ Player[] Player = new Player[2];
 
                     TextView text1 = new TextView(this);
                     text1.setWidth(200);
-                    text1.setText("Ремонт\n" +
+                    text1.setText("         Ремонт\n" +
                             "Команда судоремонтников восстанавливают " +
                             "разрушенные части твоего корабля и приводят" +
                             " его в боевую готовность для дальнейших сражений.");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text1.setTextAppearance(R.style.strings);
+                        text1.setTextSize(10);
+                        text1.setTextColor(Color.BLACK);
+                    }
                     text1.setLayoutParams(new ViewGroup.LayoutParams
                             (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     LL.addView(text1);
@@ -273,10 +351,15 @@ Player[] Player = new Player[2];
 
                     TextView text2 = new TextView(this);
                     text2.setWidth(200);
-                    text2.setText("Подзорная труба\n" +
+                    text2.setText("         Подзорная труба\n" +
                             "Отправь матроса на наблюдательную башню," +
                             " выбери поле противника размером 3*3 и" +
                             " тебе сообщат в течение 5 секунд все, что видно на горизонте.");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text2.setTextAppearance(R.style.strings);
+                        text2.setTextSize(10);
+                        text2.setTextColor(Color.BLACK);
+                    }
                     text2.setLayoutParams(new ViewGroup.LayoutParams
                             (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     LL2.addView(text2);
@@ -295,10 +378,15 @@ Player[] Player = new Player[2];
 
                     TextView text3 = new TextView(this);
                     text3.setWidth(200);
-                    text3.setText("Бомба \n" +
+                    text3.setText("         Бомба \n" +
                             "Прикажи зарядить баллисту, " +
                             "выстрелив в поле противника бомбой," +
                             " радиус одного удара 3*3.");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text3.setTextAppearance(R.style.strings);
+                        text3.setTextSize(10);
+                        text3.setTextColor(Color.BLACK);
+                    }
                     text3.setLayoutParams(new ViewGroup.LayoutParams
                             (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     LL3.addView(text3);
@@ -317,8 +405,13 @@ Player[] Player = new Player[2];
 
                     TextView text4 = new TextView(this);
                     text4.setWidth(200);
-                    text4.setText("Абордаж\n" +
+                    text4.setText("         Абордаж\n" +
                             "Взять корабль на абордаж и захватить его весь!");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text4.setTextAppearance(R.style.strings);
+                        text4.setTextSize(10);
+                        text4.setTextColor(Color.BLACK);
+                    }
                     text4.setLayoutParams(new ViewGroup.LayoutParams
                             (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     LL4.addView(text4);
@@ -340,11 +433,14 @@ Player[] Player = new Player[2];
 
                     TextView text5 = new TextView(this);
                     text5.setWidth(200);
-                    text5.setText("Поднять якорь!\n" +
+                    text5.setText("         Поднять якорь!\n" +
                             "Подними якорь  корабля и  перемести его " +
-                            "в другое место. Но будь внимателен, перемещать корабль уже " +
-                            "нельзя на клетки проверенные противником. За один ход ты можешь продвинуться на одну" +
-                            " клетку или повернуть корабль на 90* по часовой стрелки, если клетки для перемещения свободны.\n");
+                            "в другое место. \n");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text5.setTextAppearance(R.style.strings);
+                        text5.setTextSize(10);
+                        text5.setTextColor(Color.BLACK);
+                    }
                     text5.setLayoutParams(new ViewGroup.LayoutParams
                             (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     LL5.addView(text5);
@@ -358,14 +454,24 @@ Player[] Player = new Player[2];
                 break;
                 case 5: {
                     titles = "Валюта";
-                    description = "Возможно, ты уже заметил, в игре действует собственная валюта – золотые монеты. Сражайся в битвах, набирай очки, повышай звания  и ты сможешь заработать свое золото. На свои сбережения покупай припасы в магазине.";
+                    description = "     Возможно, ты уже заметил, в игре действует собственная валюта – золотые монеты. Сражайся в битвах, набирай очки, повышай звания  и ты сможешь заработать свое золото. На свои сбережения покупай припасы в магазине.";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
 
@@ -378,24 +484,35 @@ Player[] Player = new Player[2];
                 break;
                 case 6: {
                     titles = "Победа или поражение ";
-                    description = "Бой закончен, пора забирать свои награды! " +
+                    description = "     Бой закончен, пора забирать свои награды! " +
                             "Одержав победу над противником, твое завоеванное золото удваивается." +
                             " Выиграв бой над соперником выше званием, ты быстрее заработаешь очки и приблизишься к новому званию.\n" +
-                            "Не расстраивайся поражением, твоя награда тебя ждет, В следующий раз тебе точно повезет!  \n";
+                            "      Не расстраивайся поражением, твоя награда тебя ждет, В следующий раз тебе точно повезет!  \n";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
                 }
                 break;
                 case 7: {
                     titles = "Звания";
-                    description = "В зависимости от твоих очков ты можешь получить следующиe звания:1.\tматрос\n" +
+                    description = "     В зависимости от твоих очков ты можешь получить следующиe звания:\n" +
+                            "1.\tматрос\n" +
                             "2.\tстаршина 2 статьи\n" +
                             "3.\tстаршина 1 статьи\n" +
                             "4.\tглавный старшина\n" +
@@ -414,42 +531,72 @@ Player[] Player = new Player[2];
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
                 }
                 break;
                 case 8: {
                     titles = "Рейтинг";
-                    description = "Зарабатывая очки, ты соревнуешься с другими мореплавателями. Найди свое место в рейтинге в аккаунте.\n" +
-                            "Зарабатывай больше очков и стань самым могущественным повелителем морей.\n";
+                    description = "     Зарабатывая очки, ты соревнуешься с другими мореплавателями. Найди свое место в рейтинге в аккаунте.\n" +
+                            "       Зарабатывай больше очков и стань самым могущественным повелителем морей.\n";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
                     title.setText(titles);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        title.setTextAppearance(R.style.strings);
+                        title.setTextSize(12);
+                        title.setTextColor(Color.BLACK);
+                    }
                     TextView text = new TextView(this);
                     text.setWidth(200);
                     text.setText(description);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        text.setTextAppearance(R.style.strings);
+                        text.setTextSize(10);
+                        text.setTextColor(Color.BLACK);
+                    }
                     LinerLayout.addView(text);
 
 
                     ImageView ImageView = new ImageView(this);
-                    ImageView.setImageResource(R.drawable.svitok);
+                    ImageView.setImageResource(R.drawable.r);
                     LinerLayout.addView(ImageView);
 
                 }
                 break;
                case 9: {
                    titles = "Настройки";
-                   description = "Не забывай, что ты можешь разнообразить свои сражения, обновив обстановку музыкой на выбор. Перейди в настройки в меню и выбери понравившуюся композицию.";
+                   description = "      Не забывай, что ты можешь разнообразить свои сражения, обновив обстановку музыкой на выбор. Перейди в настройки в меню и выбери понравившуюся композицию.";
                    LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                    LinerLayout.removeAllViewsInLayout();
                    TextView title = (TextView) findViewById(R.id.title);
                    title.setText(titles);
+                   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                       title.setTextAppearance(R.style.strings);
+                       title.setTextSize(12);
+                       title.setTextColor(Color.BLACK);
+                   }
                    TextView text = new TextView(this);
                    text.setWidth(200);
                    text.setText(description);
+                   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                       text.setTextAppearance(R.style.strings);
+                       text.setTextSize(10);
+                       text.setTextColor(Color.BLACK);
+                   }
                    LinerLayout.addView(text);
 
                }

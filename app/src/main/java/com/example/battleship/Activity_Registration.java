@@ -3,6 +3,7 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -54,19 +55,39 @@ public class Activity_Registration extends AppCompatActivity {
         TextView Login = new TextView(this);
         Login.setWidth(200);
         Login.setText("Логин");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Login.setTextAppearance(R.style.strings);
+
+            Login.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Login);
 
         Login_edit = new EditText(this);
         Login_edit.setWidth(200);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Login_edit.setTextAppearance(R.style.strings);
+
+            Login_edit.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Login_edit);
 
         TextView Password = new TextView(this);
         Password.setWidth(200);
         Password.setText("Пароль");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Password.setTextAppearance(R.style.strings);
+
+            Password.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Password);
 
         Password_edit = new EditText(this);
         Password_edit.setWidth(200);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Password_edit.setTextAppearance(R.style.strings);
+
+            Password_edit.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Password_edit);
 
         Button Registration = (Button) findViewById(R.id.Registration);
@@ -101,6 +122,11 @@ public class Activity_Registration extends AppCompatActivity {
         LinerLayout.addView(Name);
         Name.setWidth(200);
         Name.setText("Имя");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Name.setTextAppearance(R.style.strings);
+
+            Name.setTextColor(Color.BLACK);
+        }
 
 
         Name_edit = new EditText(this);
@@ -110,33 +136,70 @@ public class Activity_Registration extends AppCompatActivity {
 
 
         Name_edit.setWidth(200);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Name_edit.setTextAppearance(R.style.strings);
+
+            Name_edit.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Name_edit);
 
         TextView Login = new TextView(this);
         Login.setWidth(200);
         Login.setText("Логин");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Login.setTextAppearance(R.style.strings);
+
+            Login.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Login);
 
 
         Login_edit.setWidth(200);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Login_edit.setTextAppearance(R.style.strings);
+
+            Login_edit.setTextColor(Color.BLACK);
+        }
+
         LinerLayout.addView(Login_edit);
 
         TextView Password = new TextView(this);
         Password.setWidth(200);
         Password.setText("Пароль");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Password.setTextAppearance(R.style.strings);
+
+            Password.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Password);
 
 
         Password_edit.setWidth(200);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Password_edit.setTextAppearance(R.style.strings);
+
+            Password_edit.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Password_edit);
 
         TextView Password2 = new TextView(this);
         Password2.setWidth(200);
         Password2.setText("Подтвердите пароль");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Password2.setTextAppearance(R.style.strings);
+
+            Password2.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Password2);
 
 
         Password2_edit.setWidth(200);
+        Password_edit.setWidth(200);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Password2_edit.setTextAppearance(R.style.strings);
+
+            Password2_edit.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Password2_edit);
 
 
@@ -161,6 +224,11 @@ public class Activity_Registration extends AppCompatActivity {
         TextView Login = new TextView(this);
         Login.setWidth(200);
         Login.setText("Логин");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Login.setTextAppearance(R.style.strings);
+
+            Login.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Login);
 
         Login_edit = new EditText(this);
@@ -170,6 +238,11 @@ public class Activity_Registration extends AppCompatActivity {
         TextView Password = new TextView(this);
         Password.setWidth(200);
         Password.setText("Пароль");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Password.setTextAppearance(R.style.strings);
+
+            Password.setTextColor(Color.BLACK);
+        }
         LinerLayout.addView(Password);
 
         Password_edit = new EditText(this);
@@ -206,7 +279,7 @@ if(flag){
 
     } } }); thread.start();
 
-    Player[0] = new Player(1,"Player2","PL","12345Player2", "12345Player2");
+    Player[0] = new Player(1,"Player","PL1","12345Player1", "12345Player1");
 
 }
 else{

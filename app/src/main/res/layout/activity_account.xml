@@ -84,9 +84,12 @@
 
             <TextView
                 android:id="@+id/Zvanie"
+                style="@style/strings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Звание" />
+                android:gravity="center"
+                android:text="Звание"
+                android:textColor="@android:color/background_dark" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,17 +98,21 @@
 
                 <TextView
                     android:id="@+id/Experience"
+                    style="@style/strings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Очки" />
+                    android:text="Очки"
+                    android:textColor="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/Best_experience"
+                    style="@style/strings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Необходимое кол-во очков" />
+                    android:text="Необходимое кол-во очков"
+                    android:textColor="@android:color/background_dark" />
 
             </LinearLayout>
 
@@ -138,10 +145,12 @@
 
                 <TextView
                     android:id="@+id/Count_bonus1"
+                    style="@style/strings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Кол_во" />
+                    android:text="Кол_во"
+                    android:textColor="@android:color/background_dark" />
 
             </LinearLayout>
 
@@ -160,10 +169,12 @@
 
                 <TextView
                     android:id="@+id/Count_bonus2"
+                    style="@style/strings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Кол_во" />
+                    android:text="Кол_во"
+                    android:textColor="@android:color/background_dark" />
             </LinearLayout>
 
             <LinearLayout
@@ -182,10 +193,12 @@
 
                 <TextView
                     android:id="@+id/Count_bonus3"
+                    style="@style/strings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Кол-во" />
+                    android:text="Кол-во"
+                    android:textColor="@android:color/background_dark" />
             </LinearLayout>
 
             <LinearLayout
@@ -204,10 +217,12 @@
 
                 <TextView
                     android:id="@+id/Count_bonus4"
+                    style="@style/strings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Кол-во" />
+                    android:text="Кол-во"
+                    android:textColor="@android:color/background_dark" />
             </LinearLayout>
 
             <LinearLayout
@@ -226,10 +241,12 @@
 
                 <TextView
                     android:id="@+id/Count_money"
+                    style="@style/strings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Кол-во" />
+                    android:text="Кол-во"
+                    android:textColor="@android:color/background_dark" />
 
             </LinearLayout>
 

@@ -12,9 +12,12 @@
 
         <TextView
             android:id="@+id/Chat"
+            style="@style/strings"
             android:layout_width="249dp"
             android:layout_height="wrap_content"
-            android:text="Чат" />
+            android:gravity="center"
+            android:text="Чат"
+            android:textColor="@android:color/background_dark" />
 
         <Space
             android:layout_width="wrap_content"
@@ -23,6 +26,7 @@
 
         <Button
             android:id="@+id/Ok"
+            style="@style/strings"
             android:layout_width="75dp"
             android:layout_height="match_parent"
             android:background="@drawable/b1"
@@ -31,18 +35,24 @@
 
     <TextView
         android:id="@+id/Message1"
+        style="@style/strings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_dark" />
 
     <TextView
         android:id="@+id/Message2"
+        style="@style/strings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_dark" />
 
     <TextView
         android:id="@+id/Message3"
+        style="@style/strings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_dark" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,13 +61,16 @@
 
         <EditText
             android:id="@+id/Edit_chat_text"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="64dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_dark" />
 
         <Button
             android:id="@+id/Send"
+            style="@style/strings"
             android:layout_width="181dp"
             android:layout_height="60dp"
             android:layout_weight="1"

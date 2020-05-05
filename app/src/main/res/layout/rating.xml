@@ -15,31 +15,47 @@
 
         <TextView
             android:id="@+id/Name"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Имя" />
+            android:gravity="center"
+            android:text="Имя"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Login"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Login" />
+            android:gravity="center"
+            android:text="Login"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Zvanie"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Звание" />
+            android:gravity="center"
+            android:text="Звание"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Count_exp"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Очки" />
+            android:gravity="center"
+            android:text="Очки"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,31 +68,43 @@
 
         <TextView
             android:id="@+id/Name1"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Login1"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Zvanie1"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Count_exp1"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-             />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -89,31 +117,43 @@
 
         <TextView
             android:id="@+id/Name2"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Login2"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Zvanie2"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Count_exp2"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -126,31 +166,43 @@
 
         <TextView
             android:id="@+id/Name3"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Login3"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Zvanie3"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/Count_exp3"
+            style="@style/strings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -159,12 +211,14 @@
         android:orientation="horizontal">
 
         <Space
+            style="@style/strings"
             android:layout_width="325dp"
             android:layout_height="50dp"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/Ok"
+            style="@style/strings"
             android:layout_width="157dp"
             android:layout_height="76dp"
             android:layout_marginRight="20dp"

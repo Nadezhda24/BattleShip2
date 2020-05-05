@@ -28,6 +28,8 @@ import android.widget.Toast;
 
 
 import static com.example.battleship.status.checked;
+import static com.example.battleship.status.empty;
+import static com.example.battleship.status.near_ship;
 
 
 public class Activity_Game extends AppCompatActivity {
@@ -308,13 +310,19 @@ public class Activity_Game extends AppCompatActivity {
 
 
         fieldPlayer=  Player[0].GetMap().field ;
-
-        // проверка карты у игроков пока одинаковые
         fieldOpponent = Player[0].GetMap().field;
 
+        Player[1].Setname("Player2");
+       Player[1].Setzvanie("главный старшина");
+       Player[1].Setexperiment(480);
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
+
+
+
+
+
+        for ( int  i = 0; i < 10; i++) {
+            for ( int j = 0; j < 10; j++) {
                 final int ii =i ;
                 final int jj =  j;
                 final int res = getResources().getIdentifier("imageView" + i + j, "id", getPackageName());
@@ -336,6 +344,7 @@ public class Activity_Game extends AppCompatActivity {
                     }
 
                 }
+
                 ImPlayer[i][j].setOnClickListener(new View.OnClickListener() {
 
 
@@ -456,6 +465,17 @@ public class Activity_Game extends AppCompatActivity {
 
                         if (flag == 1){
                             // поле противника
+
+                            TextView NamePlayer = findViewById(R.id.Use_name);
+                            NamePlayer.setText(Player[1].Getname());
+
+                            TextView ZvaniePlayer = findViewById(R.id.Zvanie);
+                            ZvaniePlayer.setText(Player[1].Getzvanie());
+
+                            TextView ExperiencePlayer = findViewById(R.id.Count);
+                            ExperiencePlayer.setText(String.valueOf(Player[1].Getexperiment()));
+
+
                             ImageView.setImageResource(R.drawable.button_left);
 
                             for(int i =0; i< 10; i++){
@@ -784,6 +804,17 @@ public class Activity_Game extends AppCompatActivity {
                                     flag = 0;
                         }
                         else {
+
+                            TextView NamePlayer = findViewById(R.id.Use_name);
+                            NamePlayer.setText(Player[0].Getname());
+
+                            TextView ZvaniePlayer = findViewById(R.id.Zvanie);
+                            ZvaniePlayer.setText(Player[0].Getzvanie());
+
+                            TextView ExperiencePlayer = findViewById(R.id.Count);
+                            ExperiencePlayer.setText(String.valueOf(Player[0].Getexperiment()));
+
+
                             // поле игрока
                             DrawMap(fieldPlayer, ImPlayer);
 

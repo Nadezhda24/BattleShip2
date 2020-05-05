@@ -26,8 +26,8 @@
         <Button
             android:id="@+id/Back"
             style="@style/strings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/button_left"
             android:onClick="OnClick" />
@@ -39,6 +39,7 @@
             android:layout_width="242dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Настройки   аккаунта"
             android:textSize="18sp"
             android:textStyle="bold" />
