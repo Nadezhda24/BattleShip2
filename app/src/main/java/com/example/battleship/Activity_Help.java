@@ -246,7 +246,7 @@ Player[] Player = new Player[2];
                 break;
                 case 3: {
                     titles = "Режимы игры";
-                    description = "     1)\tКлассический режим\n" + "Наслаждайся классическими правилами игры в данном режи";
+                    description = "     1)\tКлассический режим\n" + "Наслаждайся классическими правилами игры в данном режиме";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);
                     LinerLayout.removeAllViewsInLayout();
                     TextView title = (TextView) findViewById(R.id.title);
@@ -273,7 +273,7 @@ Player[] Player = new Player[2];
 
                     TextView text1 = new TextView(this);
                     text1.setWidth(200);
-                    text1.setText("     2)\tРассширенный режим\n" +"Мы добавили новые возможности для тебя, дорогой друг. Попробуй их все, стань сильнее, побеждай противников и выигрывай быстрее!");
+                    text1.setText("     2)\tРасширенный режим\n" +"Мы добавили новые возможности для тебя, дорогой друг. Попробуй их все, стань сильнее, побеждай противников и выигрывай быстрее!");
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         text1.setTextAppearance(R.style.strings);
                         text1.setTextSize(10);
@@ -485,7 +485,7 @@ Player[] Player = new Player[2];
                 case 6: {
                     titles = "Победа или поражение ";
                     description = "     Бой закончен, пора забирать свои награды! " +
-                            "Одержав победу над противником, твое завоеванное золото удваивается." +
+                            "Если ты одержал победу над противником, твое завоеванное золото удваивается." +
                             " Выиграв бой над соперником выше званием, ты быстрее заработаешь очки и приблизишься к новому званию.\n" +
                             "      Не расстраивайся поражением, твоя награда тебя ждет, В следующий раз тебе точно повезет!  \n";
                     LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.TestL);

@@ -995,6 +995,50 @@ public class Activity_Game extends AppCompatActivity {
                                             }
                                             if (flag_anchor){
 
+                                                for(int k =0; k< 10; k++){
+                                                    for (int h=0; h<10; h++){
+                                                        if (fieldPlayer[k][h].GetStatus()== status.ship )
+                                                        mapPlayer.NearOneShip(k,h);
+
+                                                    }
+
+                                                }
+
+                                                if (fieldPlayer[ii][jj].GetStatus() == status.ship ) {
+                                                     ImPlayer[ii][jj].setImageResource(R.drawable.my_map);
+                                                     fieldPlayer[ii][jj].SetStatus(empty);
+
+                                                    // размещение однопалубного
+                                                    int  new_i;
+                                                    int  new_j;
+                                                        do {
+                                                            new_i = 0 + (int) (Math.random() * 9);
+                                                            new_j = 0 + (int) (Math.random() * 9);
+                                                        }
+                                                        while ( fieldPlayer[new_i][new_j].GetStatus() != empty);
+
+
+                                                        fieldPlayer[new_i][new_j].SetStatus(status.ship);
+                                                        fieldPlayer[new_i][new_j].SetStatus_Ship(ships_st.ship11);
+                                                       ImPlayer[new_i][new_j].setImageResource(R.drawable.ship_one);
+
+
+                                                    for(int k =0; k< 10; k++){
+                                                        for (int h=0; h<10; h++){
+                                                            if (fieldPlayer[k][h].GetStatus()== near_ship )
+                                                                fieldPlayer[k][h].SetStatus(empty);
+
+                                                        }
+
+                                                    }
+
+
+
+
+
+                                                }
+
+
                                                 flag_anchor = false;
 
                                             }
