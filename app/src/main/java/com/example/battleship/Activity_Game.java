@@ -1,4 +1,5 @@
 package com.example.battleship;
+import android.graphics.drawable.AnimationDrawable;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,6 +52,10 @@ public class Activity_Game extends AppCompatActivity {
     boolean flag_anchor;
     boolean flag_abortazh;
     boolean flag_tool;
+
+
+    ImageView image;
+    AnimationDrawable animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -518,6 +523,12 @@ public class Activity_Game extends AppCompatActivity {
                                             ChangeOpponent (res, ii, jj, fieldOpponent);
 
                                             if(flag_bomb) {
+
+
+                                                image = findViewById(R.id.imageView3);
+                                                image.setBackgroundResource(R.drawable.push_bomb);
+                                                animation = (AnimationDrawable)image.getBackground();
+                                                animation.start();
 
                                                 if (ii != 10 && jj != 10)   {
 

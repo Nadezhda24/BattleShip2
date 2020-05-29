@@ -1,0 +1,55 @@
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item android:drawable="@drawable/ps1" android:duration="200"/>
+    <item android:drawable="@drawable/ps2" android:duration="200"/>
+    <item android:drawable="@drawable/ps3" android:duration="200"/>
+    <item android:drawable="@drawable/ps4" android:duration="200"/>
+    <item android:drawable="@drawable/ps5" android:duration="200"/>
+    <item android:drawable="@drawable/ps6" android:duration="200"/>
+    <item android:drawable="@drawable/ps7" android:duration="200"/>
+    <item android:drawable="@drawable/ps8" android:duration="200"/>
+    <item android:drawable="@drawable/ps9" android:duration="200"/>
+    <item android:drawable="@drawable/ps10" android:duration="200"/>
+
+    <item android:drawable="@drawable/ps11" android:duration="200"/>
+    <item android:drawable="@drawable/ps12" android:duration="200"/>
+    <item android:drawable="@drawable/ps13" android:duration="200"/>
+    <item android:drawable="@drawable/ps14" android:duration="200"/>
+    <item android:drawable="@drawable/ps15" android:duration="200"/>
+    <item android:drawable="@drawable/ps16" android:duration="200"/>
+    <item android:drawable="@drawable/ps17" android:duration="200"/>
+    <item android:drawable="@drawable/ps18" android:duration="200"/>
+    <item android:drawable="@drawable/ps19" android:duration="200"/>
+    <item android:drawable="@drawable/ps20" android:duration="200"/>
+
+    <item android:drawable="@drawable/ps21" android:duration="200"/>
+    <item android:drawable="@drawable/ps22" android:duration="200"/>
+    <item android:drawable="@drawable/ps23" android:duration="200"/>
+    <item android:drawable="@drawable/ps24" android:duration="200"/>
+    <item android:drawable="@drawable/ps25" android:duration="200"/>
+    <item android:drawable="@drawable/ps26" android:duration="200"/>
+    <item android:drawable="@drawable/ps27" android:duration="200"/>
+    <item android:drawable="@drawable/ps28" android:duration="200"/>
+    <item android:drawable="@drawable/ps29" android:duration="200"/>
+    <item android:drawable="@drawable/ps30" android:duration="200"/>
+
+    <item android:drawable="@drawable/ps31" android:duration="200"/>
+    <item android:drawable="@drawable/ps32" android:duration="200"/>
+    <item android:drawable="@drawable/ps33" android:duration="200"/>
+    <item android:drawable="@drawable/ps34" android:duration="200"/>
+    <item android:drawable="@drawable/ps35" android:duration="200"/>
+    <item android:drawable="@drawable/ps36" android:duration="200"/>
+    <item android:drawable="@drawable/ps37" android:duration="200"/>
+    <item android:drawable="@drawable/ps38" android:duration="200"/>
+    <item android:drawable="@drawable/ps39" android:duration="200"/>
+    <item android:drawable="@drawable/ps40" android:duration="200"/>
+
+    <item android:drawable="@drawable/ps41" android:duration="200"/>
+    <item android:drawable="@drawable/ps42" android:duration="200"/>
+    <item android:drawable="@drawable/ps43" android:duration="200"/>
+    <item android:drawable="@drawable/ps44" android:duration="200"/>
+
+</animation-list>

@@ -43,7 +43,6 @@ public class Activity_Registration extends AppCompatActivity {
         }
 
 
-
         flag = true;
         Player[0] = new Player();
         LinearLayout LinerLayout = (LinearLayout) findViewById(R.id.LinearLayout);
@@ -287,7 +286,7 @@ else{
 
         SPassword2 = Password2_edit.getText().toString();
 
-    Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
+   /* Thread thread = new Thread(new Runnable() { @Override public void run() {  try {
 
         Client_obj client_obj = new Client_obj();
         byte[] byteArray = ("[r] " +SName+" "+SLogin + " " + SPassword).getBytes();
@@ -300,6 +299,8 @@ else{
         toast.show();
 
     } } }); thread.start();
+
+    */
         Player[0] = new Player(1,SName,SLogin,SPassword, SPassword2);}
 
         Intent intent = new Intent(Activity_Registration.this, Activity_Menu.class);
